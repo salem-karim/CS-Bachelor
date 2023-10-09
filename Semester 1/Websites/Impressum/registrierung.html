@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierung</title>
+</head>
+<body>
+    <h1>Wir bitten um eine Registrierung um fortzuführen</h1>
+
+    <form action="register">
+
+        <div>
+            <label for="title">Anrede:</label>
+            <select name="Anrede" id="title" required>
+                        <option value="empty">-</option>
+                        <option value="male">Herr</option>
+                        <option value="female">Frau</option>
+                        <option value="other">Andere</option>
+            </select>
+        </div> <br>
+
+        <div>
+            <label for="id_firstname">Vorname</label>
+            <input type="text" name="firstname" id="id_firstname" required placeholder="Max"> 
+        </div><br>
+
+        <div>
+            <label for="id_lastname">Nachname</label>
+            <input type="text" name="lastname" id="id_lastname" required placeholder="Mustermann"> 
+        </div><br>
+
+        <div>
+            <label for="id_email">Email-addresse</label>
+            <input type="email" name="email" id="id_email" required placeholder="maxmustermann@email.at">
+        </div><br>
+
+        <div>
+            <label for="id_user">Benutzername</label>
+            <input type="text" name="user" id="id_user" required placeholder="Max123" minlength="4" maxlength="15">
+        </div><br>
+        
+        <div>
+            <label for="pass1">Passwort</label>
+            <input type="password" name="pwd1" id="pass1" required maxlength="15" minlength="6">
+        </div><br>
+    
+        <div>
+            <label for="pass2">Passwort erneut eingeben</label>
+            <input type="password" name="pwd2" id="pass2" required minlength="6" maxlength="15">
+        </div>
+
+        <div>
+            <input type="submit" value="Senden">
+        </div>
+    </form>
+
+<br><br>
+<footer>
+    <a href="hauptseite.html">Hauptseite</a>
+    <a href="Hilfeseite.html">Hilfeseite</a>
+    <a href="impressum.html">Impressum</a>
+</footer>
+</body>
+</html>
