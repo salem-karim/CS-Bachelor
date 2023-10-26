@@ -29,7 +29,7 @@ int minutes(int t){
 void print(int t){            // gets the encoded time from read/encode and prints it in the format hh:mm
    int h = t / 100;
    int m = t % 100;
-   printf("%02d;%02d", h, m);
+   printf("%02d:%02d", h, m);
 }
 
 int add(int t1, int t2){
@@ -42,7 +42,12 @@ int add(int t1, int t2){
    if(minutes >= 60){
       minutes -= 60;
       ++hours;
-   }
+      if(hours >= 24)
+        hours -= 24;
+    }
+    else if (hours == 24)
+        hours = 0;
+        
    return encode(hours, minutes);
 }
 
@@ -54,4 +59,4 @@ int total_minutes(int t){
 
 /* CodeRunner has its own copy of use_this_main.c, 
    no need to integrate its contents into the answer */
-#include "UE11-use_this_main.c"
+#include "use_this_main.c"
