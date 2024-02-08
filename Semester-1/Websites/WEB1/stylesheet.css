@@ -1,0 +1,29 @@
+h1 {color: blue; font-size: 30px;}
+div{
+    background-color: rgb(20, 243, 243);
+    margin-top: auto;
+}
+#text {
+    font-size: 22px;
+    background-color: rgb(132, 211, 129);
+}
+.bold-text{
+    font-weight: bold;
+}
+html{
+    background-color: darkgrey;
+}
+
+#container {
+    width: 400px;
+}
+
+#cat{
+    width:400px; height: auto;
+}
+
+.white-text{
+    width: 300px;
+    color: white;
+    background-color: darkolivegreen;
+}
