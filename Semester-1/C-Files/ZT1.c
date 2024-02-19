@@ -19,12 +19,6 @@ double prozent(double gesamt, double maxpunkte) {
     return gesamt / maxpunkte * 100;
   }
 }
-
-int *Sort(int *array) {
-  for
-    return array;
-}
-
 void endergebnis(double ZT, double AT, double UE, double maxpunkte) {
 
   printf("\nGesamtpunkte absolut: %.02lf", ZT + AT + UE);
