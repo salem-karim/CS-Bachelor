@@ -5,8 +5,10 @@ void increment(int &i) { i++; }
 
 int main() {
   int i = 123;
+  float pi = 3.14;
   increment(i);
   string myString = "Hello World!";
   cout << myString << endl << i << endl;
+  cout << pi << endl;
   return 0;
 }
