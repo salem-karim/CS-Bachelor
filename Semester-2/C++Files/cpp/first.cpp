@@ -4,7 +4,8 @@ using namespace std;
 void increment(int &i) { i++; }
 
 int main() {
-  int i = 123;
+  int i = 0;
+  cin >> i;
   float pi = 3.14;
   increment(i);
   string myString = "Hello World!";
