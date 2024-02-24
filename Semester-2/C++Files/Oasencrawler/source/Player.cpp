@@ -1,10 +1,6 @@
-//
-// Created by karim on 22.02.24.
-//
-#include "../h/Player.h"
-#include "iostream"
+#include "../headers/Player.h"
+#include <iostream>
 
-Player::Player() { std::cout << "Hello World" << std::endl; }
 Player::Player(int newX, int newY) {
   x = newX;
   y = newY;
@@ -14,7 +10,7 @@ void Player::move(char direction) {
   switch (direction) {
   case 'W':
   case 'w':
-    y++;
+    y--;
     break;
   case 'A':
   case 'a':
@@ -22,7 +18,7 @@ void Player::move(char direction) {
     break;
   case 'S':
   case 's':
-    y--;
+    y++;
     break;
   case 'D':
   case 'd':
