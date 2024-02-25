@@ -2,3 +2,7 @@
 Semester-2/C++Files/Oasencrawler/.cache/
 Semester-2/C++Files/Oasencrawler/out/
 Semester-2/C++Files/Oasencrawler/compile_commands.json
+
+#VSCode Stuff
+.vscode/
+build/
