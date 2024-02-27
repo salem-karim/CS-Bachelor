@@ -22,6 +22,7 @@ function mul() {
   let a = document.getElementById("num1").value;
   let b = document.getElementById("num2").value;
   let result = parseFloat(a) * parseFloat(b);
+  debugger;
   document.getElementById("ergebnis").innerText = result;
   verlauf.push(a + " * " + b + " = " + result);
   showHistory();
@@ -30,10 +31,10 @@ function mul() {
 function div() {
   let a = document.getElementById("num1").value;
   let b = document.getElementById("num2").value;
+  let result = parseFloat(a) / parseFloat(b);
   if (b == 0) {
     result = "Division by Zero";
   }
-  let result = parseFloat(a) / parseFloat(b);
   document.getElementById("ergebnis").innerText = result;
   verlauf.push(a + " / " + b + " = " + result);
   showHistory();

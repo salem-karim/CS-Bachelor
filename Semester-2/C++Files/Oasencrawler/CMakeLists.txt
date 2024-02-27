@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.27)
-project(CS_Bachelor)
+project(Oasencrawler)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CS_Bachelor source/main.cpp source/Player.cpp headers/Player.h
-                           source/World.cpp)
+add_executable(Oasencrawler source/main.cpp source/Player.cpp headers/Player.h
+                            source/World.cpp)

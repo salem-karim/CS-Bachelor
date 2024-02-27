@@ -5,17 +5,23 @@
 #ifndef CS_BACHELOR_PLAYER_H
 #define CS_BACHELOR_PLAYER_H
 
-
 class Player {
 public:
-    Player();
-    Player(int x, int y);
+  Player();
+  Player(int x, int y);
 
-    void move(char direction);
+  int getX() const;
+  int getY() const;
 
-    int x;
-    int y;
+  void setX(int x);
+  void setY(int y);
+
+  void move(char direction);
+
+private:
+  int x;
+  int y;
+  bool validateCoordinates(int coordinate) const;
 };
 
-
-#endif //CS_BACHELOR_PLAYER_H
+#endif // CS_BACHELOR_PLAYER_H
