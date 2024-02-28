@@ -1,104 +1,78 @@
 #!/bin/bash
 
-# Install git on Linux or MacOs using the package manager and in Windows using the installer
+#1 Install git on Linux or MacOs using the package manager and in Windows using the installer
 
+mkdir gittest
+cd gittest
+
+#2 Creates a new repository and the .git folder in the current directory with the master branch
 git init
-# Creates a new repository in the current directory with the master branch
-# This will create a new subdirectory named .git that contains all of your necessary repository files
 
-git init --help
-# Show all the options for the git init command
-
+#3 Set the name and email address you want to use with your commits
 git config --global user.name "Your Name"
 git config --global user.email "youremail@email.com"
-# Set the name and email address you want to use with your commits
-# The global settings are stored in the .gitconfig file in your home directory
 
-git config --help
-# Show all the options for the git config command
+#4 Create a new files and add some text to it
+echo "Hallo Ich bin eine Textfile" > text.txt 
 
-touch text.txt
-# Create a new files
-echo "Hallo Ich bin Eine textfile" >> text.txt 
-# Add some text into the file
-
+#5 Show the status of all the files in the git ropsitory 
 git status
-# Show the status of the working directory and the staging area
-# It shows which changes have been staged, which haven't, and which files aren't being tracked by Git nad wich branch you are on
+#Shows that the file is untracked
 
+#6 Add the file to the staging area of the repository and save the blob in the .git/objects directory
 git add text.txt
-# Add the file to the staging area
-git commit -m "Add text.txt"
-# Commit the file to the repository and add a message with the -m flag
-# The output will show the changes that were committed
-# For new files nee to be added to the staging area before they can be committed
-# Can also be done in on command with git commit -m "Add text.txt" -a after a first inital add command 
-# git stores the file exactly as it is at the moment of the commit 
 
-# I have created a commit Object which is stored in the .git directory
-git log
-# Here I can see all commit objects that I have created with their SHA-1 hash, author, date and commit message
+#7 Outputs the SHA-1 hash of the added file 
+git hash-object text.txt
 
-# git show <SHA-1 hash>:text.txt SHA is unique to each commit object
+#8 Outputs the content of the file with the SHA-1 hash
+git cat-file -p 0d14234b522f5638ae653b7546efea58b0503365
 
+#9 & 10 Outputs the SHA hash of Hello World! and stores the object in the .git/objects directory
 echo -n "Hello World!" | git hash-object -w --stdin
-# Outputs the SHA hash of Hello World! and stores the object in the .git/objects directory
+# the -w flag writes the object into the .git driectory and the --stdin flag reads the input from the standard input
 
-git commit -m "Empty commit" --allow-empty
-# Create a new commit object with the message "Empty commit" and the --allow-empty flag to allow an empty commit 
-# The blob object is saved in the .git/objects directory
+#11 Commit the changes to the repository and add a message with the -m flag
+git commit -m "My first commit"
+# The commit object is saved in the .git/objects directory and for all the options use git commit --help
 
-git log --graph --decorate --oneline --all
-
+#12 Create an alias for the command git log --graph --decorate --oneline --all
 git config --global alias.lol "log --graph --decorate --oneline --all"
+
+#13 Show the commit history of the repository in a more readable format
 git lol
-# Create an alias for the command above
-# Show the commit history in a graph with the SHA-1 hash, author, date and commit message
 
-touch newfile.txt 
-
+#14 Create a new File and commit the changes to the repository
+echo "Hello World!" > newfile.txt
 git add newfile.txt 
+git commit -m "Added newfile.txt"
 
-git commit -m "Add newfile.txt"
-
-git checkout -b new-branch
-# Create a new branch and switch to it 
-
-touch anotherfile.txt 
-
+#15 Amend a forgotten change to the last commit
+echo "Opps I forgot to add this" > anotherfile.txt
 git add anotherfile.txt 
-
 git commit --amend --no-edit
-# Amend the last commit with the changes made to anotherfile.txt without changing the commit message and on which branch its saved
+# Amend creates a new commit object but put it together with the previous commit object for a cleaner history
 
-rm anotherfile.txt 
-# Remove the file 
-
-git commit -a -m "Deleted anotherfile.txt"
+#16 Remove the file 
+git rm anotherfile.txt 
+git commit -m "Deleted anotherfile.txt"
 # Commit the changes to the repository and add a message with the -m flag
+git checkout HEAD^ anotherfile.txt 
+# Restore the file from the last commit HEAD^ is a reference to the previous commit
 
-git checkout HEAD^ -- anotherfile.txt 
-# Restore the file from the last commit 
-
-echo "Hallo Ich bin noch eine textfile" >> newfile.txt
-# Add some text to the file 
-
+#16 Add some text to the file 
+echo "Hallo Ich bin neuer Text" > text.txt
 git status
-# Show htat the file has been modified and is not staged for commit
+# Show modified file on the current branch and suggests to add or restore the file and the commit the changes
+git commit -a -m "Add more text to text.txt"
+#Stage all modified Files and Commit the changes to the repository and create a new commit object 
 
-git add newfile.txt 
-git commit -m "Add more text to newfile.txt"
-# Commit the changes to the repo
-
+#18 Lok at the history go to the previous version and show the history again
 git lol
-
 git checkout HEAD^ 
-# Switch to the last commit 
-# HEAD is a reference to the current commit
-# HEAD^ is a reference to the parent of the current commit
-# master is the default branch name in git
-# Other options are HEAD~2, HEAD~3, HEAD~4, etc.
-
 git lol
+# HEAD is a reference to the current commit
+# Other options are HEAD~2, HEAD~3, HEAD~4, etc. to go back 2, 3, 4, etc. commits
+
 
 
