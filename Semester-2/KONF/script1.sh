@@ -60,7 +60,7 @@ git commit --amend --no-edit
 git rm anotherfile.txt 
 git commit -m "Deleted anotherfile.txt"
 # Commit the changes to the repository and add a message with the -m flag
-git checkout HEAD^ anotherfile.txt 
+git checkout HEAD^ -- anotherfile.txt 
 # Restore the file from the last commit HEAD^ is a reference to the previous commit
 
 #16 Add some text to the file 
