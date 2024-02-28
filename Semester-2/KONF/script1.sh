@@ -11,6 +11,7 @@ git init
 #3 Set the name and email address you want to use with your commits
 git config --global user.name "Your Name"
 git config --global user.email "youremail@email.com"
+# The settings are stored in the .gitconfig file in the home directory
 
 #4 Create a new files and add some text to it
 echo "Hallo Ich bin eine Textfile" > text.txt 
@@ -19,7 +20,7 @@ echo "Hallo Ich bin eine Textfile" > text.txt
 git status
 #Shows that the file is untracked
 
-#6 Add the file to the staging area of the repository and save the blob in the .git/objects directory
+#6 Add the file to the staging area creates a blob object in the .git/objects directory and prepares the file for commit
 git add text.txt
 
 #7 Outputs the SHA-1 hash of the added file 
@@ -34,7 +35,8 @@ echo -n "Hello World!" | git hash-object -w --stdin
 
 #11 Commit the changes to the repository and add a message with the -m flag
 git commit -m "My first commit"
-# The commit object is saved in the .git/objects directory and for all the options use git commit --help
+# The commit and tree object is saved in the .git/objects directory and for all the options use git commit --help
+# The commit object contains the reference to the tree object and the tree object contains the reference to the blob object
 
 #12 Create an alias for the command git log --graph --decorate --oneline --all
 git config --global alias.lol "log --graph --decorate --oneline --all"
@@ -51,7 +53,8 @@ git commit -m "Added newfile.txt"
 echo "Opps I forgot to add this" > anotherfile.txt
 git add anotherfile.txt 
 git commit --amend --no-edit
-# Amend creates a new commit object but put it together with the previous commit object for a cleaner history
+# Amend creates a new commit object and changes the reference of the current branch to the new commit objects
+# The old commit object is still in the .git/objects directory
 
 #16 Remove the file 
 git rm anotherfile.txt 
