@@ -3,4 +3,12 @@
 
 #include "Player.h"
 
+class World {
+public:
+  char grid[5][5];
+  void initializeWorld();
+  bool checkRelics(World *world);
+  void applyField(World *world, Player *player, std::string &message);
+};
+
 #endif // !WORLD_H
