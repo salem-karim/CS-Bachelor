@@ -6,7 +6,7 @@
 class World {
 public:
   char grid[5][5];
-  void initializeWorld();
+  void initializeWorld(Player *player);
   bool checkRelics(World *world);
   void applyField(World *world, Player *player, std::string &message);
 };

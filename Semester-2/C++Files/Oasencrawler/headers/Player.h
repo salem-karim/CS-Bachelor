@@ -7,7 +7,7 @@ class Player {
 public:
   int x, y, health, score;
 
-  Player(int newX, int newY);
+  Player(int x, int y);
   bool move(char direction, std::string &error);
 };
 

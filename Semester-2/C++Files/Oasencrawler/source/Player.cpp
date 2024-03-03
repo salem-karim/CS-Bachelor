@@ -1,8 +1,6 @@
 #include "../headers/Player.h"
 
-Player::Player(int newX, int newY) {
-  x = newX;
-  y = newY;
+Player::Player(int x, int y) : x(x), y(y) {
   health = 5;
   score = 0;
 }

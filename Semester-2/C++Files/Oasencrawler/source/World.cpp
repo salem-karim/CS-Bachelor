@@ -1,10 +1,7 @@
 #include "../headers/World.h"
 #include <cstdlib>
-#include <ctime>
 
-void World::initializeWorld() {
-
-  srand(time(0)); // Seed the random number generator
+void World::initializeWorld(Player *player) {
 
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 5; j++) {
@@ -23,19 +20,20 @@ void World::initializeWorld() {
       }
     }
   }
+  grid[player->x][player->y] = '-';
 }
 
 bool World::checkRelics(World *world) {
-  bool win = false;
+  bool Relics = false;
 
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
       if (world->grid[i][j] == '*') {
-        win = true;
+        Relics = true;
       }
     }
   }
-  return win;
+  return Relics;
 }
 
 void World::applyField(World *world, Player *player, std::string &message) {
