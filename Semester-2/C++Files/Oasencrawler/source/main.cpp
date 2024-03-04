@@ -1,3 +1,4 @@
+#include "../headers/Enemy.h"
 #include "../headers/Player.h"
 #include "../headers/World.h"
 #include <cstdlib>
@@ -6,13 +7,14 @@
 
 using namespace std;
 
-void printWorld(World *world, Player *player);
-void checkField(World *world, Player *player);
+void printWorld(World *world, Player *player, Enemy *enemy);
 
 int main() {
   srand(time(0)); // Seed the random number generator
   Player *myPlayer = new Player(0, 0);
   World *myWorld = new World();
+  Enemy *myEnemy = new Enemy();
+  myEnemy->placeEnemy(myPlayer);
   do {
     myWorld->initializeWorld(myPlayer);
   } while (!(myWorld->checkRelics(myWorld)));
@@ -21,7 +23,7 @@ int main() {
   while (true) {
     system("clear");
     cout << "press x to end" << endl;
-    printWorld(myWorld, myPlayer);
+    printWorld(myWorld, myPlayer, myEnemy);
     cout << "Health: " << myPlayer->health << " Score: " << myPlayer->score
          << endl;
     if (!error.empty() && !(message.empty())) {
@@ -34,6 +36,7 @@ int main() {
     if (myPlayer->move(input, error)) {
       continue;
     }
+    myEnemy->followPlayer(myPlayer);
     myWorld->applyField(myWorld, myPlayer, message);
     if (input == 'x' || myPlayer->health == 0) {
       cout << "Game Over!"
@@ -43,19 +46,23 @@ int main() {
       do {
         myWorld->initializeWorld(myPlayer);
       } while (!(myWorld->checkRelics(myWorld)));
+      myEnemy->placeEnemy(myPlayer);
     }
   }
+  delete myEnemy;
   delete myWorld;
   delete myPlayer;
   return 0;
 }
 
-void printWorld(World *world, Player *player) {
+void printWorld(World *world, Player *player, Enemy *enemy) {
   for (int y = 0; y < 5; ++y) {
     for (int x = 0; x < 5; ++x) {
       cout << ' ';
       if (player->x == x && player->y == y)
         cout << ' ' << 'P' << ' ';
+      else if (enemy->x == x && enemy->y == y)
+        cout << ' ' << 'E' << ' ';
       else
         cout << ' ' << world->grid[x][y] << ' ';
     }
