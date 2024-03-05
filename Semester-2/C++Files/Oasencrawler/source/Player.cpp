@@ -1,11 +1,12 @@
 #include "../headers/Player.h"
+#include "../headers/World.h"
 
 Player::Player(int x, int y) : x(x), y(y) {
   health = 5;
   score = 0;
 }
 
-bool Player::move(char direction, std::string &error) {
+bool Player::move(World *world, char direction, std::string &error) {
   int dx = 0, dy = 0;
   switch (direction) {
   case 'W':
@@ -31,8 +32,8 @@ bool Player::move(char direction, std::string &error) {
     return true;
   }
 
-  if ((0 <= (this->x + dx) && (this->x + dx) < 5) &&
-      (0 <= (this->y + dy) && (this->y + dy) < 5)) {
+  if ((0 <= (this->x + dx) && (this->x + dx) < world->size) &&
+      (0 <= (this->y + dy) && (this->y + dy) < world->size)) {
     this->x += dx;
     this->y += dy;
   } else {

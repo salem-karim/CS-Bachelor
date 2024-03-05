@@ -5,7 +5,8 @@
 
 class World {
 public:
-  char grid[5][5];
+  int size = 5;
+  char grid[50][50];
   void initializeWorld(Player *player);
   bool checkRelics(World *world);
   void applyField(World *world, Player *player, std::string &message);

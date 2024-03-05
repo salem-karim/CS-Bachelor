@@ -3,12 +3,14 @@
 
 #include <string>
 
+class World;
+
 class Player {
 public:
   int x, y, health, score;
 
   Player(int x, int y);
-  bool move(char direction, std::string &error);
+  bool move(World *world, char direction, std::string &error);
 };
 
 #endif // !PLAYER_H

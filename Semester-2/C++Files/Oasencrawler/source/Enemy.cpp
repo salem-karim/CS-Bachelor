@@ -1,19 +1,47 @@
 #include "../headers/Enemy.h"
+#include "../headers/World.h"
 #include <cstdlib>
 
-void Enemy::followPlayer(Player *player) {
-  // Simple chasing behavior: Move towards the player on each axis
-  if (x < player->x) {
-    x++;
-  } else if (x > player->x) {
-    x--;
-  }
+std::string Enemy::followPlayer(World *world, Player *player) {
+  int dx = player->x - x, dy = player->y - y;
 
-  if (y < player->y) {
-    y++;
-  } else if (y > player->y) {
-    y--;
+  if (std::abs(dx) == std::abs(dy)) {
+    // If diagonally aligned, move randomly in one dimension
+    if (rand() % 2 == 0) { // Randomly choose between x and y dimensions
+      if (dx > 0 && x < world->size - 1) {
+        x++; // Move right if possible
+      } else if (dx < 0 && x > 0) {
+        x--; // Move left if possible
+      }
+    } else {
+      if (dy > 0 && y < world->size - 1) {
+        y++; // Move down if possible
+      } else if (dy < 0 && y > 0) {
+        y--; // Move up if possible
+      }
+    }
+  } else {
+    // Move towards the player in the dimension with the greater difference
+    if (std::abs(dx) > std::abs(dy)) {
+      if (dx > 0 && x < world->size - 1) {
+        x++; // Move right if possible
+      } else if (dx < 0 && x > 0) {
+        x--; // Move left if possible
+      }
+    } else {
+      if (dy > 0 && y < world->size - 1) {
+        y++; // Move down if possible
+      } else if (dy < 0 && y > 0) {
+        y--; // Move up if possible
+      }
+    }
+    if (x == player->x && y == player->y) {
+      player->health -= 1;
+      placeEnemy(player);
+      return "You were attacked by an enemy!";
+    }
   }
+  return " ";
 }
 
 // check if Enemy is in sorunding of player
