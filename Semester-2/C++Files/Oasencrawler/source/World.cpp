@@ -37,17 +37,35 @@ bool World::checkRelics(World *world) {
 
 void World::applyField(World *world, Player *player, std::string &message) {
   int randomnum = rand() % 6;
-
-  if (world->grid[player->x][player->y] == 'x') {
+  if (player->isBleeding > 0 && player->isBleeding != 0) {
+    player->isBleeding -= 1;
+    player->health -= 1;
+    message = "You are bleeding!";
+  } else if (world->grid[player->x][player->y] == 'x') {
     world->grid[player->x][player->y] = '-';
-    if (randomnum == 0) {
-      player->health -= 1;
-      message = "You have been damaged!";
+    if (player->shields == 0 && randomnum > 3) {
+      if (player->isBleeding == 0) {
+        player->isBleeding = 3;
+        player->health -= 1;
+        message = "You are bleeding!";
+      }
+    } else if (player->shields > 0) {
+      player->shields -= 1;
+      message = "You have been protected!";
     }
-  } else if (world->grid[player->x][player->y] == '+') {
+  }
+  if (world->grid[player->x][player->y] == '+') {
     world->grid[player->x][player->y] = '-';
     player->health += 1;
+    player->isBleeding = 0;
     message = "You got 1 Healthpoint back!";
+    if (randomnum >= 0 && randomnum < 2) {
+      player->arrows += 1;
+      message += " | You got 1 Arrow!";
+    } else if (randomnum > 1 && randomnum < 4) {
+      player->shields += 1;
+      message += " | You got 1 Shield!";
+    }
   } else if (world->grid[player->x][player->y] == '*') {
     world->grid[player->x][player->y] = '-';
     player->score += 1;
