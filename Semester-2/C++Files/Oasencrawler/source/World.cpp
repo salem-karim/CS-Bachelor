@@ -22,12 +22,12 @@ void World::initializeWorld(Player *player) {
   grid[player->x][player->y] = '-';
 }
 
-bool World::checkRelics(World *world) {
+bool World::checkRelics() {
   bool Relics = false;
 
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < size; j++) {
-      if (world->grid[i][j] == '*') {
+      if (grid[i][j] == '*') {
         Relics = true;
       }
     }
@@ -35,14 +35,14 @@ bool World::checkRelics(World *world) {
   return Relics;
 }
 
-void World::applyField(World *world, Player *player, std::string &message) {
+void World::applyField(Player *player, std::string &message) {
   int randomnum = rand() % 6;
   if (player->isBleeding > 0 && player->isBleeding != 0) {
     player->isBleeding -= 1;
     player->health -= 1;
     message = "You are bleeding!";
-  } else if (world->grid[player->x][player->y] == 'x') {
-    world->grid[player->x][player->y] = '-';
+  } else if (grid[player->x][player->y] == 'x') {
+    grid[player->x][player->y] = '-';
     if (player->shields == 0 && randomnum > 3) {
       if (player->isBleeding == 0) {
         player->isBleeding = 3;
@@ -54,8 +54,8 @@ void World::applyField(World *world, Player *player, std::string &message) {
       message = "You have been protected!";
     }
   }
-  if (world->grid[player->x][player->y] == '+') {
-    world->grid[player->x][player->y] = '-';
+  if (grid[player->x][player->y] == '+') {
+    grid[player->x][player->y] = '-';
     player->health += 1;
     player->isBleeding = 0;
     message = "You got 1 Healthpoint back!";
@@ -66,8 +66,8 @@ void World::applyField(World *world, Player *player, std::string &message) {
       player->shields += 1;
       message += " | You got 1 Shield!";
     }
-  } else if (world->grid[player->x][player->y] == '*') {
-    world->grid[player->x][player->y] = '-';
+  } else if (grid[player->x][player->y] == '*') {
+    grid[player->x][player->y] = '-';
     player->score += 1;
     message =
         "You found a Relic!\nyour score is: " + std::to_string(player->score);

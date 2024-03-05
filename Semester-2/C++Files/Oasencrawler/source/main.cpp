@@ -18,7 +18,7 @@ int main() {
   Enemy *myEnemy2 = new Enemy();
   do {
     myWorld->initializeWorld(myPlayer);
-  } while (!(myWorld->checkRelics(myWorld)));
+  } while (!(myWorld->checkRelics()));
   string message = "", error = "", damage = "";
   char input = ' ';
   while (true) {
@@ -43,7 +43,10 @@ int main() {
         int whichEnemy;
         cout << "Which enemy do you want to shoot? (1 or 2): ";
         cin >> whichEnemy;
-        myPlayer->shootArrow(myWorld, myEnemy, error);
+        if (whichEnemy == 1)
+          myPlayer->shootArrow(myWorld, myEnemy, error);
+        else if (whichEnemy == 2)
+          myPlayer->shootArrow(myWorld, myEnemy2, error);
       } else
         myPlayer->shootArrow(myWorld, myEnemy, error);
     } else if (myPlayer->move(myWorld, input, error)) {
@@ -62,17 +65,17 @@ int main() {
     } else if (myEnemy->turnsToRespawn == 0) {
       damage = myEnemy->followPlayer(myWorld, myPlayer);
     }
-    myWorld->applyField(myWorld, myPlayer, message);
+    myWorld->applyField(myPlayer, message);
     if (input == 'x' || myPlayer->health == 0) {
       cout << "Game Over!"
            << " | Your Score was: " << myPlayer->score << endl;
       break;
-    } else if (!(myWorld->checkRelics(myWorld))) {
+    } else if (!(myWorld->checkRelics())) {
       myWorld->size++;
 
       do {
         myWorld->initializeWorld(myPlayer);
-      } while (!(myWorld->checkRelics(myWorld)));
+      } while (!(myWorld->checkRelics()));
     }
     myEnemy->decreaseRespawnCounter(myPlayer);
     if ((myWorld->size - 4) >= 5) {

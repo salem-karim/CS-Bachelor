@@ -8,8 +8,8 @@ public:
   int size = 5;
   char grid[50][50];
   void initializeWorld(Player *player);
-  bool checkRelics(World *world);
-  void applyField(World *world, Player *player, std::string &message);
+  bool checkRelics();
+  void applyField(Player *player, std::string &message);
 };
 
 #endif // !WORLD_H
