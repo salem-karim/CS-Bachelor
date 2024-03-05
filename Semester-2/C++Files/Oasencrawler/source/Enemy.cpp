@@ -54,8 +54,26 @@ bool Enemy::isClose(Player *player) {
 }
 
 void Enemy::placeEnemy(Player *player) {
+  turnsToRespawn = 0; // Reset the respawn counter
   do {
     x = rand() % 5;
     y = rand() % 5;
   } while (isClose(player));
+}
+
+void Enemy::kill() {
+  turnsToRespawn = 4; // Set the respawn counter to 3 turns
+  x = -1;             // Move the enemy out of the grid temporarily
+  y = -1;
+}
+
+// Implementation of decreaseRespawnCounter method
+void Enemy::decreaseRespawnCounter(Player *player) {
+  if (turnsToRespawn > 0) {
+    turnsToRespawn--;
+    if (turnsToRespawn == 0) {
+      // Respawn the enemy at a new location
+      placeEnemy(player);
+    }
+  }
 }
