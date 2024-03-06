@@ -43,7 +43,7 @@ git commit -a -m "Changed text.txt in development branch"
 # 8 .git ignore files that end with .o 
 echo "*.o" > .gitignore
 echo "Hello World!" > main.o 
-git add .
+git add main.o
 git status
 # The file is not staged because it is ignored by the .gitignore file suggested to use git add -f to force the add
 
