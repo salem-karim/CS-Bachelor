@@ -25,7 +25,7 @@ git add text.txt
 # it shows the changes that have been made to the File
 
 # 5 Commit the changes
-git commit -m "Changed text.txt in developmetn branch"
+git commit -m "Changed text.txt in development branch"
 git lol
 # Head is pointiong to the development branch which is in front of the master branches
 
@@ -45,6 +45,7 @@ echo "*.o" > .gitignore
 echo "Hello World!" > main.o 
 git add .
 git status
+git add main.o
 # The file is not staged because it is ignored by the .gitignore file suggested to use git add -f to force the add
 
 # 9 Inn the .git directory what do you now notice
@@ -61,7 +62,7 @@ git lol
 # 11 hotfix 
 git checkout master
 git checkout -b hotfix
-echo "Jsut fixing a bug here" >> hotfix.txt
+echo "Just fixing a bug here" >> hotfix.txt
 git add hotfix.txt 
 git commit -m "Fixed a bug for master branch" 
 git checkout master && git merge hotfix
@@ -71,10 +72,10 @@ git lol
 git switch feature 
 echo "Some more features" >> feature.txt 
 git commit -a -m "Added more features"
-git merge hotfix
+git merge master
+git switch master && git merge feature 
 
 # 13 Delete branches 
-git switch master && git merge feature 
 git branch -d feature && git branch -D hotfix 
 git lol 
 # -d deletes only merged branches -D can also deletes unmerged branches
