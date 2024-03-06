@@ -77,5 +77,5 @@ git lol
 # HEAD is a reference to the current commit
 # Other options are HEAD~2, HEAD~3, HEAD~4, etc. to go back 2, 3, 4, etc. commits
 
-
+git checkout master
 
