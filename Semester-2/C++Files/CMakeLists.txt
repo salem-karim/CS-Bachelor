@@ -3,4 +3,4 @@ project(CS_Bachelor)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CS_Bachelor cpp/first.cpp cpp/Player.cpp)
+add_executable(CS_Bachelor cpp/main.cpp cpp/Player.cpp cpp/Character.cpp)

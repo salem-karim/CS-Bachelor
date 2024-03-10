@@ -25,7 +25,7 @@ int main() {
       for (int x = 0; x < 10; ++x) {
         cout << ' ';
         if (myPlayer->getX() == x && myPlayer->getY() == y)
-          cout << 'X';
+          cout << ' ' << 'X' << ' ';
         else
           cout << ' ' << world[x][y] << ' ';
       }
