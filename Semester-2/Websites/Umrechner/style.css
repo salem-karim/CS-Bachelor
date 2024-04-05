@@ -1,0 +1,15 @@
+button {
+  margin: 5px;
+}
+
+.fields {
+  padding: 10px;
+}
+
+.fields,
+.buttonfield,
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
