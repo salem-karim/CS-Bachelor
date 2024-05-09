@@ -1,6 +1,6 @@
-#include "../headers/Player.h"
-#include "../headers/Enemy.h"
-#include "../headers/World.h"
+#include "Player.h"
+#include "../Enemy/Enemy.h"
+#include "../World/World.h"
 #include <iostream>
 
 Player::Player(int x, int y) : x(x), y(y) {

@@ -1,4 +1,4 @@
-#include "../headers/World.h"
+#include "World.h"
 #include <cstdlib>
 
 void World::initializeWorld(Player *player) {

@@ -1,6 +1,6 @@
-#include "headers/Enemy.h"
-#include "headers/Player.h"
-#include "headers/World.h"
+#include "Enemy/Enemy.h"
+#include "Player/Player.h"
+#include "World/World.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>

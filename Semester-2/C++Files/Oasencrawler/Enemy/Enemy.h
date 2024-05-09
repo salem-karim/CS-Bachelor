@@ -1,7 +1,7 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include "Player.h"
+#include "../Player/Player.h"
 
 class World;
 

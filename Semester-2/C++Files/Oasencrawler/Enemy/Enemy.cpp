@@ -1,5 +1,5 @@
-#include "../headers/Enemy.h"
-#include "../headers/World.h"
+#include "Enemy.h"
+#include "../World/World.h"
 #include <cstdlib>
 
 std::string Enemy::followPlayer(World *world, Player *player) {

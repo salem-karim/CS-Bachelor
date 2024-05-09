@@ -1,7 +1,7 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include "Player.h"
+#include "../Player/Player.h"
 
 class World {
 public:
