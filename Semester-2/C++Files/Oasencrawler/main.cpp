@@ -39,10 +39,18 @@ int main() {
     cin >> input;
 
     if (input == 'q') {
+      if (myPlayer->arrows == 0) {
+        error = "You are out of arrows!";
+        continue;
+      }
       if (myWorld->size - 4 >= 5) {
         int whichEnemy;
         cout << "Which enemy do you want to shoot? (1 or 2): ";
-        cin >> whichEnemy;
+        if (cin >> whichEnemy) {
+          error = "Invalid input!";
+          continue;
+        }
+
         if (whichEnemy == 1)
           myPlayer->shootArrow(myWorld, myEnemy, error);
         else if (whichEnemy == 2)
@@ -66,7 +74,7 @@ int main() {
       damage = myEnemy->followPlayer(myWorld, myPlayer);
     }
     myWorld->applyField(myPlayer, message);
-    if (input == 'x' || myPlayer->health == 0) {
+    if (input == 'x' || myPlayer->health <= 0) {
       cout << "Game Over!"
            << " | Your Score was: " << myPlayer->score << endl;
       break;
