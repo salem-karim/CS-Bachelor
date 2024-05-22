@@ -11,7 +11,7 @@
         aria-describedby="emailHelp"
         placeholder="Enter email"
       />
-      <label for="password1">Password</label>
+      <label for="password">Password</label>
       <input
         type="password"
         class="form-control"
@@ -36,28 +36,28 @@
         [value]="company"
       />
       <label for="adress">Address</label>
-      <input
+      <textarea
         type="text"
         class="form-control"
         id="address"
         placeholder="Adress"
-        required
-      />
+        formControlName="street"
+      ></textarea>
       <label for="city">City</label>
       <input
         type="text"
         class="form-control"
         id="city"
         placeholder="City"
-        required
+        formControlName="city"
       />
       <label for="PLZ">PLZ</label>
       <input
-        type="text"
+        type="number"
         class="form-control"
         id="PLZ"
         placeholder="PLZ"
-        required
+        formControlName="plz"
       />
       <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>

@@ -4,15 +4,23 @@
   <div class="row">
     <div class="col">
       <p>login works!</p>
-      <form class="formular">
-        <span>Email: {{ email }}</span>
-        <input class="form-control" type="email" placeholder=" E-Mail" />
-        <span>Password: {{ password }}</span>
-        <input class="form-control" type="password" placeholder=" Password" />
+      <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+        <label for="emial">Email</label>
         <input
           class="form-control"
+          id="email"
+          type="email"
+          placeholder=" E-Mail"
+          formControlName="email"
+        />
+
+        <label for="password1">Password</label>
+        <input
+          class="form-control"
+          id="password"
           type="password"
-          placeholder=" Repeat Password"
+          placeholder=" Password"
+          formControlName="password"
         />
         <button class="btn btn-primary" type="submit">Login</button>
       </form>
