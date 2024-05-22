@@ -1,13 +1,21 @@
-<div class="row">
-  <div class="col">
-    <p>login works!</p>
-    <form class="formular">
-      <span>Email: {{ email }}</span>
-      <input class="form-control" type="email" placeholder=" E-Mail" />
-      <span>Password: {{ password }}</span>
-      <input class="form-control" type="password" placeholder=" Password" />
-      <input class="form-control" type="password" placeholder=" Repeat Password" />
-      <button class="btn btn-primary" type="submit">Login</button>
-    </form>
+<!-- This is the login component template. It contains the login form. -->
+<div class="container">
+  <h2>Login</h2>
+  <div class="row">
+    <div class="col">
+      <p>login works!</p>
+      <form class="formular">
+        <span>Email: {{ email }}</span>
+        <input class="form-control" type="email" placeholder=" E-Mail" />
+        <span>Password: {{ password }}</span>
+        <input class="form-control" type="password" placeholder=" Password" />
+        <input
+          class="form-control"
+          type="password"
+          placeholder=" Repeat Password"
+        />
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
   </div>
 </div>
