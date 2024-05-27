@@ -1,3 +1,3 @@
 #include "Kreuzer.hpp"
 
-void Kreuzer::shoot() {}
+void Kreuzer::useSpecial() {}

@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #ifndef _SPIEL_HPP_
 #define _SPIEL_HPP_
 
@@ -21,7 +22,7 @@ public:
   // Welt getWelt();
 
 private:
-  std::array<std::vector<Schiff>, 2> Flotten;
+  std::array<std::vector<std::unique_ptr<Schiff>>, 2> Flotten;
   // Welt spielFeld;
 };
 

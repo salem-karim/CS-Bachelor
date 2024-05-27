@@ -7,7 +7,7 @@
 class Jaeger : public Schiff {
 public:
   Jaeger() : Schiff(75, 4, 60) {};
-  void shoot() override;
+  void useSpecial() override;
 };
 
 #endif

@@ -21,6 +21,7 @@ public:
   //   int getx() const override;
   //   int gety() const override;
   //   int getXP() const override;
+  void shoot() override;
 
 protected:
   int Huelle;

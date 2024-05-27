@@ -11,3 +11,4 @@ Schiff::Schiff(int shell, int size, int damage) {
   Groesse = size;
   Schaden = damage;
 }
+void Schiff::shoot() {}

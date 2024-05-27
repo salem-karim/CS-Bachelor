@@ -1,8 +1,3 @@
 #include "Jaeger.hpp"
 
-
-
-void Jaeger::shoot(){
-
-
-}
+void Jaeger::useSpecial() {}

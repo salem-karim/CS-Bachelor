@@ -7,7 +7,7 @@
 class Zerstoerer : public Schiff {
 public:
   Zerstoerer() : Schiff(150, 6, 60) {};
-  void shoot() override;
+  void useSpecial() override;
 };
 
 #endif

@@ -1,11 +1,18 @@
 #include "Spiel.hpp"
+#include "../Jaeger/Jaeger.hpp"
+#include "../Kreuzer/Kreuzer.hpp"
+#include "../Zerstoerer/Zerstoerer.hpp"
 #include <iostream>
 #include <limits>
+#include <memory>
 #include <stdexcept>
 
 using namespace std;
 
-void Spiel::spielStart() { flotteErstellen(); }
+void Spiel::spielStart() {
+  flotteErstellen();
+  spielLoop();
+}
 void Spiel::spielLoop() {}
 void Spiel::spielRunde() {}
 void Spiel::spielEnde() {}
@@ -53,7 +60,19 @@ void Spiel::flotteErstellen() {
           cout << e.what() << endl;
         }
       } while (type < 1 || type > 3);
-      // Set the ship type
+      switch (type) {
+      case 1:
+        Flotten[i][j] = make_unique<Jaeger>();
+        break;
+      case 2:
+        Flotten[i][j] = make_unique<Zerstoerer>();
+        break;
+      case 3:
+        Flotten[i][j] = make_unique<Kreuzer>();
+        break;
+      default:
+        break;
+      }
     }
   }
 }

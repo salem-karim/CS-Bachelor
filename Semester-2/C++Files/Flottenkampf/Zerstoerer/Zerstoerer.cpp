@@ -1,8 +1,3 @@
 #include "Zerstoerer.hpp"
 
-
-
-void Zerstoerer::shoot(){
-
-
-}
+void Zerstoerer::useSpecial() {}

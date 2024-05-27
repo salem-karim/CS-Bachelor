@@ -3,4 +3,12 @@ project(Flottenkampf)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Flottenkampf main.cpp Spiel/Spiel.cpp)
+add_executable(
+  Flottenkampf
+  main.cpp
+  Spiel/Spiel.cpp,
+  Schiff/Schiff.cpp
+  Schiff/ISchiff.cpp,
+  Jaeger/Jaeger.cpp,
+  Kreuzer/Kreuzer.cpp,
+  Zersoerer/Zersoerer.cpp)

@@ -6,6 +6,7 @@ class ISchiff {
 public:
   virtual ~ISchiff();
   virtual void shoot() = 0;
+  virtual void useSpecial() = 0;
   // virtual void move() = 0;
   virtual void setHuelle(int value) = 0;
   virtual void setSchaden(int value) = 0;
