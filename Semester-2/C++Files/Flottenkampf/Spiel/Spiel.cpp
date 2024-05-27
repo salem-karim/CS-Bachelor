@@ -21,9 +21,9 @@ void Spiel::flotteErstellen() {
   int length = 0;
   int type = 0;
 
-  for (int i = 1; i <= 2; i++) {
+  for (int i = 0; i < 2; i++) {
     do {
-      cout << "Größe der Flotte(1-9) von Spieler " << i << ": ";
+      cout << "Größe der Flotte(1-9) von Spieler " << i + 1 << ": ";
       try {
         cin >> length;
         if (cin.fail()) { // Check if the input is not an integer
@@ -40,11 +40,16 @@ void Spiel::flotteErstellen() {
       }
     } while (length < 1 || length > 9);
 
-    Flotten[i].resize(length);
+    try {
+      Flotten.at(i).resize(length);
+    } catch (const out_of_range &) {
+      throw runtime_error("Error: Out of range access to Flotten array.");
+    }
+
     for (int j = 0; j < length; j++) {
       do {
         cout << "Schiff " << j + 1 << " von " << length << endl;
-        cout << "(1)Jäger, (2)Zerstörer, (3)Kreuzer : ";
+        cout << "(1)Jäger, (2)Zerstörer, 3)Kreuzer: ";
         try {
           cin >> type;
           if (cin.fail()) { // Check if the input is not an integer
@@ -60,18 +65,23 @@ void Spiel::flotteErstellen() {
           cout << e.what() << endl;
         }
       } while (type < 1 || type > 3);
-      switch (type) {
-      case 1:
-        Flotten[i][j] = make_unique<Jaeger>();
-        break;
-      case 2:
-        Flotten[i][j] = make_unique<Zerstoerer>();
-        break;
-      case 3:
-        Flotten[i][j] = make_unique<Kreuzer>();
-        break;
-      default:
-        break;
+
+      try {
+        switch (type) {
+        case 1:
+          Flotten.at(i).at(j) = make_unique<Jaeger>();
+          break;
+        case 2:
+          Flotten.at(i).at(j) = make_unique<Zerstoerer>();
+          break;
+        case 3:
+          Flotten.at(i).at(j) = make_unique<Kreuzer>();
+          break;
+        default:
+          break;
+        }
+      } catch (const out_of_range &) {
+        throw runtime_error("Error: Out of range access to Flotten array.");
       }
     }
   }

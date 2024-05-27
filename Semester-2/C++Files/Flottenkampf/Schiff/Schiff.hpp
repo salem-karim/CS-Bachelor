@@ -7,7 +7,7 @@
 class Schiff : public ISchiff {
 public:
   virtual ~Schiff();
-  Schiff(int shell, int damage, int size);
+  Schiff(int shell, int size, int damage);
   //   void move() override;
   void setHuelle(int value) override;
   void setSchaden(int value) override;

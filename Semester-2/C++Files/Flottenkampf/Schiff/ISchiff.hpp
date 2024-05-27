@@ -2,9 +2,11 @@
 #ifndef _ISCHIFF_HPP_
 #define _ISCHIFF_HPP_
 
+#include <iostream>
+
 class ISchiff {
 public:
-  virtual ~ISchiff();
+  virtual ~ISchiff() { std::cout << "ISchiff destructor" << std::endl; }
   virtual void shoot() = 0;
   virtual void useSpecial() = 0;
   // virtual void move() = 0;

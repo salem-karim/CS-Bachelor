@@ -1,4 +1,5 @@
 #include "Schiff.hpp"
+#include <iostream>
 
 int Schiff::getHuelle() const { return Huelle; }
 int Schiff::getSchaden() const { return Schaden; }
@@ -11,4 +12,5 @@ Schiff::Schiff(int shell, int size, int damage) {
   Groesse = size;
   Schaden = damage;
 }
-void Schiff::shoot() {}
+Schiff::~Schiff() { std::cout << "Schiff destructor" << std::endl; }
+void Schiff::shoot() { std::cout << "Pew Pew" << std::endl; }

@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(
   Flottenkampf
   main.cpp
-  Spiel/Spiel.cpp,
+  Spiel/Spiel.cpp
   Schiff/Schiff.cpp
-  Schiff/ISchiff.cpp,
-  Jaeger/Jaeger.cpp,
-  Kreuzer/Kreuzer.cpp,
-  Zersoerer/Zersoerer.cpp)
+  Schiff/ISchiff.hpp
+  Jaeger/Jaeger.cpp
+  Kreuzer/Kreuzer.cpp
+  Zerstoerer/Zerstoerer.cpp)
