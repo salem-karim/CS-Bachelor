@@ -1,4 +1,5 @@
 #include "Schiff.hpp"
+#include <random>
 
 int Schiff::getHuelle() const { return Huelle; }
 int Schiff::getSchaden() const { return Schaden; }
@@ -16,4 +17,9 @@ Schiff::Schiff(int shell, int size, int damage) {
   Huelle = shell;
   Groesse = size;
   Schaden = damage;
+}
+void Schiff::move(Flotten flotten) {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<> disX(0, 1);
 }

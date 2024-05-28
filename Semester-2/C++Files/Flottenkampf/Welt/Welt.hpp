@@ -4,10 +4,6 @@
 
 #include "../Schiff/Schiff.hpp"
 #include <array>
-#include <memory>
-#include <vector>
-
-typedef std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;
 
 class Welt {
 public:

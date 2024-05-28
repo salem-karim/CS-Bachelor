@@ -12,7 +12,6 @@ Welt::Welt() {
     for (auto &field : row)
       field = '-';
 }
-typedef std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;
 std::array<std::array<char, 10>, 10> Welt::getGrid() const { return grid; }
 void Welt::setField(char Field, int x, int y) { grid.at(x).at(y) = Field; }
 
@@ -29,7 +28,8 @@ void Welt::printWelt(Flotten flotten) {
     for (const auto &schiff : fleet) {
       int x = schiff->getX();
       int y = schiff->getY();
-      if (x >= 0 && x < grid.size() && y >= 0 && y < grid.at(0).size()) {
+      if (x >= 0 && x < grid.size() && y >= 0 && y < grid.at(0).size() &&
+          !schiff->getIsSunk()) {
         if (dynamic_cast<Jaeger *>(schiff.get())) {
           symbol = (playerIndex == 0) ? 'J' : 'j';
         } else if (dynamic_cast<Zerstoerer *>(schiff.get())) {
