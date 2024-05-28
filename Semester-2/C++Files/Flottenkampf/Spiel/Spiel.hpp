@@ -10,18 +10,13 @@
 
 class Spiel {
 public:
+  Spiel();
   void spielStart();
   void spielLoop();
   void spielRunde();
   void spielEnde();
   void flotteErstellen();
-
-  void printShips();
-
-  void setSchiff(Schiff schiff, int index, int player);
-  Schiff getSchiff(int index, int player) const;
-  // void setWelt(std::shared_ptr<Welt> welt);
-  Welt getWelt() const;
+  void flottenInitialisieren();
 
 private:
   std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;

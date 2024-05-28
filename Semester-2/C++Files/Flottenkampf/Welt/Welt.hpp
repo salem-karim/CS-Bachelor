@@ -3,6 +3,7 @@
 #define _WELT_HPP_
 
 #include "../Schiff/Schiff.hpp"
+#include <array>
 #include <memory>
 #include <vector>
 
@@ -10,12 +11,13 @@ typedef std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;
 
 class Welt {
 public:
-  void printWelt(Flotten);
-  std::vector<std::vector<char>> getGrid() const;
+  Welt();
+  void printWelt(Flotten Flotten);
+  std::array<std::array<char, 10>, 10> getGrid() const;
   void setField(char Field, int x, int y);
 
 private:
-  std::vector<std::vector<char>> grid;
+  std::array<std::array<char, 10>, 10> grid;
 };
 
 #endif

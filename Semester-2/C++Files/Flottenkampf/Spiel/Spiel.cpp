@@ -10,9 +10,6 @@
 
 using namespace std;
 
-Welt Spiel::getWelt() const { return *spielFeld; }
-// void Spiel::setWelt(shared_ptr<Welt> welt) { spielFeld = welt; }
-
 void Spiel::spielStart() {
   flotteErstellen();
   spielLoop();
@@ -36,7 +33,6 @@ void Spiel::spielLoop() {
     }
     if (gameOver)
       break;
-
     spielFeld->printWelt(Flotten);
     cout << "Runde Spielen? (y/n)" << endl;
     try {
@@ -65,15 +61,30 @@ void Spiel::spielRunde() {
   mt19937 gen(rd());
   uniform_int_distribution<> dis(0, 1);
   int player = dis(gen);
+
   uniform_int_distribution<> dis2(0, Flotten.at(player).size() - 1);
   int ship = dis2(gen);
-  // get a random ship of the others players fleet
-  uniform_int_distribution<> dis3(0, Flotten.at(1 - player).size() - 1);
-  int target = dis3(gen);
+
+  int target;
+  bool targetFound = false;
+
+  // Keep generating new targets until a non-sunk ship is found
+  while (!targetFound) {
+    uniform_int_distribution<> dis3(0, Flotten.at(1 - player).size() - 1);
+    target = dis3(gen);
+
+    // Check if the target ship is not sunk
+    if (!Flotten.at(1 - player).at(target)->getIsSunk()) {
+      targetFound = true;
+    }
+  }
+
+  // Attack the non-sunk target ship
   Flotten.at(player).at(ship)->attack(Flotten.at(1 - player).at(target).get());
+
   // cout which player attacks with which ship for both players
   cout << "Spieler " << player + 1 << " greift mit Schiff " << ship
-       << "Spieler " << 1 - player + 1 << "GegnerSchiff " << target << endl;
+       << " Spieler " << 1 - player + 1 << " GegnerSchiff " << target << endl;
 }
 
 void Spiel::spielEnde() {
@@ -162,4 +173,49 @@ void Spiel::flotteErstellen() {
       }
     }
   }
+  flottenInitialisieren();
 }
+
+void Spiel::flottenInitialisieren() {
+  random_device rd;
+  mt19937 gen(rd());
+
+  // Use an array of size 2, where each element is a vector<int>
+  array<vector<int>, 2> placedShips;
+
+  for (int player = 0; player < 2; ++player) {
+    for (auto &schiff : Flotten.at(player)) {
+      bool isPlaced = false;
+
+      while (!isPlaced) {
+        int x, y;
+
+        // Choose a random position
+        int gridSize = spielFeld->getGrid().size();
+        uniform_int_distribution<> disX(0, gridSize - 1);
+        uniform_int_distribution<> disY(0, gridSize - 1);
+        x = disX(gen);
+        y = disY(gen);
+
+        // Check if the chosen position overlaps with any previously placed ship
+        bool overlaps = false;
+        for (const auto &placedShipPos : placedShips[1 - player]) {
+          if (placedShipPos / gridSize == x && placedShipPos % gridSize == y) {
+            overlaps = true;
+            break;
+          }
+        }
+
+        if (!overlaps) {
+          schiff->setX(x);
+          schiff->setY(y);
+          placedShips[player].push_back(
+              x * gridSize + y); // Add the ship's position to the list
+          isPlaced = true;
+        }
+      }
+    }
+  }
+}
+
+Spiel::Spiel() { spielFeld = make_shared<Welt>(); }

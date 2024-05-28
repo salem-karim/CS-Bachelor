@@ -1,4 +1,5 @@
 #include "Kreuzer.hpp"
+#include <iostream>
 #include <random>
 
 void Kreuzer::attack(ISchiff *Gegner) {

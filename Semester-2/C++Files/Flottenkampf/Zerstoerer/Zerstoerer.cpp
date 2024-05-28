@@ -1,4 +1,5 @@
 #include "Zerstoerer.hpp"
+#include <iostream>
 #include <random>
 
 void Zerstoerer::attack(ISchiff *Gegner) {
