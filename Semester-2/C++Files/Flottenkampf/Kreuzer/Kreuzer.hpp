@@ -7,6 +7,6 @@
 class Kreuzer : public Schiff {
 public:
   Kreuzer() : Schiff(250, 8, 50) {};
-  void useSpecial() override;
+  void attack(ISchiff *Gegner) override;
 };
 #endif

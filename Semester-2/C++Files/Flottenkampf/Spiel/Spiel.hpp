@@ -16,13 +16,15 @@ public:
   void spielEnde();
   void flotteErstellen();
 
+  void printShips();
+
   void setSchiff(Schiff schiff, int index, int player);
   Schiff getSchiff(int index, int player);
   // void setWelt(Welt welt);
   // Welt getWelt();
 
 private:
-  std::array<std::vector<std::unique_ptr<Schiff>>, 2> Flotten;
+  std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;
   // Welt spielFeld;
 };
 
