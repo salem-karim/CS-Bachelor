@@ -7,6 +7,7 @@
 #include <memory>
 #include <random>
 #include <stdexcept>
+#include <string>
 
 using namespace std;
 
@@ -78,16 +79,26 @@ void Spiel::spielRunde() {
       targetFound = true;
     }
   }
+  const auto &attacker = Flotten.at(player).at(ship);
+  const auto &Ziel = Flotten.at(1 - player).at(target);
 
   // Attack the non-sunk target ship
-  Flotten.at(player).at(ship)->attack(Flotten.at(1 - player).at(target).get());
-
+  attacker->attack(Ziel.get());
+  attacker->move(Ziel.get(), spielFeld.get());
   // cout which player attacks with which ship for both players
-  cout << "Spieler " << player + 1 << " greift mit Schiff " << ship
-       << " Spieler " << 1 - player + 1 << " GegnerSchiff " << target << endl;
+  string position1 = '[' + to_string(attacker->getX()) + ',' +
+                     to_string(attacker->getY()) + ']';
+  string position2 =
+      '[' + to_string(Ziel->getX()) + ',' + to_string(Ziel->getY()) + ']';
+  cout << "Spieler " << player + 1 << " greift mit Schiff bei " << position1
+       << " Spieler " << 1 - player + 1 << "` GegnerSchiff bei " << position2
+       << " an." << endl;
+  // Print the Hülle of the attacked ship
+  cout << "Hülle des angegriffenen Schiffs: " << Ziel->getHuelle() << endl;
 }
 
 void Spiel::spielEnde() {
+  spielFeld->printWelt(Flotten);
   int sunkenShips[2] = {0, 0};
   for (int i = 0; i < 2; i++) {
     for (const auto &schiff : Flotten.at(i)) {
@@ -180,11 +191,12 @@ void Spiel::flottenInitialisieren() {
   random_device rd;
   mt19937 gen(rd());
 
-  // Use an array of size 2, where each element is a vector<int>
+  // Use an array of size 2, where each element is a vector of ints representing
+  // the positions of ships
   array<vector<int>, 2> placedShips;
 
   for (int player = 0; player < 2; ++player) {
-    for (auto &schiff : Flotten.at(player)) {
+    for (const auto &schiff : Flotten.at(player)) {
       bool isPlaced = false;
 
       while (!isPlaced) {
@@ -193,14 +205,16 @@ void Spiel::flottenInitialisieren() {
         // Choose a random position
         int gridSize = spielFeld->getGrid().size();
         uniform_int_distribution<> disX(0, gridSize - 1);
-        uniform_int_distribution<> disY(0, gridSize - 1);
         x = disX(gen);
-        y = disY(gen);
+        y = disX(gen);
+
+        // Encode the position as a single integer (x * gridSize + y)
+        int position = x * gridSize + y;
 
         // Check if the chosen position overlaps with any previously placed ship
         bool overlaps = false;
-        for (const auto &placedShipPos : placedShips[1 - player]) {
-          if (placedShipPos / gridSize == x && placedShipPos % gridSize == y) {
+        for (const auto &placedShipPos : placedShips[player]) {
+          if (placedShipPos == position) {
             overlaps = true;
             break;
           }
@@ -210,7 +224,7 @@ void Spiel::flottenInitialisieren() {
           schiff->setX(x);
           schiff->setY(y);
           placedShips[player].push_back(
-              x * gridSize + y); // Add the ship's position to the list
+              position); // Add the ship's position to the list
           isPlaced = true;
         }
       }

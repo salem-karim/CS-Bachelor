@@ -23,8 +23,6 @@ void Jaeger::attack(ISchiff *Gegner) {
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> dis(1, 10);
   int random = dis(gen);
-  std::cout << "Random: " << random << std::endl;
-  std::cout << "Huelle: " << Gegner->getHuelle() << std::endl;
 
   // Apply damage based on the modified damage
   if (random >= Gegner->getGroesse()) {

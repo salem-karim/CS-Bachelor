@@ -3,17 +3,14 @@
 #define _SCHIFF_HPP_
 
 #include "ISchiff.hpp"
-#include <array>
-#include <memory>
-#include <vector>
 
-typedef std::array<std::vector<std::shared_ptr<ISchiff>>, 2> Flotten;
+class Welt;
 
 class Schiff : public ISchiff {
 public:
   virtual ~Schiff() {}
   Schiff(int shell, int size, int damage);
-  void move(Flotten flotten) override;
+  void move(ISchiff *Gegner, Welt *welt) override;
   void setHuelle(int value) override;
   void setSchaden(int value) override;
   void setGroesse(int value) override;

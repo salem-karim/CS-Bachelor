@@ -2,8 +2,14 @@
 #ifndef _WELT_HPP_
 #define _WELT_HPP_
 
-#include "../Schiff/Schiff.hpp"
 #include <array>
+#include <memory>
+#include <vector>
+
+class Schiff;
+class ISchiff;
+
+typedef std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;
 
 class Welt {
 public:
