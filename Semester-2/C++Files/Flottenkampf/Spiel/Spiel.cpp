@@ -59,7 +59,7 @@ void Spiel::spielLoop() {
     } catch (const invalid_argument &e) {
       cout << e.what() << endl;
     }
-    system(CLEAR);
+    // system(CLEAR);
   } while (input != 'n');
 }
 void Spiel::spielRunde() {
@@ -103,8 +103,9 @@ void Spiel::spielRunde() {
   string position2 =
       '[' + to_string(Ziel->getX()) + ',' + to_string(Ziel->getY()) + ']';
   cout << "Spieler " << player + 1 << " greift mit Schiff bei " << position1
-       << " Spieler " << 1 - player + 1 << "` GegnerSchiff bei " << position2
-       << " an." << endl;
+       << " XP: " << attacker->getXP() << " Spieler " << 1 - player + 1
+       << "` GegnerSchiff bei " << position2 << " an. XP: " << Ziel->getXP()
+       << endl;
 }
 
 void Spiel::spielEnde() {
