@@ -17,14 +17,14 @@ public:
   void setIsSunk(bool value) override;
   void setX(int value) override;
   void setY(int value) override;
-  //   void setXP(int value) override;
+  void setXP(int value) override;
   int getHuelle() const override;
   int getSchaden() const override;
   int getGroesse() const override;
   bool getIsSunk() const override;
   int getX() const override;
   int getY() const override;
-  //   int getXP() const override;
+  int getXP() const override;
 
 protected:
   int Huelle;
@@ -33,7 +33,7 @@ protected:
   bool isSunk = false;
   int x;
   int y;
-  //   int xp;
+  int xp;
 };
 
 #endif

@@ -8,6 +8,11 @@
 #include <random>
 #include <stdexcept>
 #include <string>
+#ifdef _WIN32
+#define CLEAR "cls"
+#else // In any other OS
+#define CLEAR "clear"
+#endif
 
 using namespace std;
 
@@ -54,6 +59,7 @@ void Spiel::spielLoop() {
     } catch (const invalid_argument &e) {
       cout << e.what() << endl;
     }
+    system(CLEAR);
   } while (input != 'n');
 }
 void Spiel::spielRunde() {
@@ -85,6 +91,12 @@ void Spiel::spielRunde() {
   // Attack the non-sunk target ship
   attacker->attack(Ziel.get());
   attacker->move(Ziel.get(), spielFeld.get());
+
+  if (Jaeger *jaeger = dynamic_cast<Jaeger *>(attacker.get())) {
+    if (jaeger->getXP() >= 5) { // Example XP threshold for additional move
+      jaeger->move(Ziel.get(), spielFeld.get());
+    }
+  }
   // cout which player attacks with which ship for both players
   string position1 = '[' + to_string(attacker->getX()) + ',' +
                      to_string(attacker->getY()) + ']';

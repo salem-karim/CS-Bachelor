@@ -26,12 +26,21 @@ void Jaeger::attack(ISchiff *Gegner) {
 
   // Apply damage based on the modified damage
   if (random >= Gegner->getGroesse()) {
-    if (random > 8) {
+    if (xp >= 10) {
+      if (random > 6) {
+        modifiedDamage *= 2;
+        Gegner->setHuelle(Gegner->getHuelle() - modifiedDamage);
+      } else {
+        Gegner->setHuelle(Gegner->getHuelle() - modifiedDamage);
+      }
+    } else if (random > 8) {
       Gegner->setHuelle((Gegner->getHuelle() - modifiedDamage) * 2);
       std::cout << "Gegners Hülle: " << Gegner->getHuelle() << std::endl;
+      xp++;
     } else {
       Gegner->setHuelle(Gegner->getHuelle() - modifiedDamage);
       std::cout << "Gegners Hülle: " << Gegner->getHuelle() << std::endl;
+      xp++;
     }
     if (Gegner->getHuelle() <= 0) {
       Gegner->setIsSunk(true);
