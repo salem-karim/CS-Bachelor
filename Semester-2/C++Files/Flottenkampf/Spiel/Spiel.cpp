@@ -191,9 +191,9 @@ void Spiel::flottenInitialisieren() {
   random_device rd;
   mt19937 gen(rd());
 
-  // Use an array of size 2, where each element is a vector of ints representing
-  // the positions of ships
-  array<vector<int>, 2> placedShips;
+  // Use an array of size 2, where each element is a vector of C-style arrays
+  // representing the positions of ships as {x, y} coordinates
+  array<vector<array<int, 2>>, 2> placedShips;
 
   for (int player = 0; player < 2; ++player) {
     for (const auto &schiff : Flotten.at(player)) {
@@ -201,30 +201,28 @@ void Spiel::flottenInitialisieren() {
 
       while (!isPlaced) {
         int x, y;
-
-        // Choose a random position
+        // Choose a random position between 0 and 9
         int gridSize = spielFeld->getGrid().size();
         uniform_int_distribution<> disX(0, gridSize - 1);
         x = disX(gen);
         y = disX(gen);
 
-        // Encode the position as a single integer (x * gridSize + y)
-        int position = x * gridSize + y;
-
         // Check if the chosen position overlaps with any previously placed ship
         bool overlaps = false;
         for (const auto &placedShipPos : placedShips[player]) {
-          if (placedShipPos == position) {
+          // Check if both x and y coordinates match
+          if (placedShipPos[0] == x && placedShipPos[1] == y) {
             overlaps = true;
             break;
           }
         }
 
         if (!overlaps) {
+          array<int, 2> pair = {x, y};
           schiff->setX(x);
           schiff->setY(y);
-          placedShips[player].push_back(
-              position); // Add the ship's position to the list
+          // Store the position as a C-style array {x, y}
+          placedShips[player].push_back(pair);
           isPlaced = true;
         }
       }
