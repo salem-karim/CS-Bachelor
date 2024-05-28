@@ -10,16 +10,8 @@
 
 using namespace std;
 
-void Spiel::printShips() {
-  for (int i = 0; i < 2; i++) {
-    cout << "Spieler " << i + 1 << " hat folgende Schiffe:" << endl;
-    for (int j = 0; j < Flotten.at(i).size(); j++) {
-      cout << "Schiff " << j + 1 << ": " << Flotten.at(i).at(j)->getHuelle()
-           << endl;
-    }
-    cout << endl;
-  }
-}
+Welt Spiel::getWelt() const { return *spielFeld; }
+// void Spiel::setWelt(shared_ptr<Welt> welt) { spielFeld = welt; }
 
 void Spiel::spielStart() {
   flotteErstellen();
@@ -45,7 +37,7 @@ void Spiel::spielLoop() {
     if (gameOver)
       break;
 
-    printShips();
+    spielFeld->printWelt(Flotten);
     cout << "Runde Spielen? (y/n)" << endl;
     try {
       cin >> input;

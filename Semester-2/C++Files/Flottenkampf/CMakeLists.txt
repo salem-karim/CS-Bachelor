@@ -8,7 +8,7 @@ add_executable(
   main.cpp
   Spiel/Spiel.cpp
   Schiff/Schiff.cpp
-  Schiff/ISchiff.hpp
   Jaeger/Jaeger.cpp
   Kreuzer/Kreuzer.cpp
-  Zerstoerer/Zerstoerer.cpp)
+  Zerstoerer/Zerstoerer.cpp
+  Welt/Welt.cpp)

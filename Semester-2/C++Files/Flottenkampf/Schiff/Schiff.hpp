@@ -6,22 +6,22 @@
 
 class Schiff : public ISchiff {
 public:
-  virtual ~Schiff();
+  virtual ~Schiff() {}
   Schiff(int shell, int size, int damage);
   //   void move() override;
   void setHuelle(int value) override;
   void setSchaden(int value) override;
   void setGroesse(int value) override;
   void setIsSunk(bool value) override;
-  //   void setx(int value) override;
-  //   void sety(int value) override;
+  void setx(int value) override;
+  void sety(int value) override;
   //   void setXP(int value) override;
   int getHuelle() const override;
   int getSchaden() const override;
   int getGroesse() const override;
   bool getIsSunk() const override;
-  //   int getx() const override;
-  //   int gety() const override;
+  int getx() const override;
+  int gety() const override;
   //   int getXP() const override;
 
 protected:
@@ -29,8 +29,8 @@ protected:
   int Schaden;
   int Groesse;
   bool isSunk = false;
-  //   int x;
-  //   int y;
+  int x;
+  int y;
   //   int xp;
 };
 

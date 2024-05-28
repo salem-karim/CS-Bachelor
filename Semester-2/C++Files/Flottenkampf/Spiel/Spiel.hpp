@@ -4,7 +4,7 @@
 #define _SPIEL_HPP_
 
 #include "../Schiff/Schiff.hpp"
-// #nclude "../Welt/Welt.hpp"
+#include "../Welt/Welt.hpp"
 #include <array>
 #include <vector>
 
@@ -19,13 +19,13 @@ public:
   void printShips();
 
   void setSchiff(Schiff schiff, int index, int player);
-  Schiff getSchiff(int index, int player);
-  // void setWelt(Welt welt);
-  // Welt getWelt();
+  Schiff getSchiff(int index, int player) const;
+  // void setWelt(std::shared_ptr<Welt> welt);
+  Welt getWelt() const;
 
 private:
   std::array<std::vector<std::shared_ptr<Schiff>>, 2> Flotten;
-  // Welt spielFeld;
+  std::shared_ptr<Welt> spielFeld;
 };
 
 #endif
