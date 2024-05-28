@@ -93,8 +93,6 @@ void Spiel::spielRunde() {
   cout << "Spieler " << player + 1 << " greift mit Schiff bei " << position1
        << " Spieler " << 1 - player + 1 << "` GegnerSchiff bei " << position2
        << " an." << endl;
-  // Print the Hülle of the attacked ship
-  cout << "Hülle des angegriffenen Schiffs: " << Ziel->getHuelle() << endl;
 }
 
 void Spiel::spielEnde() {

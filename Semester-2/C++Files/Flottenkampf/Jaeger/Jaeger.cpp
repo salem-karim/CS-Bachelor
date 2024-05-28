@@ -17,7 +17,7 @@ void Jaeger::attack(ISchiff *Gegner) {
   // Modify the damage based on the distance
   double damageModifier = 1.0 / (1.0 + (distance * modifier));
   int modifiedDamage =
-      static_cast<int>(std::round(damageModifier * getSchaden()));
+      static_cast<unsigned int>(std::round(damageModifier * getSchaden()));
 
   std::random_device rd;
   std::mt19937 gen(rd());
@@ -28,13 +28,17 @@ void Jaeger::attack(ISchiff *Gegner) {
   if (random >= Gegner->getGroesse()) {
     if (random > 8) {
       Gegner->setHuelle((Gegner->getHuelle() - modifiedDamage) * 2);
+      std::cout << "Gegners Hülle: " << Gegner->getHuelle() << std::endl;
     } else {
       Gegner->setHuelle(Gegner->getHuelle() - modifiedDamage);
+      std::cout << "Gegners Hülle: " << Gegner->getHuelle() << std::endl;
     }
     if (Gegner->getHuelle() <= 0) {
       Gegner->setIsSunk(true);
       std::cout << "Destroyed" << std::endl;
       return;
+    } else {
+      std::cout << "Hit" << std::endl;
     }
   } else {
     std::cout << "Missed" << std::endl;
