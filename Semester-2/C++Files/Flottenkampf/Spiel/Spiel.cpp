@@ -88,15 +88,6 @@ void Spiel::spielRunde() {
   const auto &attacker = Flotten.at(player).at(ship);
   const auto &Ziel = Flotten.at(1 - player).at(target);
 
-  // Attack the non-sunk target ship
-  attacker->attack(Ziel.get());
-  attacker->move(Ziel.get(), spielFeld.get());
-
-  if (Jaeger *jaeger = dynamic_cast<Jaeger *>(attacker.get())) {
-    if (jaeger->getXP() >= 5) { // Example XP threshold for additional move
-      jaeger->move(Ziel.get(), spielFeld.get());
-    }
-  }
   // cout which player attacks with which ship for both players
   string position1 = '[' + to_string(attacker->getX()) + ',' +
                      to_string(attacker->getY()) + ']';
@@ -106,6 +97,15 @@ void Spiel::spielRunde() {
        << " XP: " << attacker->getXP() << " Spieler " << 1 - player + 1
        << "` GegnerSchiff bei " << position2 << " an. XP: " << Ziel->getXP()
        << endl;
+  // Attack the non-sunk target ship
+  attacker->attack(Ziel.get());
+  attacker->move(Ziel.get(), spielFeld.get());
+
+  if (Jaeger *jaeger = dynamic_cast<Jaeger *>(attacker.get())) {
+    if (jaeger->getXP() >= 5) { // Example XP threshold for additional move
+      jaeger->move(Ziel.get(), spielFeld.get());
+    }
+  }
 }
 
 void Spiel::spielEnde() {

@@ -38,8 +38,7 @@ void Kreuzer::attack(ISchiff *Gegner) {
         Gegner->setIsSunk(true);
         std::cout << "Destroyed" << std::endl;
       } else {
-        // If the attack was successful but the enemy is not yet sunk, continue
-        // attacking
+        std::cout << "Hit" << std::endl;
         continue;
       }
     } else {

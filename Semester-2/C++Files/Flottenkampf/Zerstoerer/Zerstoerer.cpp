@@ -3,7 +3,10 @@
 #include <random>
 
 void Zerstoerer::attack(ISchiff *Gegner) {
-  for (int i = 0; i < 2 && xp >= 5; i++) {
+  int loop = 1;
+  if (xp >= 5)
+    int loop = 2;
+  for (int i = 0; i < loop; i++) {
     if (Gegner->getIsSunk()) {
       std::cout << "The enemy ship is already destroyed" << std::endl;
       return;
