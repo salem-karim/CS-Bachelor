@@ -1,0 +1,3 @@
+[submodule "Fun/C++Engine/external/spdlog"]
+	path = Fun/C++Engine/external/spdlog
+	url = https://github.com/gabime/spdlog.git
