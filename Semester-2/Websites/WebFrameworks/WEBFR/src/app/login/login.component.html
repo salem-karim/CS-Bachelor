@@ -3,8 +3,19 @@
   <h2>Login</h2>
   <div class="row">
     <div class="col">
-      <p>login works!</p>
       <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>E-Mail</mat-label>
+          <input
+            matInput
+            placeholder="john.doe@gmail.com"
+            [formControl]="email"
+            (blur)="updateErrorMessageEmail()"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ errorMessageEmail }}</mat-error>
+        </mat-form-field>
+        <!--
         <label for="emial">Email</label>
         <input
           class="form-control"
@@ -21,7 +32,7 @@
           type="password"
           placeholder=" Password"
           formControlName="password"
-        />
+        />-->
         <button class="btn btn-primary" type="submit">Login</button>
       </form>
     </div>
