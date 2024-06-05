@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; // express js
-import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
@@ -45,7 +44,6 @@ export class SignUpComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router,
   ) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -128,7 +126,6 @@ export class SignUpComponent {
           this.http.post('http://localhost:3000/users', user),
         );
         console.log('User registered successfully:', response); //gets message and authToken
-        this.router.navigate(['/highscore']);
       } catch (error) {
         console.error('Error registering user:', error);
       }
