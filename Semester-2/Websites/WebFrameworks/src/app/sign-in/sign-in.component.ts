@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -32,7 +34,11 @@ export class SignInComponent {
   errorMessageEmail = '';
   errorMessagePwd = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+  ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -76,17 +82,30 @@ export class SignInComponent {
     this.hide = !this.hide;
   }
 
-  onSubmit(): void {
-    if (this.signInForm.valid) {
-      const { email, password } = this.signInForm.value;
-      if (email === 'test@test.at' && password === '12345678') {
-        console.log('Sign-In Success');
-      } else {
-        console.log('Sign-In Error');
-      }
-    } else {
-      this.updateErrorMessage('email');
-      this.updateErrorMessage('password');
-    }
+  async onSubmit(): Promise<void> {
+    const user = {
+      email: this.email?.value,
+      password: this.password?.value,
+    };
+    // try {
+    //   const response: any = await firstValueFrom(
+    //     this.http.post('/sessions', user),
+    //   );
+    //   console.log(response);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+    //
+    // if (this.signInForm.valid) {
+    //   const { email, password } = this.signInForm.value;
+    //   if (email === 'test@test.at' && password === '12345678') {
+    //     console.log('Sign-In Success');
+    //   } else {
+    //     console.log('Sign-In Error');
+    //   }
+    // } else {
+    //   this.updateErrorMessage('email');
+    //   this.updateErrorMessage('password');
+    // }
   }
 }

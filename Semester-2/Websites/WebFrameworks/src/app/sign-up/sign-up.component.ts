@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-
+import { HttpClient } from '@angular/common/http'; // express js
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -38,7 +38,10 @@ export class SignUpComponent {
   city: string = '';
   plz: number = 0;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+  ) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -105,9 +108,24 @@ export class SignUpComponent {
     this.hide = !this.hide;
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.signUpForm.valid) {
       console.log('Form is valid');
+      const user = {
+        email: this.email?.value,
+        password: this.password?.value,
+        addr: this.addr,
+        city: this.city,
+        plz: this.plz,
+      };
+      // try {
+      //   const response = await firstValueFrom(
+      //     this.http.post('http://localhost:3000/users', user),
+      //   );
+      //   console.log('User registered successfully:', response); //gets message and authToken
+      // } catch (error) {
+      //   console.error('Error registering user:', error);
+      // }
     } else {
       this.updateErrorMessage('email');
       this.updateErrorMessage('password');
