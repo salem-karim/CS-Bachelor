@@ -123,6 +123,9 @@ export class SignUpComponent {
       //     this.http.post('http://localhost:3000/users', user),
       //   );
       //   console.log('User registered successfully:', response); //gets message and authToken
+      //   //Maybe this ?
+      //   this.router.navigate(['/game']);
+
       // } catch (error) {
       //   console.error('Error registering user:', error);
       // }

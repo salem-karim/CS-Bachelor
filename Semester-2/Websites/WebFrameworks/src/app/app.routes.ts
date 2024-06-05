@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
-import { SignInComponent } from './sign-in/sign-in.component'; //UE_1
-import { SignUpComponent } from './sign-up/sign-up.component'; //UE_2
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { HighscoreComponent } from './highscore/highscore.component';
 
 export const routes: Routes = [
-  { path: 'sign-in', component: SignInComponent }, //UE_1
-  { path: 'sign-up', component: SignUpComponent }, // UE_2
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'highscore', component: HighscoreComponent },
 ];
