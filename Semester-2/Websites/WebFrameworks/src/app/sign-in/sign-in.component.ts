@@ -9,9 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,6 +26,7 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     CommonModule,
+    HttpClientModule,
   ],
 })
 export class SignInComponent {
@@ -83,29 +85,23 @@ export class SignInComponent {
   }
 
   async onSubmit(): Promise<void> {
+    // express requests
     const user = {
-      email: this.email?.value,
-      password: this.password?.value,
+      username: this.signInForm.get('email')?.value,
+      password: this.signInForm.get('password')?.value,
     };
-    // try {
-    //   const response: any = await firstValueFrom(
-    //     this.http.post('/sessions', user),
-    //   );
-    //   console.log(response);
-    // } catch (error) {
-    //   console.error(error);
-    // }
-    //
-    // if (this.signInForm.valid) {
-    //   const { email, password } = this.signInForm.value;
-    //   if (email === 'test@test.at' && password === '12345678') {
-    //     console.log('Sign-In Success');
-    //   } else {
-    //     console.log('Sign-In Error');
-    //   }
-    // } else {
-    //   this.updateErrorMessage('email');
-    //   this.updateErrorMessage('password');
-    // }
+
+    try {
+      const response: any = await firstValueFrom(
+        this.http.post('http://localhost:3000/sessions', user),
+      );
+      console.log('Session Token:', response.sessionToken);
+      console.log('Message: ' + response.message);
+
+      localStorage.setItem('sessionToken', response.sessionToken);
+      this.router.navigate(['/highscore']);
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   }
 }

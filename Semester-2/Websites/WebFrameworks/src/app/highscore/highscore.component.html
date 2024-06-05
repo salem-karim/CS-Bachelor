@@ -1,5 +1,3 @@
-<!--
-
 <section>
   <div class="example-button-row">
     <button mat-raised-button (click)="sendHighscore()">Send Highscore</button>
@@ -11,8 +9,6 @@
 <h2>Highscores</h2>
 <ul>
   <li *ngFor="let score of highscores">
-    {{ score.username }} - {{ score.score }}
+    {{ score["username"] }} - {{ score["score"] }}
   </li>
 </ul>
-
--->

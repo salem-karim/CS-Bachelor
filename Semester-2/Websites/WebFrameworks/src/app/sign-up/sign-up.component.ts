@@ -11,7 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http'; // express js
+import { HttpClient, HttpClientModule } from '@angular/common/http'; // express js
+import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -25,6 +28,7 @@ import { HttpClient } from '@angular/common/http'; // express js
     MatIconModule,
     CommonModule,
     FormsModule,
+    HttpClientModule,
   ],
 })
 export class SignUpComponent {
@@ -41,6 +45,7 @@ export class SignUpComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
+    private router: Router,
   ) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -112,23 +117,21 @@ export class SignUpComponent {
     if (this.signUpForm.valid) {
       console.log('Form is valid');
       const user = {
-        email: this.email?.value,
-        password: this.password?.value,
+        username: this.signUpForm.get('email')?.value,
+        password: this.signUpForm.get('password')?.value,
         addr: this.addr,
         city: this.city,
         plz: this.plz,
       };
-      // try {
-      //   const response = await firstValueFrom(
-      //     this.http.post('http://localhost:3000/users', user),
-      //   );
-      //   console.log('User registered successfully:', response); //gets message and authToken
-      //   //Maybe this ?
-      //   this.router.navigate(['/game']);
-
-      // } catch (error) {
-      //   console.error('Error registering user:', error);
-      // }
+      try {
+        const response = await firstValueFrom(
+          this.http.post('http://localhost:3000/users', user),
+        );
+        console.log('User registered successfully:', response); //gets message and authToken
+        this.router.navigate(['/highscore']);
+      } catch (error) {
+        console.error('Error registering user:', error);
+      }
     } else {
       this.updateErrorMessage('email');
       this.updateErrorMessage('password');
