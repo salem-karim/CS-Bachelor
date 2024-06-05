@@ -1,0 +1,13 @@
+<div style="margin: 20px">
+  <h1>{{ title }}</h1>
+  <h2>Routing</h2>
+  <nav>
+    <ul>
+      <li><a [routerLink]="'/login'" routerLinkActive="active">Login</a></li>
+      <li>
+        <a [routerLink]="'/register'" routerLinkActive="active">register</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<router-outlet></router-outlet>
