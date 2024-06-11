@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; // express js
-import { firstValueFrom } from 'rxjs';
+// import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -33,6 +33,7 @@ import { firstValueFrom } from 'rxjs';
 export class SignUpComponent {
   signUpForm: FormGroup;
   hide: boolean = true;
+  hide2: boolean = true;
   errorMessageEmail = '';
   errorMessagePwd = '';
   errorMessagePwd2 = '';
@@ -107,11 +108,15 @@ export class SignUpComponent {
     }
   }
 
-  togglePasswordVisibility() {
-    this.hide = !this.hide;
+  togglePasswordVisibility(field: string) {
+    if (field === 'password') {
+      this.hide = !this.hide;
+    } else if (field === 'password2') {
+      this.hide2 = !this.hide2;
+    }
   }
 
-  async onSubmit(): Promise<void> {
+  onSubmit() {
     if (this.signUpForm.valid) {
       console.log('Form is valid');
       const user = {
@@ -122,9 +127,10 @@ export class SignUpComponent {
         plz: this.plz,
       };
       try {
-        const response = await firstValueFrom(
-          this.http.post('http://localhost:3000/users', user),
-        );
+        // const response = await firstValueFrom(
+        //   this.http.post('http://localhost:3000/users', user),
+        // );
+        const response = this.http.post('http://127.0.0.1:3000/users', user);
         console.log('User registered successfully:', response); //gets message and authToken
       } catch (error) {
         console.error('Error registering user:', error);
