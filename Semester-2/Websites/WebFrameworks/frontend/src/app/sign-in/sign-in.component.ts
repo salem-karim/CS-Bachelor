@@ -12,7 +12,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { firstValueFrom } from 'rxjs';
+
+// Define the interface for the response type
+interface SignInResponse {
+  sessionToken: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-sign-in',
@@ -84,24 +89,27 @@ export class SignInComponent {
     this.hide = !this.hide;
   }
 
-  async onSubmit(): Promise<void> {
+  onSubmit() {
     // express requests
     const user = {
       username: this.signInForm.get('email')?.value,
       password: this.signInForm.get('password')?.value,
     };
 
-    try {
-      const response: any = await firstValueFrom(
-        this.http.post('http://localhost:3000/sessions', user),
-      );
-      console.log('Session Token:', response.sessionToken);
-      console.log('Message: ' + response.message);
+    this.http
+      .post<SignInResponse>('http://127.0.0.1:3000/sessions', user)
+      .subscribe({
+        next: (response) => {
+          console.log('User signed in successfully:', response);
+          console.log('Session Token:', response.sessionToken);
+          console.log('Message: ' + response.message);
 
-      localStorage.setItem('sessionToken', response.sessionToken);
-      this.router.navigate(['/highscore']);
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
+          localStorage.setItem('sessionToken', response.sessionToken);
+          this.router.navigate(['/highscore']);
+        },
+        error: (error) => {
+          console.error('Error signing in user:', error);
+        },
+      });
   }
 }
