@@ -14,6 +14,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; // express js
 
+interface SignInResponse {
+  sessionToken: string;
+  message: string;
+}
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -128,10 +133,22 @@ export class SignUpComponent {
         plz: this.plz,
       };
       this.http.post('http://127.0.0.1:3000/users', user).subscribe({
-        next: (response) => {
-          console.log('User registered successfully:', response);
-
-          this.router.navigate(['/sign-in']);
+        next: () => {
+          this.http
+            .post<SignInResponse>('http://127.0.0.1:3000/sessions', user)
+            .subscribe({
+              next: (response) => {
+                localStorage.setItem('sessionToken', response.sessionToken);
+                console.log('User registered successfully:', response);
+                this.router.navigate(['/highscore']);
+              },
+              error: (error) => {
+                console.error(
+                  'Error authenticating user after registration:',
+                  error,
+                );
+              },
+            });
         },
         error: (error) => {
           console.error('Error registering user:', error);
