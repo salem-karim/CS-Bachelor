@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,7 +28,7 @@ interface Highscore {
   templateUrl: './highscore.component.html',
   styleUrls: ['./highscore.component.scss'],
 })
-export class HighscoreComponent {
+export class HighscoreComponent implements OnInit {
   highscores: Highscore[] = [];
 
   constructor(

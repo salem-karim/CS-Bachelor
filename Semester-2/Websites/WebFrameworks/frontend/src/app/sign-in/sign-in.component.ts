@@ -13,7 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-// Define the interface for the response type
+// Interface for the request response
 interface SignInResponse {
   sessionToken: string;
   message: string;

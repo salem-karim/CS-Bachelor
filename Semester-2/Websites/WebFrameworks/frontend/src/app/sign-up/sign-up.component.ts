@@ -12,8 +12,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http'; // express js
+import { HttpClient, HttpClientModule } from '@angular/common/http'; // express js requests
 
+// Interface for the session request response
 interface SignInResponse {
   sessionToken: string;
   message: string;
@@ -132,6 +133,7 @@ export class SignUpComponent {
         city: this.city,
         plz: this.plz,
       };
+      // request for sign up and then create a session
       this.http.post('http://127.0.0.1:3000/users', user).subscribe({
         next: () => {
           this.http
