@@ -1,6 +1,6 @@
 [submodule "Fun/C++Engine/external/spdlog"]
 	path = Fun/C++Engine/external/spdlog
 	url = https://github.com/gabime/spdlog.git
-[submodule "Semester-3/myfind"]
-	path = Semester-3/myfind
+[submodule "Semester-3/VERT/myfind"]
+	path = Semester-3/VERT/myfind
 	url = https://gitlab.com/verts/myfind.git
