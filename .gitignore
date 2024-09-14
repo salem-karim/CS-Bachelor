@@ -9,9 +9,14 @@
 # ignore chace and output files in PythonFiles
 .mypy_cache/
 
-#VSCode Stuff
+# VSCode Stuff
 .vscode/
 build/
+# Node
 node_modules
 **/node_modules/
 /node_modules
+
+# Jetbrains Stuff
+**/.idea/**
+
