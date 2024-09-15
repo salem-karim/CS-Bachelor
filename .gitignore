@@ -6,8 +6,9 @@
 **/compile_commands.json
 
 
-# ignore chace and output files in PythonFiles
+# Python stiff 
 .mypy_cache/
+**/.ipynb_checkpoints/**
 
 # VSCode Stuff
 .vscode/
