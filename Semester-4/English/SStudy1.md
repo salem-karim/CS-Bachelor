@@ -1,16 +1,16 @@
 ## PechaKucha Presentation
 
-- What is a PK ?
+- What is a PK ?  
   A PK (PechaKucha) presentation is a format of presentation, which only consists on 20 very simple slides,  
   often just pictures or icons with minimal Text being shown. These Slides also are only shown for 20 seconds.  
 
-- Advantages and disadvantages of PechaKucha
-  - Advantages
+- Advantages and Disadvantages of PechaKucha
+  - Advantages  
     Its very short at only 6 minutes and 40 seconds of presentation time, making it very dynamic.  
     As only simple images with minimal Text are used its visual and attractive for the audience.  
     Since there is less then 7 minutes of time the presenter needs to practice the presentation, making it better.  
 
-  - Disadvantages
+  - Disadvantages  
     Because its so short you can't present as much material as more traditional presentations.  
     Finding 20 well chosen images can be very hard and its also limiting in content that can be used.  
     It needs a lot of practice as so you dont take up too much time talking on one slide.  
