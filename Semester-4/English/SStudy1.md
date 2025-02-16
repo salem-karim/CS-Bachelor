@@ -15,11 +15,11 @@
     Finding 20 well chosen images can be very hard and its also limiting in content that can be used.  
     It needs a lot of practice as so you dont take up too much time talking on one slide.  
 
-- What advice does the presenter give on making a PK?
+- What advice does the presenter give on making a PK?  
   Embracing the limitations of PK so that you can focus more on your creativity and practice the presentation.  
   Find the Story you want to tell, split it apart into 20 pieces and lastly find images for each part.  
 
-- What do you think of this alternative presentation format and why?
+- What do you think of this alternative presentation format and why?  
   You can focus on practicing the presentation itself. The layout is simpler than normal ones.  
   There aren't that many Presentations where you really need more than 7 minutes,  
   this forces you to simplify your "story" as much as possible.  
