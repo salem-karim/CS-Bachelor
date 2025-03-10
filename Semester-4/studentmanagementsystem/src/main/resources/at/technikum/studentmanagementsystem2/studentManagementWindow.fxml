@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox fx:id="vbox" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/21.0.5"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="at.technikum.studentmanagementsystem2.StudentManagementController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+  </padding>
+
+  <Label fx:id="welcomeText" text="%main.title" VBox.vgrow="NEVER">
+    <font>
+      <Font name="Roboto Thin" size="14.0"/>
+    </font>
+  </Label>
+  <fx:include fx:id="includedButtonBar" source="newEditDeleteButtonBar.fxml"/>
+  <HBox>
+    <children>
+      <TableView fx:id="studentTable" HBox.hgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="idColumn" text="%table.columnID"/>
+          <TableColumn fx:id="nameColumn" text="%table.columnName"/>
+          <TableColumn fx:id="semesterColumn" text="%table.columnSemester"/>
+        </columns>
+      </TableView>
+    </children>
+  </HBox>
+  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+    <buttons>
+      <Button mnemonicParsing="true" text="%button.ok"/>
+      <Button mnemonicParsing="true" text="%button.cancel"/>
+    </buttons>
+  </ButtonBar>
+</VBox>

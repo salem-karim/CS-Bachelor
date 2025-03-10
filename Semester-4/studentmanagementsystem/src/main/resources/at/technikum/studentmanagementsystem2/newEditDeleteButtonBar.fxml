@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ButtonBar fx:id="buttonBar" fx:controller="at.technikum.studentmanagementsystem2.NewEditDeleteButtonBarController" xmlns="http://javafx.com/javafx/17.0.11" xmlns:fx="http://javafx.com/fxml/1">
+    <buttons>
+        <Button fx:id="newButton" mnemonicParsing="true" text="%button.new" onAction="#onNew" />
+        <Button fx:id="editButton" mnemonicParsing="true" text="%button.edit" onAction="#onEdit"/>
+        <Button fx:id="deleteButton" mnemonicParsing="true" text="%button.delete" onAction="#onDelete"/>
+    </buttons>
+</ButtonBar>
