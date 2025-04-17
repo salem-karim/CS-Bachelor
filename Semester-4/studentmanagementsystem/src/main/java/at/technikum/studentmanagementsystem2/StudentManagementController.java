@@ -114,6 +114,10 @@ public class StudentManagementController implements Initializable {
     newEditDeleteButtonBarController.setTableView(studentTable);
     newEditDeleteButtonBarController.setNewButtonListener((event) -> onNewButtonClick());
     newEditDeleteButtonBarController.setEditButtonListener((event) -> onEditButtonClick());
-    newEditDeleteButtonBarController.setDeleteButtonListener((event) -> System.out.println("delete clicked"));
+    newEditDeleteButtonBarController.setDeleteButtonListener((event) -> onDeleteButtonClick());
+  }
+
+  private void onDeleteButtonClick() {
+    studentTable.getSelectionModel().getSelectedItems().forEach(studentViewModel -> studentTableView.deleteStudent((StudentViewModel) studentViewModel));
   }
 }

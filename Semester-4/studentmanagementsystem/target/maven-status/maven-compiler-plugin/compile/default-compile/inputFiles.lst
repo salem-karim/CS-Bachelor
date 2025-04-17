@@ -1,3 +1,11 @@
-/home/karim/dev/CS-Bachelor/Semester-4/studentManagementSystem/src/main/java/at/technikum/studentmanagementsystem/StudentManagementApplication.java
-/home/karim/dev/CS-Bachelor/Semester-4/studentManagementSystem/src/main/java/at/technikum/studentmanagementsystem/StudentManagementController.java
-/home/karim/dev/CS-Bachelor/Semester-4/studentManagementSystem/src/main/java/module-info.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/NewEditDeleteButtonBarController.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/StudentEditController.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/StudentManagementApplication.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/StudentManagementController.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/helpers/UUIDv7Generator.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/mediators/ButtonDisableSelectionMediator.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/mediators/Mediator.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/models/Student.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/mvvm/StudentTableViewModel.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/at/technikum/studentmanagementsystem2/mvvm/StudentViewModel.java
+/home/karim/dev/CS-Bachelor/Semester-4/studentmanagementsystem/src/main/java/module-info.java
