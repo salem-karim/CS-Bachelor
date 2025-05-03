@@ -1,29 +1,32 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
-int a=0;
-int V=0;
-int A=0;
-float d=0;
-float ri=0;
-float ru=0;
+void printCube(const string &text) { cout << text; }
 
-void wuerfel ()
-{
-	V=pow(a,3);
-	A=6*pow(a,2);
-	d=a*sqrt(3);
-	ru=a/2*sqrt(3);
-	ri=a/2;
+string formatString(int V, int A, float d, float ru, float ri) {
+  stringstream output;
+  output << "Volumen:" << V;
+  output << " Oberfläche:" << A;
+  output << " Diagonale:" << d;
+  output << " Umkreisradius:" << ru;
+  output << " Inkreisradius:" << ri << endl;
+  return output.str();
 }
 
-int
-main (int argc, char *argv[])
-{
-  a = 2;
-  wuerfel ();
-  cout << "Volumen:" << V << " Oberfläche:"<<A << " Diagonale:" << d << " Inkreisradius:" << ri << " Umkreisradius:" <<ru << endl;
+string wuerfel(int a) {
+  const int V = pow(a, 3);
+  const int A = 6 * pow(a, 2);
+  const float d = a * sqrt(3);
+  const float ru = (float)a / 2 * sqrt(3);
+  const float ri = (float)a / 2;
+  return formatString(V, A, d, ru, ri);
+}
+
+int main(int argc, char *argv[]) {
+  const int a = 2;
+  printCube(wuerfel(a));
   return 0;
 }

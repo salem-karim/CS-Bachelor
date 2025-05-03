@@ -1,29 +1,27 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
-int a=0;
-int b=0;
-int c=0;
-int V=0;
-int A=0;
-float d=0;
+/*unpure*/
+void printQuader(const string &text) { cout << text; }
 
-void quader ()
-{
-	V=a*b*c;
-	A=2*(a*b+a*c+b*c);
-	d=sqrt(pow(a,2)+pow(b,2)+pow(c,2));
+/*pure*/
+string quader(int a, int b, int c) {
+  stringstream output;
+  const int V = a * b * c;
+  const int A = 2 * (a * b + a * c + b * c);
+  const float d = sqrt(pow(a, 2) + pow(b, 2) + pow(c, 2));
+  output << "Volumen:" << V << " Oberfläche:" << A << " Diagonale:" << d
+         << endl;
+  return output.str();
 }
 
-int
-main (int argc, char *argv[])
-{
-  a = 2;
-  b = 3;
-  c = 4;
-  quader ();
-  cout << "Volumen:" << V << " Oberfläche:"<<A << " Diagonale:" << d << endl;
+int main(int argc, char *argv[]) {
+  const int a = 2;
+  const int b = 3;
+  const int c = 4;
+  printQuader(quader(a, b, c));
   return 0;
 }
