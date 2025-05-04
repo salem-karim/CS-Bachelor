@@ -6,7 +6,8 @@ using namespace std;
 
 void print(const string &text) { cout << text; }
 
-string formattedString(float V, float A, float ri, float ru) {
+string formattedString(const float V, const float A, const float ri,
+                       const float ru) {
   stringstream output;
   output << "Volumen:" << V;
   output << " Oberfläche:" << A;
@@ -15,7 +16,7 @@ string formattedString(float V, float A, float ri, float ru) {
   return output.str();
 }
 
-string dodekaeder(int a) {
+string dodekaeder(const int a) {
   float V = pow(a, 3) * (15 + 7 * sqrt(5)) / 4.0;
   float A = 3 * pow(a, 2) * sqrt(5 * (5 + 2 * sqrt(5)));
   float ru = a * sqrt(3) * (1 + sqrt(5)) / 4.0;

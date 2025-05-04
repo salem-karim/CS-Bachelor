@@ -6,7 +6,8 @@ using namespace std;
 
 void print(const string &text) { cout << text; }
 
-string formattedString(float V, float A, float ri, float ru) {
+string formattedString(const float V, const float A, const float ri,
+                       const float ru) {
   stringstream output;
   output << "Volumen:" << V;
   output << " Oberfläche:" << A, output << " Inkreisradius:" << ri;
@@ -14,7 +15,7 @@ string formattedString(float V, float A, float ri, float ru) {
   return output.str();
 }
 
-string tetraeder(int a) {
+string tetraeder(const int a) {
   float V = pow(a, 3) * sqrt(2) / 12;
   float A = pow(a, 2) * sqrt(3);
   float ru = a * sqrt(6) / 4;

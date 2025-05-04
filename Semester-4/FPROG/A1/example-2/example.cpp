@@ -6,7 +6,8 @@ using namespace std;
 
 void printCube(const string &text) { cout << text; }
 
-string formatString(int V, int A, float d, float ru, float ri) {
+string formatString(const int V, const int A, const float d, const float ru,
+                    const float ri) {
   stringstream output;
   output << "Volumen:" << V;
   output << " Oberfläche:" << A;
@@ -16,7 +17,7 @@ string formatString(int V, int A, float d, float ru, float ri) {
   return output.str();
 }
 
-string wuerfel(int a) {
+string wuerfel(const int a) {
   const int V = pow(a, 3);
   const int A = 6 * pow(a, 2);
   const float d = a * sqrt(3);

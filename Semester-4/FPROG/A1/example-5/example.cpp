@@ -6,7 +6,8 @@ using namespace std;
 
 void print(const string &text) { cout << text; }
 
-string formattedString(float V, float A, float ri, float ru) {
+string formattedString(const float V, const float A, const float ri,
+                       const float ru) {
   stringstream output;
   output << "Volumen:" << V;
   output << " Oberfläche:" << A;
@@ -15,7 +16,7 @@ string formattedString(float V, float A, float ri, float ru) {
   return output.str();
 }
 
-string ikosaeder(int a) {
+string ikosaeder(const int a) {
   float V = 5 * pow(a, 3) * (3 + sqrt(5)) / 12;
   float A = 5 * pow(a, 2) * sqrt(3);
   float ru = a / 4.0 * sqrt(2 * (5 + sqrt(5)));
