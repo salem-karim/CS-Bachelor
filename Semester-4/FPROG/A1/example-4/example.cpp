@@ -1,27 +1,30 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
-int a=0;
-float V=0;
-float A=0;
-float ri=0;
-float ru=0;
+void print(const string &text) { cout << text; }
 
-void oktaeder ()
-{
-	V=pow(a,3)*sqrt(2)/3;
-	A=2*pow(a,2)*sqrt(3);
-	ru=a*sqrt(2)/2;
-	ri=a*sqrt(6)/6;
+string formattedString(float V, float A, float ri, float ru) {
+  stringstream output;
+  output << "Volumen:" << V;
+  output << " Oberfläche:" << A;
+  output << " Inkreisradius:" << ri;
+  output << " Umkreisradius:" << ru << endl;
+  return output.str();
 }
 
-int
-main (int argc, char *argv[])
-{
-  a = 2;
-  oktaeder ();
-  cout << "Volumen:" << V << " Oberfläche:"<<A << " Inkreisradius:" << ri << " Umkreisradius:" <<ru << endl;
+string oktaeder(int a) {
+  float V = pow(a, 3) * sqrt(2) / 3;
+  float A = 2 * pow(a, 2) * sqrt(3);
+  float ru = a * sqrt(2) / 2;
+  float ri = a * sqrt(6) / 6;
+  return formattedString(V, A, ri, ru);
+}
+
+int main(int argc, char *argv[]) {
+  int a = 2;
+  print(oktaeder(a));
   return 0;
 }
