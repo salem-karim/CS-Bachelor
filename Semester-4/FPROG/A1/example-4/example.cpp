@@ -17,15 +17,15 @@ string formattedString(const float V, const float A, const float ri,
 }
 
 string oktaeder(const int a) {
-  float V = pow(a, 3) * sqrt(2) / 3;
-  float A = 2 * pow(a, 2) * sqrt(3);
-  float ru = a * sqrt(2) / 2;
-  float ri = a * sqrt(6) / 6;
+  const float V = pow(a, 3) * sqrt(2) / 3;
+  const float A = 2 * pow(a, 2) * sqrt(3);
+  const float ru = a * sqrt(2) / 2;
+  const float ri = a * sqrt(6) / 6;
   return formattedString(V, A, ri, ru);
 }
 
 int main(int argc, char *argv[]) {
-  int a = 2;
+  const int a = 2;
   print(oktaeder(a));
   return 0;
 }

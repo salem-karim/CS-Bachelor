@@ -16,15 +16,15 @@ string formattedString(const float V, const float A, const float ri,
 }
 
 string tetraeder(const int a) {
-  float V = pow(a, 3) * sqrt(2) / 12;
-  float A = pow(a, 2) * sqrt(3);
-  float ru = a * sqrt(6) / 4;
-  float ri = a * sqrt(6) / 12;
+  const float V = pow(a, 3) * sqrt(2) / 12;
+  const float A = pow(a, 2) * sqrt(3);
+  const float ru = a * sqrt(6) / 4;
+  const float ri = a * sqrt(6) / 12;
   return formattedString(V, A, ri, ru);
 }
 
 int main(int argc, char *argv[]) {
-  int a = 2;
+  const int a = 2;
   print(tetraeder(a));
   return 0;
 }
