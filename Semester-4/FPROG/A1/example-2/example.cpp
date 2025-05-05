@@ -21,8 +21,8 @@ string wuerfel(const int a) {
   const int V = pow(a, 3);
   const int A = 6 * pow(a, 2);
   const float d = a * sqrt(3);
-  const float ru = (float)a / 2 * sqrt(3);
-  const float ri = (float)a / 2;
+  const float ru = sqrt(3) * a / 2;
+  const float ri = a / 2.0f;
   return formatString(V, A, d, ru, ri);
 }
 
