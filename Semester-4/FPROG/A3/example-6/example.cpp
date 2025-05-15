@@ -6,10 +6,10 @@ using namespace std;
 
 void print(const string &text) { cout << text; }
 
-auto formatDodecahedronCurried = [](float V) {
-  return [=](float A) {
-    return [=](float ri) {
-      return [=](float ru) {
+auto formatDodecahedron = [](const float V) {
+  return [=](const float A) {
+    return [=](const float ri) {
+      return [=](const float ru) {
         stringstream output;
         output << "Volumen:" << V;
         output << " Oberfläche:" << A;
@@ -21,19 +21,12 @@ auto formatDodecahedronCurried = [](float V) {
   };
 };
 
-auto volume = [](int a) { return pow(a, 3) * (15 + 7 * sqrt(5)) / 4.0f; };
-
-auto area = [](int a) { return 3 * pow(a, 2) * sqrt(5 * (5 + 2 * sqrt(5))); };
-
-auto inradius = [](int a) {
-  return a * sqrt(10 * (25 + 11 * sqrt(5))) / 20.0f;
-};
-
-auto circumradius = [](int a) { return a * sqrt(3) * (1 + sqrt(5)) / 4.0f; };
-
-string dodekaeder(int a) {
-  return formatDodecahedronCurried(volume(a))(area(a))(inradius(a))(
-      circumradius(a));
+string dodekaeder(const int a) {
+  auto volume = [a]() { return pow(a, 3) * (15 + 7 * sqrt(5)) / 4.0f; };
+  auto area = [a]() { return 3 * pow(a, 2) * sqrt(5 * (5 + 2 * sqrt(5))); };
+  auto inradius = [a]() { return a * sqrt(10 * (25 + 11 * sqrt(5))) / 20.0f; };
+  auto circumradius = [a]() { return a * sqrt(3) * (1 + sqrt(5)) / 4.0f; };
+  return formatDodecahedron(volume())(area())(inradius())(circumradius());
 }
 
 int main(int argc, char *argv[]) {

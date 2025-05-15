@@ -29,7 +29,6 @@ auto inradius = [](const int a) { return (a * sqrt(6)) / 12.0f; };
 
 auto circumradius = [](const int a) { return (a * sqrt(6)) / 4.0f; };
 
-// Compose them into a single function
 string tetrahedron(const int a) {
   return formatTetrahedronCurried(volume(a))(area(a))(inradius(a))(
       circumradius(a));

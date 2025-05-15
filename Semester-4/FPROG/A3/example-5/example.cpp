@@ -6,10 +6,10 @@ using namespace std;
 
 void print(const string &text) { cout << text; }
 
-auto formatIcosahedronCurried = [](float V) {
-  return [=](float A) {
-    return [=](float ri) {
-      return [=](float ru) {
+auto formatIcosahedronCurried = [](const float V) {
+  return [=](const float A) {
+    return [=](const float ri) {
+      return [=](const float ru) {
         stringstream output;
         output << "Volumen:" << V;
         output << " Oberfläche:" << A;
@@ -21,17 +21,12 @@ auto formatIcosahedronCurried = [](float V) {
   };
 };
 
-auto volume = [](int a) { return (5 * pow(a, 3) * (3 + sqrt(5))) / 12.0f; };
-
-auto area = [](int a) { return 5 * pow(a, 2) * sqrt(3); };
-
-auto inradius = [](int a) { return (a * sqrt(3) * (3 + sqrt(5))) / 12.0f; };
-
-auto circumradius = [](int a) { return (a / 4.0f) * sqrt(2 * (5 + sqrt(5))); };
-
-string ikosaeder(int a) {
-  return formatIcosahedronCurried(volume(a))(area(a))(inradius(a))(
-      circumradius(a));
+string ikosaeder(const int a) {
+  auto volume = [a]() { return (5 * pow(a, 3) * (3 + sqrt(5))) / 12.0f; };
+  auto area = [a]() { return 5 * pow(a, 2) * sqrt(3); };
+  auto inradius = [a]() { return (a * sqrt(3) * (3 + sqrt(5))) / 12.0f; };
+  auto circumradius = [a]() { return (a / 4.0f) * sqrt(2 * (5 + sqrt(5))); };
+  return formatIcosahedronCurried(volume())(area())(inradius())(circumradius());
 }
 
 int main(int argc, char *argv[]) {
