@@ -6,25 +6,37 @@ using namespace std;
 
 void print(const string &text) { cout << text; }
 
-string formattedString(const float V, const float A, const float ri,
-                       const float ru) {
-  stringstream output;
-  output << "Volumen:" << V;
-  output << " Oberfläche:" << A, output << " Inkreisradius:" << ri;
-  output << " Umkreisradius:" << ru << endl;
-  return output.str();
-}
+auto formatTetrahedronCurried = [](const float V) {
+  return [V](const float A) {
+    return [V, A](const float ri) {
+      return [V, A, ri](const float ru) {
+        stringstream output;
+        output << "Volumen:" << V;
+        output << " Oberfläche:" << A;
+        output << " Inkreisradius:" << ri;
+        output << " Umkreisradius:" << ru << endl;
+        return output.str();
+      };
+    };
+  };
+};
 
-string tetraeder(const int a) {
-  const float V = pow(a, 3) * sqrt(2) / 12;
-  const float A = pow(a, 2) * sqrt(3);
-  const float ru = a * sqrt(6) / 4;
-  const float ri = a * sqrt(6) / 12;
-  return formattedString(V, A, ri, ru);
+auto volume = [](const int a) { return (pow(a, 3) * sqrt(2)) / 12.0f; };
+
+auto area = [](const int a) { return pow(a, 2) * sqrt(3); };
+
+auto inradius = [](const int a) { return (a * sqrt(6)) / 12.0f; };
+
+auto circumradius = [](const int a) { return (a * sqrt(6)) / 4.0f; };
+
+// Compose them into a single function
+string tetrahedron(const int a) {
+  return formatTetrahedronCurried(volume(a))(area(a))(inradius(a))(
+      circumradius(a));
 }
 
 int main(int argc, char *argv[]) {
-  const int a = 2;
-  print(tetraeder(a));
+  const int a = 1;
+  print(tetrahedron(a));
   return 0;
 }
