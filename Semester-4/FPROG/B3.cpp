@@ -101,9 +101,9 @@ TEST_CASE("Immutable Vector Append (Cons)") {
 
   SUBCASE("Cons to empty vector") {
     vector<int> original = {};
-    vector<int> result = vectorCons<int>(42, original);
+    vector<int> result = vectorCons<int>(62, original);
 
-    CHECK_EQ(result, vector<int>{42});
+    CHECK_EQ(result, vector<int>{62});
     CHECK(original.empty());
   }
 
@@ -133,11 +133,11 @@ TEST_CASE("Immutable Integer List Reversal") {
   }
 
   SUBCASE("Reverse single element vector") {
-    vector<int> original = {42};
+    vector<int> original = {49};
     vector<int> result = vectorReverse(original);
 
-    CHECK_EQ(result, vector<int>{42});
-    CHECK_EQ(original, vector<int>{42});
+    CHECK_EQ(result, vector<int>{49});
+    CHECK_EQ(original, vector<int>{49});
   }
 
   SUBCASE("Reverse empty vector") {
