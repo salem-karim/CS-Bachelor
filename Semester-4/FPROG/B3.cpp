@@ -9,6 +9,15 @@ using std::set;
 using std::string;
 using std::vector;
 
+// auto stringReplace = [](const string &str, const char oldChar,
+//                         const char newChar) { return str; };
+
+// auto stringReplace = [](string &str, const char oldChar, const char newChar)
+// {
+//   replace(str.begin(), str.end(), oldChar, newChar);
+//   return str;
+// };
+
 // 1) Immutable String Replace
 auto stringReplace = [](const string &str, const char oldChar,
                         const char newChar) {
@@ -42,6 +51,15 @@ TEST_CASE("Immutable String Replace") {
     CHECK_EQ(original, "");
   }
 }
+
+// auto setUnion = [](const set<int> &set1, const set<int> &set2) {
+//   return set1;
+// };
+
+// auto setUnion = [](set<int> &set1, const set<int> &set2) {
+//   set1.insert(set2.begin(), set2.end());
+//   return set1;
+// };
 
 // 2) Immutable Set Union
 auto setUnion = [](const set<int> &set1, const set<int> &set2) {
@@ -82,6 +100,17 @@ TEST_CASE("Immutable Set Union") {
   }
 }
 
+// template <typename T>
+// auto vectorCons = [](const T &element, vector<T> &vec) {
+//   return vec;
+// };
+
+// template <typename T>
+// auto vectorCons = [](const T &element, const vector<T> &vec) {
+//   vec.insert(result.begin(), element);
+//   return vec;
+// };
+
 // 3) Immutable Vector Append (Cons)
 template <typename T>
 auto vectorCons = [](const T &element, const vector<T> &vec) {
@@ -115,6 +144,15 @@ TEST_CASE("Immutable Vector Append (Cons)") {
     CHECK_EQ(original, vector<string>{"world", "!"});
   }
 }
+
+// auto vectorReverse = [](const vector<int> &vec) {
+//   return vec;
+// };
+
+// auto vectorReverse = [](vector<int> &vec) {
+//   reverse(vec.begin(), vec.end());
+//   return vec;
+// };
 
 // 4) Immutable Integer List Reversal
 auto vectorReverse = [](const vector<int> &vec) {
