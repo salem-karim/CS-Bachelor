@@ -14,8 +14,8 @@ constexpr int ROWS = 6;
 constexpr int COLS = 7;
 const vector<char> validTokens = {'R', 'Y'};
 
-auto checkBoardDimensions = [](const Board &board, size_t expectedRows,
-                               size_t expectedCols) {
+inline auto checkBoardDimensions = [](const Board &board, size_t expectedRows,
+                                      size_t expectedCols) {
   if (board.size() != expectedRows)
     return false;
   for (const auto &line : board) {
@@ -25,8 +25,8 @@ auto checkBoardDimensions = [](const Board &board, size_t expectedRows,
   return true;
 };
 
-auto checkForCorrectTokens = [](const Board &board,
-                                const vector<char> &validTokens) {
+inline auto checkForCorrectTokens = [](const Board &board,
+                                       const vector<char> &validTokens) {
   return std::all_of(
       board.begin(), board.end(), [&validTokens](const Line &line) {
         return std::all_of(
@@ -37,7 +37,8 @@ auto checkForCorrectTokens = [](const Board &board,
       });
 };
 
-auto checkTokenBalance = [](const Board &board, char token1, char token2) {
+inline auto checkTokenBalance = [](const Board &board, char token1,
+                                   char token2) {
   int count1 = 0, count2 = 0;
   for (const auto &line : board) {
     count1 += std::count(line.begin(), line.end(), token1);
@@ -56,14 +57,14 @@ auto transformAll = [](const auto &source, auto fn) {
   return result;
 };
 
-auto toRange = [](const auto &collection) {
+inline auto toRange = [](const auto &collection) {
   vector<int> range(collection.size());
   std::iota(range.begin(), range.end(), 0);
   return range;
 };
 
 // Concatenates two containers.
-auto concatenate = [](const auto &first, const auto &second) {
+inline auto concatenate = [](const auto &first, const auto &second) {
   auto result{first};
   result.insert(result.end(), std::make_move_iterator(second.begin()),
                 std::make_move_iterator(second.end()));
@@ -71,13 +72,13 @@ auto concatenate = [](const auto &first, const auto &second) {
 };
 
 // Concatenates three containers.
-auto concatenate3 = [](const auto &first, const auto &second,
-                       const auto &third) {
+inline auto concatenate3 = [](const auto &first, const auto &second,
+                              const auto &third) {
   return concatenate(concatenate(first, second), third);
 };
 
 // Extracts a column from the board.
-auto column = [](const auto &board, const auto &columnIndex) {
+inline auto column = [](const auto &board, const auto &columnIndex) {
   vector<char> col;
   for (const auto &row : board) {
     col.push_back(row[columnIndex]);
@@ -86,18 +87,18 @@ auto column = [](const auto &board, const auto &columnIndex) {
 };
 
 // Extracts a specific line (row) from the board.
-auto line = [](const auto &board, const int lineIndex) {
+inline auto line = [](const auto &board, const int lineIndex) {
   return board[lineIndex];
 };
 
 // Returns all rows (lines) of the board.
-auto allLines = [](const auto &board) {
+inline auto allLines = [](const auto &board) {
   return transformAll<Lines>(toRange(board),
                              [&board](int i) { return line(board, i); });
 };
 
 // Returns all columns of the board.
-auto allColumns = [](const auto &board) {
+inline auto allColumns = [](const auto &board) {
   size_t numCols = board[0].size();
   Lines columns;
   columns.reserve(numCols);
@@ -108,7 +109,7 @@ auto allColumns = [](const auto &board) {
 };
 
 // Returns all diagonals of length >= 4 in both directions from the board.
-auto allDiagonals = [](const Board &board) -> Lines {
+inline auto allDiagonals = [](const Board &board) -> Lines {
   Lines diagonals;
   size_t rows = board.size();
   size_t cols = board[0].size();
@@ -141,7 +142,7 @@ auto allDiagonals = [](const Board &board) -> Lines {
 };
 
 // Checks if a line contains 4 or more consecutive tokens of the same type.
-auto checkLineForWin = [](const Line &line, char token) {
+inline auto checkLineForWin = [](const Line &line, char token) {
   int count = 0;
   for (char t : line) {
     if (t == token)
@@ -154,7 +155,7 @@ auto checkLineForWin = [](const Line &line, char token) {
   return false;
 };
 
-auto checkWin = [](const Board &board, char token) {
+inline auto checkWin = [](const Board &board, char token) {
   auto lines = allLines(board);
   auto columns = allColumns(board);
   auto diagonals = allDiagonals(board);
@@ -164,7 +165,7 @@ auto checkWin = [](const Board &board, char token) {
   });
 };
 
-auto printBoard = [](const Board &board) {
+inline auto printBoard = [](const Board &board) {
   size_t rows = board.size();
   size_t cols = board[0].size();
 
@@ -189,9 +190,9 @@ auto printBoard = [](const Board &board) {
   }
 };
 
-auto makeEmptyBoard = []() { return Board(ROWS, Line(COLS, ' ')); };
+inline auto makeEmptyBoard = []() { return Board(ROWS, Line(COLS, ' ')); };
 
-auto isGravityValid = [](const Board &board) {
+inline auto isGravityValid = [](const Board &board) {
   for (int col = 0; col < COLS; ++col) {
     bool foundEmpty = false;
     for (int row = ROWS - 1; row >= 0; --row) {
@@ -205,14 +206,14 @@ auto isGravityValid = [](const Board &board) {
   return true;
 };
 
-auto countTokens = [](const Board &board, char token) {
+inline auto countTokens = [](const Board &board, char token) {
   int count = 0;
   for (const auto &row : board)
     count += std::count(row.begin(), row.end(), token);
   return count;
 };
 
-auto hasOnlyValidTokens = [](const Board &board) {
+inline auto hasOnlyValidTokens = [](const Board &board) {
   for (const auto &row : board)
     for (char c : row)
       if (c != 'R' && c != 'Y' && c != ' ')
@@ -220,7 +221,7 @@ auto hasOnlyValidTokens = [](const Board &board) {
   return true;
 };
 
-auto isTokenBalanceValid = [](const Board &board) {
+inline auto isTokenBalanceValid = [](const Board &board) {
   int r = countTokens(board, 'R');
   int y = countTokens(board, 'Y');
   return std::abs(r - y) <= 1;

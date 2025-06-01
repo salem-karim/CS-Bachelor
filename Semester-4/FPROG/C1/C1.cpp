@@ -5,7 +5,7 @@
 #include <vector>
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest.h"
-#include "board_utils.h"
+#include "./board_utils.hpp"
 
 using std::string;
 using std::vector;
@@ -87,10 +87,8 @@ auto generateFullyFilledErroneousBoard = [](std::mt19937 &rng) {
       board[distRow(rng)][distCol(rng)] = randomInvalidToken(rng);
     hasError = true;
   }
-  if (rng() % 2 == 0) { // Break balance
+  if (rng() % 2 == 0) // Break balance
     board[0][0] = 'R';
-    hasError = true;
-  }
   if (rng() % 2 == 0) { // Break gravity
     board[1][1] = 'R';
     board[2][1] = ' ';
@@ -134,7 +132,6 @@ auto generatePartiallyFilledErroneousBoard = [](std::mt19937 &rng) {
   // Introduce one or more errors
   if (rng() % 2 == 1) {
     board[0][0] = 'R';
-    hasError = true;
   } // Break balance
 
   if (rng() % 2 == 0) { // Break token validity
