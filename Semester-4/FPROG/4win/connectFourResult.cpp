@@ -120,53 +120,31 @@ auto allColumns = [](const auto &board) {
 };
 
 // Returns all diagonals of length >= 4 in both directions from the board.
+
 auto allDiagonals = [](const Board &board) -> Lines {
   Lines diagonals;
   size_t rows = board.size();
   size_t cols = board[0].size();
 
-  // Top-left to bottom-right diagonals
-  for (size_t start_col = 0; start_col < cols; ++start_col) {
-    vector<char> diagonal;
-    for (size_t row = 0, col = start_col; row < rows && col < cols;
-         ++row, ++col) {
-      diagonal.push_back(board[row][col]);
+  // \ Direction (top-left to bottom-right)
+  for (int k = 0; k <= static_cast<int>(rows + cols - 2); ++k) {
+    std::vector<char> diagonal;
+    for (int row = 0; row <= k; ++row) {
+      int col = k - row;
+      if (row < rows && col < cols)
+        diagonal.push_back(board[row][col]);
     }
     if (diagonal.size() >= 4)
       diagonals.push_back(diagonal);
   }
 
-  for (size_t start_row = 1; start_row < rows; ++start_row) {
-    vector<char> diagonal;
-    for (size_t row = start_row, col = 0; row < rows && col < cols;
-         ++row, ++col) {
-      diagonal.push_back(board[row][col]);
-    }
-    if (diagonal.size() >= 4)
-      diagonals.push_back(diagonal);
-  }
-
-  // Top-right to bottom-left diagonals
-  for (size_t start_col = 0; start_col < cols; ++start_col) {
-    vector<char> diagonal;
-    for (size_t row = 0, col = start_col;
-         row < rows && col < cols && col < cols;
-         ++row, col = (col == 0) ? cols : col - 1) {
-      diagonal.push_back(board[row][col]);
-      if (col == 0)
-        break; // Avoid underflow
-    }
-    if (diagonal.size() >= 4)
-      diagonals.push_back(diagonal);
-  }
-
-  for (size_t start_row = 1; start_row < rows; ++start_row) {
-    vector<char> diagonal;
-    for (size_t row = start_row, col = cols - 1; row < rows && col < cols;
-         ++row, col = (col == 0) ? cols : col - 1) {
-      diagonal.push_back(board[row][col]);
-      if (col == 0)
-        break; // Avoid underflow
+  // / Direction (top-right to bottom-left)
+  for (int k = 1 - static_cast<int>(cols); k < static_cast<int>(rows); ++k) {
+    std::vector<char> diagonal;
+    for (int row = 0; row < rows; ++row) {
+      int col = row - k;
+      if (col >= 0 && col < static_cast<int>(cols))
+        diagonal.push_back(board[row][col]);
     }
     if (diagonal.size() >= 4)
       diagonals.push_back(diagonal);
