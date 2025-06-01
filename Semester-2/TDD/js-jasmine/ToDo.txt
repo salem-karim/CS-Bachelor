@@ -1,0 +1,17 @@
+Todo List:
+
+1. should return 0 for Item with Quality of 0
+2. should return 2 for Item with Quality 4 and sellin of -1
+3. should return 0 for Item with Quality 0 and sellin of -1
+4. should return 4 for Item with Quality 6 and sellin of 0
+5. should return 7 for Aged Brie with Quality 5 and sellin of 0
+6. should return 0 for Backstage Pass with Quality 5 and sellin of -1
+7. should return 50 for Aged Brie with Quality 50 and sellin of 3
+8. should return 34 for Aged Brie with Quality 33 and sellin of 3
+9. should return 35 for Aged Brie with Quality 33 and sellin of -4
+10. should return 6 for Backstage Pass with Quality 5 and sellin of 15
+11. should return 7 for Backstage Pass with Quality 5 and sellin of 9
+12. should return 8 for Backstage Pass with Quality 5 and sellin of 4
+13. should return 3 for Conjured Item with Quality 5 and sellin of 5
+14. should return 4 for Conjured Item with Quality 8 and sellin of -2
+15. should return 80 for Sulfuras Item with Quality 80 and sellin of -2
