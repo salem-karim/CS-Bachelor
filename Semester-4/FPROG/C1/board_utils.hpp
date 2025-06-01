@@ -165,31 +165,6 @@ inline auto checkWin = [](const Board &board, char token) {
   });
 };
 
-inline auto printBoard = [](const Board &board) {
-  size_t rows = board.size();
-  size_t cols = board[0].size();
-
-  // Print column indices
-  std::cout << "    ";
-  for (size_t col = 0; col < cols; ++col) {
-    std::cout << col << ' ';
-  }
-  std::cout << "\n   ";
-  for (size_t col = 0; col < cols; ++col) {
-    std::cout << "--";
-  }
-  std::cout << '\n';
-
-  // Print each row with its index
-  for (size_t row = 0; row < rows; ++row) {
-    std::cout << row << " | ";
-    for (size_t col = 0; col < cols; ++col) {
-      std::cout << board[row][col] << ' ';
-    }
-    std::cout << '\n';
-  }
-};
-
 inline auto makeEmptyBoard = []() { return Board(ROWS, Line(COLS, ' ')); };
 
 inline auto isGravityValid = [](const Board &board) {

@@ -19,7 +19,7 @@ auto createRng = []() {
 
 auto shuffleColumns = [](Board &board, std::mt19937 &rng) {
   for (int col = 0; col < COLS; ++col) {
-    // Extract tokens in this column (non-empty)
+    // Extract non empty tokens from board
     vector<char> tokensInCol;
     for (int row = 0; row < ROWS; ++row) {
       char c = board[row][col];
@@ -34,7 +34,7 @@ auto shuffleColumns = [](Board &board, std::mt19937 &rng) {
     for (int row = 0; row < ROWS; ++row)
       board[row][col] = ' ';
 
-    // Place shuffled tokens at bottom (gravity)
+    // Fill that column with the shuffled tokens
     int fillRow = ROWS - 1;
     for (char token : tokensInCol) {
       board[fillRow--][col] = token;
@@ -53,7 +53,7 @@ auto randomInvalidToken = [](std::mt19937 &rng) {
 };
 
 auto generateFullyFilledCorrectBoard = [](std::mt19937 &rng) {
-  // Create balanced tokens
+  // Make a char vector with balanced amount of tokens
   int totalCells = ROWS * COLS;
   int rCount = totalCells / 2;
   int yCount = totalCells - rCount;
@@ -64,7 +64,7 @@ auto generateFullyFilledCorrectBoard = [](std::mt19937 &rng) {
   // Shuffle tokens
   std::shuffle(tokens.begin(), tokens.end(), rng);
 
-  // Fill board column-wise bottom-up (gravity)
+  // Fill board by column from the bottom
   Board board = makeEmptyBoard();
   int index = 0;
   for (int col = 0; col < COLS; ++col) {
@@ -89,6 +89,7 @@ auto generateFullyFilledErroneousBoard = [](std::mt19937 &rng) {
   }
   if (rng() % 2 == 0) // Break balance
     board[0][0] = 'R';
+  // don't set to true as it does not always lead to imbalance
   if (rng() % 2 == 0) { // Break gravity
     board[1][1] = 'R';
     board[2][1] = ' ';
@@ -119,7 +120,7 @@ auto generatePartiallyFilledCorrectBoard = [](std::mt19937 &rng) {
     }
   }
 
-  // Shuffle tokens in each column independently to increase randomness
+  // Shuffle tokens in each column
   shuffleColumns(board, rng);
 
   return board;
@@ -132,6 +133,7 @@ auto generatePartiallyFilledErroneousBoard = [](std::mt19937 &rng) {
   // Introduce one or more errors
   if (rng() % 2 == 1) {
     board[0][0] = 'R';
+    // don't set to true as it does not always lead to imbalance
   } // Break balance
 
   if (rng() % 2 == 0) { // Break token validity
@@ -189,7 +191,6 @@ TEST_CASE("Fully filled correct board is valid in all respects") {
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 rng(seed);
   Board board = generateFullyFilledCorrectBoard(rng);
-  printBoard(board);
   CHECK(isGravityValid(board));
   CHECK(isTokenBalanceValid(board));
   CHECK(hasOnlyValidTokens(board));
@@ -199,7 +200,6 @@ TEST_CASE("Fully filled erroneous board has at least one problem") {
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 rng(seed);
   Board board = generateFullyFilledErroneousBoard(rng);
-  printBoard(board);
   CHECK(!(isGravityValid(board) && isTokenBalanceValid(board) &&
           hasOnlyValidTokens(board)));
 }
@@ -209,7 +209,6 @@ TEST_CASE(
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 rng(seed);
   Board board = generatePartiallyFilledCorrectBoard(rng);
-  printBoard(board);
   CHECK(isGravityValid(board));
   CHECK(isTokenBalanceValid(board));
   CHECK(hasOnlyValidTokens(board));
@@ -219,7 +218,6 @@ TEST_CASE("Partially filled erroneous board has at least one problem") {
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937 rng(seed);
   Board board = generatePartiallyFilledErroneousBoard(rng);
-  printBoard(board);
   CHECK(!(isGravityValid(board) && isTokenBalanceValid(board) &&
           hasOnlyValidTokens(board)));
 }
@@ -232,11 +230,9 @@ TEST_CASE("Winning board is valid and contains a winning token pattern") {
   char winningToken = validTokens[tokenDist(rng)];
   Board board = generateWinningBoard(rng, winningToken);
 
-  printBoard(board);
-
   // Check the board satisfies all correctness properties
   CHECK(hasOnlyValidTokens(board));
   CHECK(isTokenBalanceValid(board));
   CHECK(isGravityValid(board));
-  CHECK(checkWin(board, winningToken)); // This should pass now
+  CHECK(checkWin(board, winningToken));
 }
