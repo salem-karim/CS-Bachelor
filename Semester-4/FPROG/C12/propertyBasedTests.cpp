@@ -1,14 +1,14 @@
-#include <algorithm>
 #include <functional>
+#include <iostream>
 #include <limits>
 #include <numeric>
 #include <random>
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-using namespace std;
 using namespace std::placeholders;
 using namespace std::chrono;
+using std::vector, std::string, std::cout, std::endl;
 
 auto range = [](const int minValue, const int maxValue) {
   vector<int> range(maxValue - minValue + 1);
@@ -43,9 +43,9 @@ auto generate_ints = [](const int min, const int max) {
     return range(min, max);
   }
 
-  random_device rd;        // use for generating the seed
-  mt19937 generator(rd()); // used for generating pseudo-random numbers
-  uniform_int_distribution<int> distribution(
+  std::random_device rd;        // use for generating the seed
+  std::mt19937 generator(rd()); // used for generating pseudo-random numbers
+  std::uniform_int_distribution<int> distribution(
       min, max); // used to generate uniformly distributed numbers between min
                  // and max
   auto values = transformAll<vector<int>>(
@@ -59,19 +59,19 @@ auto generate_ints = [](const int min, const int max) {
 };
 
 auto logMaxIntBaseX = [](const int x) -> int {
-  const int maxInt = numeric_limits<int>::max();
+  const int maxInt = std::numeric_limits<int>::max();
   return floor(log(maxInt) / log(x));
 };
 
 auto generate_ints_greater_than_1 =
-    bind(generate_ints, 1, numeric_limits<int>::max());
+    std::bind(generate_ints, 1, std::numeric_limits<int>::max());
 auto generate_ints_greater_than_0 =
-    bind(generate_ints, 0, numeric_limits<int>::max());
+    std::bind(generate_ints, 0, std::numeric_limits<int>::max());
 auto generate_ints_greater_than_2_less_sqrt_maxInt =
-    bind(generate_ints, 2, sqrt(numeric_limits<int>::max()));
+    std::bind(generate_ints, 2, sqrt(std::numeric_limits<int>::max()));
 auto generate_ints_greater_than_sqrt_maxInt =
-    bind(generate_ints, sqrt(numeric_limits<int>::max()) + 1,
-         numeric_limits<int>::max());
+    std::bind(generate_ints, sqrt(std::numeric_limits<int>::max()) + 1,
+              std::numeric_limits<int>::max());
 
 auto generate_exponent_less_than_log_maxInt = [](const int x) {
   return generate_ints(1, logMaxIntBaseX(x));
@@ -116,10 +116,10 @@ auto prop_any_int_to_power_1_is_the_value = [](const int base) {
 };
 
 auto prop_nextPowerOfXIsPreviousPowerOfXMultipliedByX = [](const int x) {
-  auto exponents = bind(generate_exponent_less_than_log_maxInt, x);
+  auto exponents = std::bind(generate_exponent_less_than_log_maxInt, x);
   return check_property(
       exponents, [x](auto y) { return power(x, y) == power(x, y - 1) * x; },
-      "generate exponents for " + to_string(x));
+      "generate exponents for " + std::to_string(x));
 };
 
 TEST_CASE("Properties") {

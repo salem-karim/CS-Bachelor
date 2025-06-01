@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <functional>
 #include <limits>
 #include <numeric>
@@ -6,9 +5,9 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-using namespace std;
 using namespace std::placeholders;
 using namespace std::chrono;
+using std::vector, std::string, std::cout, std::endl, std::bind;
 
 auto range = [](const int minValue, const int maxValue) {
   vector<int> range(maxValue - minValue + 1);
@@ -41,9 +40,9 @@ auto generate_ints = [](const int min, const int max) {
     return range(min, max);
   }
 
-  random_device rd;        // use for generating the seed
-  mt19937 generator(rd()); // used for generating pseudo-random numbers
-  uniform_int_distribution<int> distribution(
+  std::random_device rd;        // use for generating the seed
+  std::mt19937 generator(rd()); // used for generating pseudo-random numbers
+  std::uniform_int_distribution<int> distribution(
       min, max); // used to generate uniformly distributed numbers between min
                  // and max
   auto values = transformAll<vector<int>>(
@@ -57,7 +56,7 @@ auto generate_ints = [](const int min, const int max) {
 };
 
 auto generate_ints_greater_than_1 =
-    bind(generate_ints, 1, numeric_limits<int>::max());
+    bind(generate_ints, 1, std::numeric_limits<int>::max());
 
 auto property_0_to_power_0_is_1 = []() { return power(0, 0) == 1; };
 
