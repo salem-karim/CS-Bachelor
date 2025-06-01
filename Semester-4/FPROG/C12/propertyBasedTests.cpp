@@ -4,7 +4,7 @@
 #include <numeric>
 #include <random>
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "../doctest.h"
 
 using namespace std::placeholders;
 using namespace std::chrono;
@@ -28,9 +28,11 @@ auto power = [](const int first, const int second) {
   return pow(first, second);
 };
 
+// fill vector with at least 99 random numbers and then append the min & max at
+// end
 auto generate_ints = [](const int min, const int max) {
-  if (min > max) { // when lower range is larger than upper range, just return
-                   // empty vector
+  if (min >
+      max) { // when lower range is larger than upper range, just return mt
     return vector<int>();
   }
 
@@ -38,8 +40,8 @@ auto generate_ints = [](const int min, const int max) {
     return range(min, min);
   }
 
-  if (max - min <= 100) { // if there not enough int values in the range, just
-                          // return it fully
+  if (max - min <=
+      100) { // if there not enough int values in the range, just full
     return range(min, max);
   }
 

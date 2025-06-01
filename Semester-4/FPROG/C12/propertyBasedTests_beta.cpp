@@ -3,7 +3,7 @@
 #include <numeric>
 #include <random>
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "../doctest.h"
 
 using namespace std::placeholders;
 using namespace std::chrono;
