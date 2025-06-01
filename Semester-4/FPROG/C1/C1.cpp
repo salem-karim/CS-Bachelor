@@ -52,6 +52,8 @@ auto randomInvalidToken = [](std::mt19937 &rng) {
   return invalidTokens[dist(rng)];
 };
 
+//------------------------GENERATORS--------------------------
+
 auto generateFullyFilledCorrectBoard = [](std::mt19937 &rng) {
   // Make a char vector with balanced amount of tokens
   int totalCells = ROWS * COLS;
@@ -169,7 +171,7 @@ auto generateWinningBoard = [](std::mt19937 &rng, char winningToken) {
     board[ROWS - 1 - i][winCol] = winningToken;
   }
 
-  // Add 3 of the other token to maintain balance (4 vs 3 = difference of 1)
+  // Add 3 of the other token to maintain balance
   char otherToken = (winningToken == 'R') ? 'Y' : 'R';
 
   // Pick a different column for the other tokens
@@ -186,6 +188,8 @@ auto generateWinningBoard = [](std::mt19937 &rng, char winningToken) {
 
   return board;
 };
+
+//-------------------------------TESTS----------------------------------------
 
 TEST_CASE("Fully filled correct board is valid in all respects") {
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
