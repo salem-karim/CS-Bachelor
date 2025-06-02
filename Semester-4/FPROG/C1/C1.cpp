@@ -99,13 +99,36 @@ auto generateFullyFilledErroneousBoard = [](std::mt19937 &rng) {
     // Pick a random column
     int col = distCol(rng);
 
-    // Pick a random row from 1 to ROWS-1 (excluding top row)
-    std::uniform_int_distribution<> distPocketRow(1, ROWS - 1);
-    int pocketRow = distPocketRow(rng);
+    // Check if column has any tokens
+    bool hasTokens = false;
+    for (int row = 0; row < ROWS; row++) {
+      if (board[row][col] != ' ') {
+        hasTokens = true;
+        break;
+      }
+    }
 
-    // Create the pocket (empty space with token above)
-    board[pocketRow][col] = ' ';
-    board[pocketRow - 1][col] = 'R'; // Place token above the pocket
+    if (!hasTokens) {
+      // Column is empty - create pocket at bottom
+      board[0][col] = ' '; // Bottom row empty
+      board[1][col] = 'R'; // Token above it
+    } else {
+      // Column has tokens - find a token and make space below it empty
+      std::vector<int> tokenRows;
+      for (int row = 0; row < ROWS - 1;
+           row++) { // Exclude bottom row since we need space below
+        if (board[row][col] != ' ') {
+          tokenRows.push_back(row);
+        }
+      }
+
+      if (!tokenRows.empty()) {
+        // Pick a random token and make the row below it empty
+        std::uniform_int_distribution<> distToken(0, tokenRows.size() - 1);
+        int tokenRow = tokenRows[distToken(rng)];
+        board[tokenRow + 1][col] = ' '; // Make space below the token empty
+      }
+    }
     hasError = true;
   }
 
@@ -120,7 +143,6 @@ auto generateFullyFilledErroneousBoard = [](std::mt19937 &rng) {
     std::uniform_int_distribution<> distPocketRow(1, ROWS - 1);
     int pocketRow = distPocketRow(rng);
     board[pocketRow][col] = ' ';
-    board[pocketRow - 1][col] = 'R';
   }
   return board;
 };
@@ -186,12 +208,26 @@ auto generatePartiallyFilledErroneousBoard = [](std::mt19937 &rng) {
   }
 
   if (!hasError) {
-    // Apply gravity error
-    int col = distCol(rng);
-    std::uniform_int_distribution<> distPocketRow(1, ROWS - 1);
-    int pocketRow = distPocketRow(rng);
-    board[pocketRow][col] = ' ';
-    board[pocketRow - 1][col] = 'R';
+    // Find columns that have at least one token
+    std::vector<int> columnsWithTokens;
+    for (int col = 0; col < COLS; col++) {
+      for (int row = 0; row < ROWS; row++) {
+        if (board[row][col] != ' ') {
+          columnsWithTokens.push_back(col);
+          break; // Found a token in this column, move to next column
+        }
+      }
+    }
+
+    // Apply gravity error - pick random column with tokens and create pocket at
+    // bottom
+    if (!columnsWithTokens.empty()) {
+      std::uniform_int_distribution<> distColWithTokens(
+          0, columnsWithTokens.size() - 1);
+      int col = columnsWithTokens[distColWithTokens(rng)];
+      board[0][col] = ' '; // Pocket at bottom
+      board[1][col] = 'R'; // Token above it
+    }
 
     board[0][1] = randomInvalidToken(rng);
     board[0][0] = 'R';
