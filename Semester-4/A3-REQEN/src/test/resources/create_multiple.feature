@@ -1,7 +1,7 @@
 Feature: Creating multiple-choice quiz questions
-  In order to assess students’ understanding with multiple correct answers
   As a Lecturer
   I want to create multiple-choice quiz questions
+  In order to assess students’ understanding with multiple correct answers
 
   Scenario: Create a multiple-choice question with two correct answers
     Given I am creating a multiple-choice question
@@ -23,4 +23,4 @@ Feature: Creating multiple-choice quiz questions
     Given I have saved a multiple-choice question
     When I click "Preview"
     Then all options are shown
-    And multiple correct answers are indicated
+    And multiple correct answers are shown

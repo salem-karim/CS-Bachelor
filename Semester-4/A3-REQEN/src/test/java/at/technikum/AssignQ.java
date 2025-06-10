@@ -15,8 +15,8 @@ public class AssignQ {
   public void iSelectFromTheDropdown(String arg0) {
   }
 
-  @Then("the question is added to the Math {int} quiz bank")
-  public void theQuestionIsAddedToTheMathQuizBank(int arg0) {
+  @Then("the question is added to the Math quiz bank")
+  public void theQuestionIsAddedToTheMathQuizBank() {
   }
 
   @When("I select {string} and {string} from the course list")

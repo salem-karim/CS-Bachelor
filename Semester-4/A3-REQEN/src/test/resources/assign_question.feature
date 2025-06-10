@@ -1,18 +1,18 @@
 Feature: Assigning quiz questions to courses
-  In order to reuse relevant content
   As a Lecturer
   I want to assign quiz questions to one or more courses
+  In order to reuse relevant content
 
   Scenario: Assign question to a single course
     Given I have created a quiz question
     When I open the course assignment panel
-    And I select "Math 101" from the dropdown
+    And I select "Math" from the dropdown
     And I click "Assign"
-    Then the question is added to the Math 101 quiz bank
+    Then the question is added to the Math quiz bank
 
   Scenario: Assign question to multiple courses
     Given I have created a quiz question
-    When I select "Math 101" and "Physics 101" from the course list
+    When I select "Math" and "Physics" from the course list
     And I click "Assign"
     Then the question appears in both courses' quiz banks
 

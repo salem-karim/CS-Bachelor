@@ -43,7 +43,7 @@ public class CreateMulQ {
   public void allOptionsAreShown() {
   }
 
-  @And("multiple correct answers are indicated")
-  public void multipleCorrectAnswersAreIndicated() {
+  @And("multiple correct answers are shown")
+  public void multipleCorrectAnswersAreShown() {
   }
 }

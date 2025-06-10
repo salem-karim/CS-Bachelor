@@ -1,19 +1,19 @@
 Feature: Searching for quiz questions
-  In order to quickly locate existing questions
   As a Lecturer
-  I want to search for quiz questions using filters or keywords
+  I want to search for quiz questions using filter criteria or search queries
+  In order to efficiently retrieve relevant question records
 
   Scenario: Search by keyword in title
-    Given I have questions titled "Photosynthesis Basics" and "Cell Division"
-    When I search for "Photosynthesis"
-    Then only "Photosynthesis Basics" appears in the results
+    Given the database contains questions titled "Merge Sort Overview" and "Binary Search Trees"
+    When I input the search query "Merge"
+    Then only the entry titled "Merge Sort Overview" is returned in the result set
 
   Scenario: Filter by subject area
-    Given I have questions grouped by "Biology" and "Chemistry"
-    When I filter by "Biology"
-    Then only questions under "Biology" are shown
+    Given questions are tagged with subject areas "Algorithms" and "Data Structures"
+    When I apply the subject filter "Algorithms"
+    Then only records associated with "Algorithms" are displayed
 
-  Scenario: Results update instantly as user types
-    Given I start typing "cell"
-    Then the result list updates dynamically
-    And questions with "cell" in the title or content are shown
+  Scenario: Dynamic result updates on input
+    Given I begin entering the keyword "tree" in the search field
+    Then the result list refreshes in real-time
+    And all entries with "tree" in the title or body are included in the output

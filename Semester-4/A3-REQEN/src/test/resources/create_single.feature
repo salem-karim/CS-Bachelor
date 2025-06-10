@@ -1,13 +1,13 @@
 Feature: Creating single-choice quiz questions
-  In order to assess students' knowledge with one correct answer
   As a Lecturer
   I want to create single-choice quiz questions
+  In order to assess students' knowledge with one correct answer
 
   Scenario: Create a single-choice question with one correct option
     Given I am on the "Create Question" page
     And I select "Single Choice" as the question type
     When I enter the question text "What is 2 + 2?"
-    And I enter answer options "2", "3", "4"
+    And I enter answer options "2", "3", "4", and "5"
     And I mark "4" as the correct answer
     And I click "Save"
     Then the question is saved successfully

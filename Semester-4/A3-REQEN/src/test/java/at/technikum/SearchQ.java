@@ -3,39 +3,39 @@ package at.technikum;
 import io.cucumber.java.en.*;
 
 public class SearchQ {
-  @Given("I have questions titled {string} and {string}")
-  public void iHaveQuestionsTitledAnd(String arg0, String arg1) {
+  @Given("the database contains questions titled {string} and {string}")
+  public void theDatabaseContainsQuestionsTitledAnd(String arg0, String arg1) {
   }
 
-  @When("I search for {string}")
-  public void iSearchFor(String arg0) {
+  @When("I input the search query {string}")
+  public void iInputTheSearchQuery(String arg0) {
   }
 
-  @Then("only {string} appears in the results")
-  public void onlyAppearsInTheResults(String arg0) {
+  @Then("only the entry titled {string} is returned in the result set")
+  public void onlyTheEntryTitledIsReturnedInTheResultSet(String arg0) {
   }
 
-  @Given("I have questions grouped by {string} and {string}")
-  public void iHaveQuestionsGroupedByAnd(String arg0, String arg1) {
+  @Given("questions are tagged with subject areas {string} and {string}")
+  public void questionsAreTaggedWithSubjectAreasAnd(String arg0, String arg1) {
   }
 
-  @When("I filter by {string}")
-  public void iFilterBy(String arg0) {
+  @When("I apply the subject filter {string}")
+  public void iApplyTheSubjectFilter(String arg0) {
   }
 
-  @Then("only questions under {string} are shown")
-  public void onlyQuestionsUnderAreShown(String arg0) {
+  @Then("only records associated with {string} are displayed")
+  public void onlyRecordsAssociatedWithAreDisplayed(String arg0) {
   }
 
-  @Given("I start typing {string}")
-  public void iStartTyping(String arg0) {
+  @Given("I begin entering the keyword {string} in the search field")
+  public void iBeginEnteringTheKeywordInTheSearchField(String arg0) {
   }
 
-  @Then("the result list updates dynamically")
-  public void theResultListUpdatesDynamically() {
+  @Then("the result list refreshes in real-time")
+  public void theResultListRefreshesInRealTime() {
   }
 
-  @And("questions with {string} in the title or content are shown")
-  public void questionsWithInTheTitleOrContentAreShown(String arg0) {
+  @And("all entries with {string} in the title or body are included in the output")
+  public void allEntriesWithInTheTitleOrBodyAreIncludedInTheOutput(String arg0) {
   }
 }
