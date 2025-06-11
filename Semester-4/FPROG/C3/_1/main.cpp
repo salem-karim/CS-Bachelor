@@ -83,7 +83,7 @@ auto countWords = [](const string &text) -> optional<int> {
   //     cout << ", ";
   // }
   cout << endl;
-  return static_cast<int>(words.size());
+  return make_optional(static_cast<int>(words.size()));
 };
 
 // to_string lambda for optional<int>
