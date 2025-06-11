@@ -7,14 +7,14 @@
 #include <vector>
 using namespace std;
 
-// 1. Define the Maybe monad
+// Maybe Monad with bind operation
 template <typename ValueType> struct Maybe {
   const optional<ValueType> value;
 
-  // Constructor
   Maybe(optional<ValueType> val) : value(val) {}
 
-  typedef function<optional<ValueType>(const ValueType)> OperationType;
+  // typedef
+  using OperationType = function<optional<ValueType>(const ValueType)>;
 
   // Apply operation if value exists, otherwise return nullopt
   optional<ValueType> apply(const OperationType operation) const {
@@ -23,7 +23,7 @@ template <typename ValueType> struct Maybe {
     return operation(value.value());
   }
 
-  // Chain operations (monadic bind)
+  // bind, make new Monad and bind the operation to it
   template <typename NewType>
   Maybe<NewType>
   bind(function<optional<NewType>(const ValueType)> operation) const {
@@ -33,7 +33,7 @@ template <typename ValueType> struct Maybe {
   }
 };
 
-// 2. Lambda function to read letters from a file
+// read file into ifstram then into sstream and return its string
 auto readLettersFromFile = [](const string &filename) -> optional<string> {
   ifstream file(filename);
   if (!file) {
@@ -45,10 +45,10 @@ auto readLettersFromFile = [](const string &filename) -> optional<string> {
   return buffer.str();
 };
 
-// 3. Immutable function to extract words from text
+// go through text and check for letters and words like don't
 auto extractWords = [](const string &text) -> vector<string> {
   vector<string> words;
-  string word;
+  string currentWord;
 
   for (size_t i = 0; i < text.size(); ++i) {
     char ch = text[i];
@@ -56,24 +56,27 @@ auto extractWords = [](const string &text) -> vector<string> {
     // Accept only letters and apostrophes inside words (for contractions like
     // "don't")
     if (isalpha(static_cast<unsigned char>(ch)) ||
-        (ch == '\'' && !word.empty() && i + 1 < text.size() &&
+        // check for ' , currentWord is not empty and if its end of text
+        (ch == '\'' && !currentWord.empty() && i + 1 < text.size() &&
+         // also check if next char is an letter
          isalpha(static_cast<unsigned char>(text[i + 1])))) {
-      word += ch;
-    } else if (!word.empty()) {
+      currentWord += ch;
+      // if its not a letter or ' and the word is not empty push to vector
+    } else if (!currentWord.empty()) {
       // End of word - add it to the list
-      words.push_back(word);
-      word.clear();
+      words.push_back(currentWord);
+      currentWord.clear();
     }
   }
 
   // Don't forget the last word if the text doesn't end with punctuation
-  if (!word.empty())
-    words.push_back(word);
+  if (!currentWord.empty())
+    words.push_back(currentWord);
 
   return words;
 };
 
-// 4. Lambda function to count words in text
+// call the function to extract words and return the size of the vector
 auto countWords = [](const string &text) -> optional<int> {
   vector<string> words = extractWords(text);
   // cout << endl << "Words found: ";
@@ -91,7 +94,6 @@ auto to_string_optional = [](optional<int> value) -> string {
   return (value.has_value()) ? to_string(value.value()) : "None";
 };
 
-// 5. Main function to demonstrate usage
 int main() {
   string filename = "_1/input.txt";
   cout << "Attempting to read from file: " << filename << endl << endl;
@@ -99,6 +101,7 @@ int main() {
   // Create Maybe monad with file content
   Maybe<string> maybeContent{readLettersFromFile(filename)};
 
+  // If it has content count the Words
   if (maybeContent.value.has_value()) {
     cout << "File content successfully read!" << endl;
     cout << "Content preview: \"" << maybeContent.value.value().substr(0, 50)
