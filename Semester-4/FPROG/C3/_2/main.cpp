@@ -5,38 +5,41 @@
 #include <sstream>
 #include <string>
 #include <vector>
+
 using namespace std;
 
-// 1. Define a simple Matrix type and Result monad
 using Matrix = vector<vector<double>>;
 
-template <typename T> struct Result {
+// Result Monad with bool, the value and err message
+template <typename Type> struct Result {
   bool is_success;
-  T value;
+  Type value;
   string error_message;
 
   // Constructor for success
-  Result(T val) : is_success(true), value(val), error_message("") {}
+  Result(Type val) : is_success(true), value(val), error_message("") {}
 
   // Constructor for error
   Result(const string &error)
-      : is_success(false), value(T{}), error_message(error) {}
+      : is_success(false), value(Type{}), error_message(error) {}
 
   // Monadic bind operation
-  template <typename U>
-  Result<U> bind(function<Result<U>(const T &)> operation) const {
+  template <typename otherType>
+  Result<otherType>
+  bind(function<Result<otherType>(const Type &)> operation) const {
     if (!is_success) {
-      return Result<U>(error_message);
+      return Result<otherType>(error_message);
     }
     return operation(value);
   }
 
   // Map operation (transforms value if successful)
-  template <typename U> Result<U> map(function<U(const T &)> transform) const {
+  template <typename otherType>
+  Result<otherType> map(function<otherType(const Type &)> transform) const {
     if (!is_success) {
-      return Result<U>(error_message);
+      return Result<otherType>(error_message);
     }
-    return Result<U>(transform(value));
+    return Result<otherType>(transform(value));
   }
 };
 
@@ -48,12 +51,14 @@ template <typename T> Result<T> error(const string &message) {
   return Result<T>(message);
 }
 
-// Utility function to print matrix
+// Utility function to print matrix with fixed setprecision
 auto printMatrix = [](const Matrix &matrix) -> void {
+  // sets precision for the out stream
   cout << fixed << setprecision(4);
   for (const auto &row : matrix) {
     cout << "[ ";
     for (size_t j = 0; j < row.size(); ++j) {
+      // sets width to align everything
       cout << setw(8) << row[j];
       if (j < row.size() - 1)
         cout << ", ";
@@ -62,7 +67,7 @@ auto printMatrix = [](const Matrix &matrix) -> void {
   }
 };
 
-// Function to validate matrix dimensions
+// Function to validate matrix dimensions no 3x3 Matrices
 auto validateMatrix = [](const Matrix &matrix) -> Result<Matrix> {
   if (matrix.empty()) {
     return error<Matrix>("Matrix is empty");
@@ -89,143 +94,123 @@ auto validateMatrix = [](const Matrix &matrix) -> Result<Matrix> {
   return success(matrix);
 };
 
-// 2. Implement determinant function
-function<double(const Matrix &)> calculateDeterminant =
-    [](const Matrix &matrix) -> double {
+// calculating the Determinant and Cofactors together,
+// to avoid going through the whole matrix twice
+function<pair<double, Matrix>(const Matrix &)> calculateDetAndCofactors =
+    [](const Matrix &matrix) -> pair<double, Matrix> {
   size_t n = matrix.size();
 
   if (n == 1) {
-    return matrix[0][0];
+    return {matrix[0][0], Matrix(1, vector<double>(1, 1.0))};
   }
 
   if (n == 2) {
-    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+    double det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+    Matrix cofactors = {{matrix[1][1], -matrix[1][0]},
+                        {-matrix[0][1], matrix[0][0]}};
+    return {det, cofactors};
   }
 
-  // For larger matrices, use cofactor expansion along first row
+  // For larger matrices, we need to calculate all cofactors
+  Matrix cofactors(n, vector<double>(n));
   double det = 0.0;
-  for (size_t j = 0; j < n; ++j) {
-    // Create minor matrix (remove row 0 and column j)
-    Matrix minor(n - 1, vector<double>(n - 1));
-    for (size_t r = 1; r < n; ++r) {
-      size_t minor_col = 0;
-      for (size_t c = 0; c < n; ++c) {
-        if (c != j) {
-          minor[r - 1][minor_col] = matrix[r][c];
-          minor_col++;
-        }
-      }
-    }
 
-    // Recursive call for minor determinant
-    double minor_det = calculateDeterminant(minor);
-    double cofactor = ((j % 2 == 0) ? 1 : -1) * matrix[0][j] * minor_det;
-    det += cofactor;
-  }
-
-  return det;
-};
-
-// Function to check if matrix is invertible
-auto checkInvertible = [](const Matrix &matrix) -> Result<Matrix> {
-  double det = calculateDeterminant(matrix);
-  const double EPSILON = 1e-10;
-
-  if (abs(det) < EPSILON) {
-    stringstream ss;
-    ss << "Matrix is not invertible (determinant = " << det
-       << ", approximately zero)";
-    return error<Matrix>(ss.str());
-  }
-
-  cout << "Matrix determinant: " << det << " (invertible)" << endl;
-  return success(matrix);
-};
-
-// Helper function to create identity matrix
-auto createIdentityMatrix = [](size_t n) -> Matrix {
-  Matrix identity(n, vector<double>(n, 0.0));
-  for (size_t i = 0; i < n; ++i) {
-    identity[i][i] = 1.0;
-  }
-  return identity;
-};
-
-// 3. Immutable function to invert matrix using Gaussian elimination
-auto invertMatrix = [](const Matrix &matrix) -> Result<Matrix> {
-  size_t n = matrix.size();
-  const double EPSILON = 1e-10;
-
-  // Create augmented matrix [A | I]
-  Matrix augmented(n, vector<double>(2 * n));
-
-  // Fill the augmented matrix
+  // Calculate cofactors for all positions
   for (size_t i = 0; i < n; ++i) {
     for (size_t j = 0; j < n; ++j) {
-      augmented[i][j] = matrix[i][j];             // Original matrix
-      augmented[i][j + n] = (i == j) ? 1.0 : 0.0; // Identity matrix
+      // Create minor matrix by removing row i and column j
+      Matrix minor(n - 1, vector<double>(n - 1));
+
+      size_t minor_row = 0;
+      for (size_t r = 0; r < n; ++r) {
+        if (r == i)
+          continue;
+
+        size_t minor_col = 0;
+        for (size_t c = 0; c < n; ++c) {
+          if (c == j)
+            continue;
+
+          minor[minor_row][minor_col] = matrix[r][c];
+          minor_col++;
+        }
+        minor_row++;
+      }
+
+      // Recursively calculate minor determinant
+      auto [minor_det, _] = calculateDetAndCofactors(minor);
+
+      // Calculate cofactor with alternating signs
+      double sign = ((i + j) % 2 == 0) ? 1.0 : -1.0;
+      cofactors[i][j] = sign * minor_det;
     }
   }
 
-  // Forward elimination to get row echelon form
-  for (size_t pivot = 0; pivot < n; ++pivot) {
-    // Find the row with maximum element in current column (partial pivoting)
-    size_t max_row = pivot;
-    for (size_t i = pivot + 1; i < n; ++i) {
-      if (abs(augmented[i][pivot]) > abs(augmented[max_row][pivot])) {
-        max_row = i;
-      }
-    }
-
-    // Swap rows if needed
-    if (max_row != pivot) {
-      swap(augmented[pivot], augmented[max_row]);
-    }
-
-    // Check for zero pivot
-    if (abs(augmented[pivot][pivot]) < EPSILON) {
-      return error<Matrix>("Matrix inversion failed: zero pivot encountered");
-    }
-
-    // Scale pivot row
-    double pivot_val = augmented[pivot][pivot];
-    for (size_t j = 0; j < 2 * n; ++j) {
-      augmented[pivot][j] /= pivot_val;
-    }
-
-    // Eliminate column entries below pivot
-    for (size_t i = pivot + 1; i < n; ++i) {
-      double factor = augmented[i][pivot];
-      for (size_t j = 0; j < 2 * n; ++j) {
-        augmented[i][j] -= factor * augmented[pivot][j];
-      }
-    }
+  // Calculate determinant using first row expansion
+  for (size_t j = 0; j < n; ++j) {
+    det += matrix[0][j] * cofactors[0][j];
   }
 
-  // Back substitution to get reduced row echelon form
-  for (int pivot = n - 1; pivot >= 0; --pivot) {
-    for (int i = pivot - 1; i >= 0; --i) {
-      double factor = augmented[i][pivot];
-      for (size_t j = 0; j < 2 * n; ++j) {
-        augmented[i][j] -= factor * augmented[pivot][j];
-      }
-    }
+  return {det, cofactors};
+};
+
+// Structure to hold matrix computation results
+struct MatrixAnalysis {
+  Matrix matrix;
+  double determinant;
+  Matrix cofactor_matrix;
+
+  MatrixAnalysis(const Matrix &m, double det, const Matrix &cofactors)
+      : matrix(m), determinant(det), cofactor_matrix(cofactors) {}
+
+  // Default constructor needed for Result template
+  MatrixAnalysis() = default;
+};
+
+// Function to check if matrix is invertible using precomputed determinant
+auto checkInvertible =
+    [](const MatrixAnalysis &analysis) -> Result<MatrixAnalysis> {
+  const double EPSILON = 1e-10;
+
+  if (abs(analysis.determinant) < EPSILON) {
+    stringstream ss;
+    ss << "Matrix is not invertible (determinant = " << analysis.determinant
+       << ", approximately zero)";
+    return error<MatrixAnalysis>(ss.str());
   }
 
-  // Extract the inverse matrix from the right half of augmented matrix
+  cout << "Matrix determinant: " << analysis.determinant << " (invertible)"
+       << endl;
+  return success(analysis);
+};
+
+// Matrix inversion using precomputed cofactor matrix and determinant
+auto invertMatrix = [](const MatrixAnalysis &analysis) -> Result<Matrix> {
+  size_t n = analysis.matrix.size();
+
+  // Create inverse by transposing cofactor matrix and dividing by determinant
+  // (This combines transpose and scalar division in a single loop)
   Matrix inverse(n, vector<double>(n));
   for (size_t i = 0; i < n; ++i) {
     for (size_t j = 0; j < n; ++j) {
-      inverse[i][j] = augmented[i][j + n];
+      inverse[i][j] = analysis.cofactor_matrix[j][i] /
+                      analysis.determinant; // Note: j,i for transpose
     }
   }
 
   return success(inverse);
 };
 
-// 4. Main function to demonstrate usage
+// Function to compute matrix analysis (determinant + cofactors)
+auto analyzeMatrix = [](const Matrix &matrix) -> Result<MatrixAnalysis> {
+  auto [det, cofactors] = calculateDetAndCofactors(matrix);
+  return success(MatrixAnalysis(matrix, det, cofactors));
+};
+
+// Main function to demonstrate usage
 int main() {
-  cout << "=== Matrix Inversion with Result Monad Demo ===" << endl << endl;
+  cout << "=== Optimized Matrix Inversion with Cofactor Method Demo ===" << endl
+       << endl;
 
   // Test Case 1: Valid 2x2 matrix
   cout << "Test Case 1: 2x2 Matrix" << endl;
@@ -237,7 +222,8 @@ int main() {
 
   auto result1 = success(matrix1)
                      .bind<Matrix>(validateMatrix)
-                     .bind<Matrix>(checkInvertible)
+                     .bind<MatrixAnalysis>(analyzeMatrix)
+                     .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrix);
 
   if (result1.is_success) {
@@ -258,7 +244,8 @@ int main() {
 
   auto result2 = success(matrix2)
                      .bind<Matrix>(validateMatrix)
-                     .bind<Matrix>(checkInvertible)
+                     .bind<MatrixAnalysis>(analyzeMatrix)
+                     .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrix);
 
   if (result2.is_success) {
@@ -281,7 +268,8 @@ int main() {
 
   auto result3 = success(matrix3)
                      .bind<Matrix>(validateMatrix)
-                     .bind<Matrix>(checkInvertible)
+                     .bind<MatrixAnalysis>(analyzeMatrix)
+                     .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrix);
 
   if (result3.is_success) {
@@ -305,7 +293,8 @@ int main() {
 
   auto result4 = success(matrix4)
                      .bind<Matrix>(validateMatrix)
-                     .bind<Matrix>(checkInvertible)
+                     .bind<MatrixAnalysis>(analyzeMatrix)
+                     .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrix);
 
   if (result4.is_success) {

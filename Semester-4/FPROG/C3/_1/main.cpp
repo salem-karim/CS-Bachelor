@@ -8,16 +8,16 @@
 using namespace std;
 
 // Maybe Monad with bind operation
-template <typename ValueType> struct Maybe {
-  const optional<ValueType> value;
+template <typename Type> struct Maybe {
+  const optional<Type> value;
 
-  Maybe(optional<ValueType> val) : value(val) {}
+  Maybe(optional<Type> val) : value(val) {}
 
   // typedef
-  using OperationType = function<optional<ValueType>(const ValueType)>;
+  using OperationType = function<optional<Type>(const Type)>;
 
   // Apply operation if value exists, otherwise return nullopt
-  optional<ValueType> apply(const OperationType operation) const {
+  optional<Type> apply(const OperationType operation) const {
     if (value == nullopt)
       return nullopt;
     return operation(value.value());
@@ -25,8 +25,7 @@ template <typename ValueType> struct Maybe {
 
   // bind, make new Monad and bind the operation to it
   template <typename NewType>
-  Maybe<NewType>
-  bind(function<optional<NewType>(const ValueType)> operation) const {
+  Maybe<NewType> bind(function<optional<NewType>(const Type)> operation) const {
     if (value == nullopt)
       return Maybe<NewType>(nullopt);
     return Maybe<NewType>(operation(value.value()));
