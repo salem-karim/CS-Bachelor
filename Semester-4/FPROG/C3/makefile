@@ -2,7 +2,7 @@ CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -O2
 
 OUT_DIR := out
-TARGETS := 1 2 3 4 5
+TARGETS := 1 2 4
 
 .PHONY: $(TARGETS) all clean
 
