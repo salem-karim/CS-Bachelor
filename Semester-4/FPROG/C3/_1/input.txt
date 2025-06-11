@@ -1,0 +1,7 @@
+Hello world this is a test file.
+It contains 123 numbers and some words.
+The quick brown fox jumps over 450 lazy dogs.
+Don't count 2025 or 10 as words.
+Words like apple, banana, and cherry are included.
+Total words should exclude any numbers like 1, 2, 3.
+Can't don't won't are all included as single words
