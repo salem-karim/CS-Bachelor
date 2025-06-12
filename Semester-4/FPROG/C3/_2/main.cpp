@@ -2,7 +2,6 @@
 #include <functional>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -116,6 +115,7 @@ function<pair<double, Matrix>(const Matrix &)> calculateDetAndCofactors =
   double det = 0.0;
 
   // Calculate cofactors for all positions
+  // loop through whole Matrix
   for (size_t i = 0; i < n; ++i) {
     for (size_t j = 0; j < n; ++j) {
       // Create minor matrix by removing row i and column j
@@ -167,16 +167,29 @@ struct MatrixAnalysis {
   MatrixAnalysis() = default;
 };
 
+// Structure to hold matrix and its inverse
+struct MatrixInversePair {
+  Matrix original;
+  Matrix inverse;
+
+  MatrixInversePair(const Matrix &orig, const Matrix &inv)
+      : original(orig), inverse(inv) {}
+
+  // Default constructor needed for Result template
+  MatrixInversePair() = default;
+};
+
 // Function to check if matrix is invertible using precomputed determinant
 auto checkInvertible =
     [](const MatrixAnalysis &analysis) -> Result<MatrixAnalysis> {
-  const double EPSILON = 1e-10;
+  constexpr double EPSILON = 1e-10;
 
+  // Check if determinant is approximately zero
   if (abs(analysis.determinant) < EPSILON) {
-    stringstream ss;
-    ss << "Matrix is not invertible (determinant = " << analysis.determinant
-       << ", approximately zero)";
-    return error<MatrixAnalysis>(ss.str());
+    const string error_message = "Matrix is not invertible (determinant = " +
+                                 std::to_string(analysis.determinant) +
+                                 ", approximately zero)";
+    return error<MatrixAnalysis>(error_message);
   }
 
   cout << "Matrix determinant: " << analysis.determinant << " (invertible)"
@@ -185,20 +198,75 @@ auto checkInvertible =
 };
 
 // Matrix inversion using precomputed cofactor matrix and determinant
-auto invertMatrix = [](const MatrixAnalysis &analysis) -> Result<Matrix> {
-  size_t n = analysis.matrix.size();
+auto invertMatrix =
+    [](const MatrixAnalysis &analysis) -> Result<MatrixInversePair> {
+  const size_t n = analysis.matrix.size();
 
   // Create inverse by transposing cofactor matrix and dividing by determinant
-  // (This combines transpose and scalar division in a single loop)
   Matrix inverse(n, vector<double>(n));
   for (size_t i = 0; i < n; ++i) {
     for (size_t j = 0; j < n; ++j) {
-      inverse[i][j] = analysis.cofactor_matrix[j][i] /
-                      analysis.determinant; // Note: j,i for transpose
+      inverse[i][j] =
+          analysis.cofactor_matrix[j][i] / // Note: j,i for transpose
+          analysis.determinant;
     }
   }
 
-  return success(inverse);
+  return success(MatrixInversePair(analysis.matrix, inverse));
+};
+
+// Function to multiply two matrices
+auto multiplyMatrices = [](const Matrix &A, const Matrix &B) -> Matrix {
+  size_t n = A.size();
+  Matrix result(n, vector<double>(n, 0.0));
+
+  for (size_t i = 0; i < n; ++i) {
+    for (size_t j = 0; j < n; ++j) {
+      for (size_t k = 0; k < n; ++k) {
+        result[i][j] += A[i][k] * B[k][j];
+      }
+    }
+  }
+
+  return result;
+};
+
+// Function to check if a matrix is approximately the identity matrix
+auto isIdentityMatrix = [](const Matrix &matrix) -> bool {
+  constexpr double EPSILON = 1e-10;
+  size_t n = matrix.size();
+
+  for (size_t i = 0; i < n; ++i) {
+    for (size_t j = 0; j < n; ++j) {
+      double expected = (i == j) ? 1.0 : 0.0;
+      if (abs(matrix[i][j] - expected) > EPSILON) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+};
+
+// Function to verify matrix inversion by checking A * A^(-1) = I
+auto verifyInversion =
+    [](const MatrixInversePair &pair) -> Result<MatrixInversePair> {
+  cout << "Verifying inversion: A * A^(-1) should equal identity matrix"
+       << endl;
+
+  Matrix product = multiplyMatrices(pair.original, pair.inverse);
+
+  cout << "A * A^(-1) =" << endl;
+  printMatrix(product);
+  cout << endl;
+
+  if (isIdentityMatrix(product)) {
+    cout << "✓ Verification successful: Result is identity matrix" << endl;
+    return success(pair);
+  } else {
+    return error<MatrixInversePair>(
+        "Verification failed: A * A^(-1) does not equal identity matrix");
+  }
 };
 
 // Function to compute matrix analysis (determinant + cofactors)
@@ -209,26 +277,23 @@ auto analyzeMatrix = [](const Matrix &matrix) -> Result<MatrixAnalysis> {
 
 // Main function to demonstrate usage
 int main() {
-  cout << "=== Optimized Matrix Inversion with Cofactor Method Demo ===" << endl
-       << endl;
-
-  // Test Case 1: Valid 2x2 matrix
   cout << "Test Case 1: 2x2 Matrix" << endl;
-  Matrix matrix1 = {{2.0, 1.0}, {1.0, 1.0}};
+  const Matrix matrix1 = {{2.0, 5.0}, {1.0, 8.0}};
 
   cout << "Original matrix:" << endl;
   printMatrix(matrix1);
   cout << endl;
 
-  auto result1 = success(matrix1)
-                     .bind<Matrix>(validateMatrix)
-                     .bind<MatrixAnalysis>(analyzeMatrix)
-                     .bind<MatrixAnalysis>(checkInvertible)
-                     .bind<Matrix>(invertMatrix);
+  const auto result1 = success(matrix1)
+                           .bind<Matrix>(validateMatrix)
+                           .bind<MatrixAnalysis>(analyzeMatrix)
+                           .bind<MatrixAnalysis>(checkInvertible)
+                           .bind<MatrixInversePair>(invertMatrix)
+                           .bind<MatrixInversePair>(verifyInversion);
 
   if (result1.is_success) {
     cout << "Inverted matrix:" << endl;
-    printMatrix(result1.value);
+    printMatrix(result1.value.inverse);
   } else {
     cout << "Error: " << result1.error_message << endl;
   }
@@ -236,21 +301,22 @@ int main() {
 
   // Test Case 2: 3x3 matrix (should be rejected)
   cout << "Test Case 2: 3x3 Matrix (should be rejected)" << endl;
-  Matrix matrix2 = {{1.0, 2.0, 3.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
+  const Matrix matrix2 = {{1.0, 3.0, 2.0}, {0.0, 1.0, 4.0}, {5.0, 6.0, 0.0}};
 
   cout << "Original matrix:" << endl;
   printMatrix(matrix2);
   cout << endl;
 
-  auto result2 = success(matrix2)
-                     .bind<Matrix>(validateMatrix)
-                     .bind<MatrixAnalysis>(analyzeMatrix)
-                     .bind<MatrixAnalysis>(checkInvertible)
-                     .bind<Matrix>(invertMatrix);
+  const auto result2 = success(matrix2)
+                           .bind<Matrix>(validateMatrix)
+                           .bind<MatrixAnalysis>(analyzeMatrix)
+                           .bind<MatrixAnalysis>(checkInvertible)
+                           .bind<MatrixInversePair>(invertMatrix)
+                           .bind<MatrixInversePair>(verifyInversion);
 
   if (result2.is_success) {
     cout << "Inverted matrix:" << endl;
-    printMatrix(result2.value);
+    printMatrix(result2.value.inverse);
   } else {
     cout << "Error: " << result2.error_message << endl;
   }
@@ -266,15 +332,16 @@ int main() {
   printMatrix(matrix3);
   cout << endl;
 
-  auto result3 = success(matrix3)
-                     .bind<Matrix>(validateMatrix)
-                     .bind<MatrixAnalysis>(analyzeMatrix)
-                     .bind<MatrixAnalysis>(checkInvertible)
-                     .bind<Matrix>(invertMatrix);
+  const auto result3 = success(matrix3)
+                           .bind<Matrix>(validateMatrix)
+                           .bind<MatrixAnalysis>(analyzeMatrix)
+                           .bind<MatrixAnalysis>(checkInvertible)
+                           .bind<MatrixInversePair>(invertMatrix)
+                           .bind<MatrixInversePair>(verifyInversion);
 
   if (result3.is_success) {
     cout << "Inverted matrix:" << endl;
-    printMatrix(result3.value);
+    printMatrix(result3.value.inverse);
   } else {
     cout << "Error: " << result3.error_message << endl;
   }
@@ -282,24 +349,25 @@ int main() {
 
   // Test Case 4: Valid 4x4 matrix
   cout << "Test Case 4: 4x4 Matrix" << endl;
-  Matrix matrix4 = {{4.0, 1.0, 0.0, 0.0},
-                    {1.0, 3.0, 1.0, 0.0},
-                    {0.0, 1.0, 2.0, 1.0},
-                    {0.0, 0.0, 1.0, 1.0}};
+  const Matrix matrix4 = {{4.0, 1.0, 8.0, 0.0},
+                          {5.0, 3.0, 9.0, 0.0},
+                          {0.0, 1.0, 2.0, 1.0},
+                          {7.0, 0.0, 5.0, 1.0}};
 
   cout << "Original matrix:" << endl;
   printMatrix(matrix4);
   cout << endl;
 
-  auto result4 = success(matrix4)
-                     .bind<Matrix>(validateMatrix)
-                     .bind<MatrixAnalysis>(analyzeMatrix)
-                     .bind<MatrixAnalysis>(checkInvertible)
-                     .bind<Matrix>(invertMatrix);
+  const auto result4 = success(matrix4)
+                           .bind<Matrix>(validateMatrix)
+                           .bind<MatrixAnalysis>(analyzeMatrix)
+                           .bind<MatrixAnalysis>(checkInvertible)
+                           .bind<MatrixInversePair>(invertMatrix)
+                           .bind<MatrixInversePair>(verifyInversion);
 
   if (result4.is_success) {
     cout << "Inverted matrix:" << endl;
-    printMatrix(result4.value);
+    printMatrix(result4.value.inverse);
   } else {
     cout << "Error: " << result4.error_message << endl;
   }
