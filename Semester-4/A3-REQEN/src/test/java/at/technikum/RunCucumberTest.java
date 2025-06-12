@@ -10,8 +10,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectPackages("at.technikum")
+@SelectPackages("at")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "at.technikum")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "at")
 public class RunCucumberTest {
 }
