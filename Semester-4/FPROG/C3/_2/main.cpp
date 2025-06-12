@@ -94,7 +94,7 @@ auto validateMatrix = [](const Matrix &matrix) -> Result<Matrix> {
 };
 
 // calculating the Determinant and Cofactors together,
-// to avoid going through the whole matrix twice
+// O(n!) because of Cofactor calculation
 function<pair<double, Matrix>(const Matrix &)> calculateDetAndCofactors =
     [](const Matrix &matrix) -> pair<double, Matrix> {
   size_t n = matrix.size();
@@ -233,18 +233,21 @@ auto multiplyMatrices = [](const Matrix &A, const Matrix &B) -> Matrix {
 
 // Function to check if a matrix is approximately the identity matrix
 auto isIdentityMatrix = [](const Matrix &matrix) -> bool {
+  // EPSILON for precision comparison
   constexpr double EPSILON = 1e-10;
   size_t n = matrix.size();
 
   for (size_t i = 0; i < n; ++i) {
+    // Check diagonal elements (should be close to 1.0)
+    if (abs(matrix[i][i] - 1.0) > EPSILON)
+      return false;
+
+    // Check off-diagonal elements (should be close to 0.0)
     for (size_t j = 0; j < n; ++j) {
-      double expected = (i == j) ? 1.0 : 0.0;
-      if (abs(matrix[i][j] - expected) > EPSILON) {
+      if (i != j && abs(matrix[i][j]) > EPSILON)
         return false;
-      }
     }
   }
-
   return true;
 };
 
