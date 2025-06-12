@@ -335,12 +335,13 @@ int main() {
   printMatrix(matrix3);
   cout << endl;
 
-  const auto result3 = success(matrix3)
-                           .bind<Matrix>(validateMatrix)
-                           .bind<MatrixAnalysis>(analyzeMatrix)
-                           .bind<MatrixAnalysis>(checkInvertible)
-                           .bind<MatrixInversePair>(invertMatrix)
-                           .bind<MatrixInversePair>(verifyInversion);
+  const auto result3 =
+      success(matrix3) // if bind returns error result all will fail
+          .bind<Matrix>(validateMatrix)
+          .bind<MatrixAnalysis>(analyzeMatrix)
+          .bind<MatrixAnalysis>(checkInvertible)
+          .bind<MatrixInversePair>(invertMatrix)
+          .bind<MatrixInversePair>(verifyInversion);
 
   if (result3.is_success) {
     cout << "Inverted matrix:" << endl;
@@ -355,7 +356,8 @@ int main() {
   const Matrix matrix4 = {{4.0, 1.0, 8.0, 0.0},
                           {5.0, 3.0, 9.0, 0.0},
                           {0.0, 1.0, 2.0, 1.0},
-                          {7.0, 0.0, 5.0, 1.0}};
+                          {7.0, 0.0, 5.0, 1.0},
+                          {0.0, 1.0, 2.0, 1.0}};
 
   cout << "Original matrix:" << endl;
   printMatrix(matrix4);

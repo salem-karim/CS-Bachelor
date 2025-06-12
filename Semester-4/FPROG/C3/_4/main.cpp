@@ -58,21 +58,22 @@ struct MatrixAnalysis {
 };
 
 // Structure to hold division context (A and B^(-1))
-struct DivisionContext {
+struct DivisionPair {
   Matrix A;
   Matrix B_inverse;
 
-  DivisionContext(const Matrix &a, const Matrix &b_inv)
-      : A(a), B_inverse(b_inv) {}
-  DivisionContext() = default;
+  DivisionPair(const Matrix &a, const Matrix &b_inv) : A(a), B_inverse(b_inv) {}
+  DivisionPair() = default;
 };
 
 // Utility function to print matrix
 auto printMatrix = [](const Matrix &matrix) -> void {
+  // sets precision for the out stream
   cout << fixed << setprecision(4);
   for (const auto &row : matrix) {
     cout << "[ ";
     for (size_t j = 0; j < row.size(); ++j) {
+      // sets width to align everything
       cout << setw(8) << row[j];
       if (j < row.size() - 1)
         cout << ", ";
@@ -215,17 +216,17 @@ auto invertMatrixB = [](const MatrixAnalysis &analysis) -> optional<Matrix> {
   return make_optional(inverse);
 };
 
-// Lambda to create division context
+// Lambda to create division pair
 auto createDivisionContext = [](const MatrixPair &pair)
-    -> function<optional<DivisionContext>(const Matrix &)> {
-  return [pair](const Matrix &b_inverse) -> optional<DivisionContext> {
-    return make_optional(DivisionContext(pair.A, b_inverse));
+    -> function<optional<DivisionPair>(const Matrix &)> {
+  return [pair](const Matrix &b_inverse) -> optional<DivisionPair> {
+    return make_optional(DivisionPair(pair.A, b_inverse));
   };
 };
 
 // Lambda for matrix multiplication A * B^(-1)
 auto performMatrixDivision =
-    [](const DivisionContext &context) -> optional<Matrix> {
+    [](const DivisionPair &context) -> optional<Matrix> {
   const Matrix &A = context.A;
   const Matrix &B_inv = context.B_inverse;
 
@@ -273,7 +274,7 @@ int main() {
                      .bind<MatrixAnalysis>(analyzeMatrixB)
                      .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrixB)
-                     .bind<DivisionContext>(createDivisionContext(pair1))
+                     .bind<DivisionPair>(createDivisionContext(pair1))
                      .bind<Matrix>(performMatrixDivision);
 
   if (result1.value.has_value()) {
@@ -302,7 +303,7 @@ int main() {
                      .bind<MatrixAnalysis>(analyzeMatrixB)
                      .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrixB)
-                     .bind<DivisionContext>(createDivisionContext(pair2))
+                     .bind<DivisionPair>(createDivisionContext(pair2))
                      .bind<Matrix>(performMatrixDivision);
 
   if (result2.value.has_value()) {
@@ -326,12 +327,12 @@ int main() {
 
   MatrixPair pair3(A3, B3);
 
-  auto result3 = some(pair3)
+  auto result3 = some(pair3) // after first bind will make other bind to nullopt
                      .bind<MatrixPair>(validateMatrixPair)
                      .bind<MatrixAnalysis>(analyzeMatrixB)
                      .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrixB)
-                     .bind<DivisionContext>(createDivisionContext(pair3))
+                     .bind<DivisionPair>(createDivisionContext(pair3))
                      .bind<Matrix>(performMatrixDivision);
 
   if (result3.value.has_value()) {
@@ -367,7 +368,7 @@ int main() {
                      .bind<MatrixAnalysis>(analyzeMatrixB)
                      .bind<MatrixAnalysis>(checkInvertible)
                      .bind<Matrix>(invertMatrixB)
-                     .bind<DivisionContext>(createDivisionContext(pair4))
+                     .bind<DivisionPair>(createDivisionContext(pair4))
                      .bind<Matrix>(performMatrixDivision);
 
   if (result4.value.has_value()) {
