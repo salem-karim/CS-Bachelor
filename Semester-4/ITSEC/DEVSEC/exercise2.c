@@ -130,6 +130,7 @@ void uploadFile() {
   fprintf(file, "Example data in the uploaded file.\n");
   fclose(file);
 
+  // BUG: CWE-120 Bufferoverflow possible
   printf("File %s uploaded successfully!\n", filename);
 }
 
