@@ -4,3 +4,6 @@
 [submodule "Semester-5/PaperlessClone"]
 	path = Semester-5/PaperlessClone
 	url = git@github.com:salem-karim/PaperlessClone.git
+[submodule "Semester-5/websec-chatplatform"]
+	path = Semester-5/websec-chatplatform
+	url = git@github.com:icefishii/websec-chatplatform.git
