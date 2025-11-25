@@ -1,0 +1,8 @@
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/BackendApplication.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/Logs/LogController.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/Logs/LogRepository.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/Logs/LogService.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/Tour/TourController.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/Tour/TourRepository.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/Tour/TourService.java
+/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/src/main/java/at/technikum/backend/WebConfig.java

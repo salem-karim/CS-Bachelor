@@ -1,0 +1,232 @@
+2025-07-05 18:00:33,834 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:33,834 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:34,027 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:34,046 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:34,268 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:34,286 INFO [main] o.h.Version] HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-07-05 18:00:34,298 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:34,421 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:34,432 INFO [main] c.z.h.HikariDataSource] HikariPool-1 - Starting...
+2025-07-05 18:00:34,497 INFO [main] c.z.h.p.HikariPool] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:aa572e99-9166-48e9-a913-bc8f84813094 user=SA
+2025-07-05 18:00:34,497 INFO [main] c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+2025-07-05 18:00:34,519 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:34,811 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:34,834 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:34,997 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:35,151 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:35,151 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:35,152 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 0 ms
+2025-07-05 18:00:35,165 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 1.438 seconds (process running for 1.874)
+2025-07-05 18:00:35,503 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:35,504 INFO [main] c.z.h.HikariDataSource] HikariPool-1 - Shutdown initiated...
+2025-07-05 18:00:35,505 INFO [main] c.z.h.HikariDataSource] HikariPool-1 - Shutdown completed.
+2025-07-05 18:00:35,509 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:35,526 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:35,526 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:35,569 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:35,571 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:35,611 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:35,612 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:35,615 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:35,616 INFO [main] c.z.h.HikariDataSource] HikariPool-2 - Starting...
+2025-07-05 18:00:35,617 INFO [main] c.z.h.p.HikariPool] HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:13cb9c71-57f8-4d44-8c6f-ae5fcf1c1072 user=SA
+2025-07-05 18:00:35,617 INFO [main] c.z.h.HikariDataSource] HikariPool-2 - Start completed.
+2025-07-05 18:00:35,618 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:35,642 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:35,645 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:35,680 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:35,712 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:35,712 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:35,712 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 0 ms
+2025-07-05 18:00:35,715 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.206 seconds (process running for 2.424)
+2025-07-05 18:00:35,727 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:35,728 INFO [main] c.z.h.HikariDataSource] HikariPool-2 - Shutdown initiated...
+2025-07-05 18:00:35,748 INFO [main] c.z.h.HikariDataSource] HikariPool-2 - Shutdown completed.
+2025-07-05 18:00:35,750 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:35,760 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:35,760 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:35,791 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:35,794 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:35,822 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:35,823 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:35,826 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:35,826 INFO [main] c.z.h.HikariDataSource] HikariPool-3 - Starting...
+2025-07-05 18:00:35,828 INFO [main] c.z.h.p.HikariPool] HikariPool-3 - Added connection conn12: url=jdbc:h2:mem:28dac505-c420-4f1a-a3b7-cd6db4d73782 user=SA
+2025-07-05 18:00:35,828 INFO [main] c.z.h.HikariDataSource] HikariPool-3 - Start completed.
+2025-07-05 18:00:35,828 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:35,854 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:35,857 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:35,875 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:35,898 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:35,898 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:35,898 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 0 ms
+2025-07-05 18:00:35,900 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.15 seconds (process running for 2.61)
+2025-07-05 18:00:36,090 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,091 INFO [main] c.z.h.HikariDataSource] HikariPool-3 - Shutdown initiated...
+2025-07-05 18:00:36,111 INFO [main] c.z.h.HikariDataSource] HikariPool-3 - Shutdown completed.
+2025-07-05 18:00:36,113 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:36,124 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:36,124 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:36,156 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:36,158 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:36,188 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:36,189 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:36,192 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:36,192 INFO [main] c.z.h.HikariDataSource] HikariPool-4 - Starting...
+2025-07-05 18:00:36,194 INFO [main] c.z.h.p.HikariPool] HikariPool-4 - Added connection conn19: url=jdbc:h2:mem:1de178be-8543-413d-b2f0-faa23cc6b3df user=SA
+2025-07-05 18:00:36,194 INFO [main] c.z.h.HikariDataSource] HikariPool-4 - Start completed.
+2025-07-05 18:00:36,194 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:36,214 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:36,216 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,234 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:36,258 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:36,258 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:36,258 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 0 ms
+2025-07-05 18:00:36,263 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.15 seconds (process running for 2.972)
+2025-07-05 18:00:36,282 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,282 INFO [main] c.z.h.HikariDataSource] HikariPool-4 - Shutdown initiated...
+2025-07-05 18:00:36,282 INFO [main] c.z.h.HikariDataSource] HikariPool-4 - Shutdown completed.
+2025-07-05 18:00:36,284 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:36,293 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:36,293 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:36,324 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:36,326 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:36,355 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:36,356 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:36,358 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:36,359 INFO [main] c.z.h.HikariDataSource] HikariPool-5 - Starting...
+2025-07-05 18:00:36,360 INFO [main] c.z.h.p.HikariPool] HikariPool-5 - Added connection conn20: url=jdbc:h2:mem:3c84cb44-9292-4ce4-b6ed-2eeae292dff4 user=SA
+2025-07-05 18:00:36,360 INFO [main] c.z.h.HikariDataSource] HikariPool-5 - Start completed.
+2025-07-05 18:00:36,360 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:36,380 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:36,383 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,401 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:36,424 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:36,424 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:36,424 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 0 ms
+2025-07-05 18:00:36,426 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.142 seconds (process running for 3.135)
+2025-07-05 18:00:36,438 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,438 INFO [main] c.z.h.HikariDataSource] HikariPool-5 - Shutdown initiated...
+2025-07-05 18:00:36,439 INFO [main] c.z.h.HikariDataSource] HikariPool-5 - Shutdown completed.
+2025-07-05 18:00:36,441 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:36,451 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:36,451 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:36,481 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:36,484 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:36,511 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:36,512 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:36,515 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:36,515 INFO [main] c.z.h.HikariDataSource] HikariPool-6 - Starting...
+2025-07-05 18:00:36,516 INFO [main] c.z.h.p.HikariPool] HikariPool-6 - Added connection conn21: url=jdbc:h2:mem:129343f2-c96d-4a26-a9a7-b7007b1fa87e user=SA
+2025-07-05 18:00:36,517 INFO [main] c.z.h.HikariDataSource] HikariPool-6 - Start completed.
+2025-07-05 18:00:36,517 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:36,536 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:36,538 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,556 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:36,579 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:36,579 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:36,579 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 0 ms
+2025-07-05 18:00:36,581 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.141 seconds (process running for 3.291)
+2025-07-05 18:00:36,589 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,590 INFO [main] c.z.h.HikariDataSource] HikariPool-6 - Shutdown initiated...
+2025-07-05 18:00:36,590 INFO [main] c.z.h.HikariDataSource] HikariPool-6 - Shutdown completed.
+2025-07-05 18:00:36,592 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:36,602 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:36,602 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:36,631 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:36,633 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:36,661 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:36,662 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:36,664 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:36,664 INFO [main] c.z.h.HikariDataSource] HikariPool-7 - Starting...
+2025-07-05 18:00:36,666 INFO [main] c.z.h.p.HikariPool] HikariPool-7 - Added connection conn22: url=jdbc:h2:mem:a57c6afd-80d3-4817-9c8b-43b40c272699 user=SA
+2025-07-05 18:00:36,666 INFO [main] c.z.h.HikariDataSource] HikariPool-7 - Start completed.
+2025-07-05 18:00:36,666 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-7)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:36,683 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:36,686 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,702 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:36,725 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:36,725 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:36,726 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 1 ms
+2025-07-05 18:00:36,728 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.135 seconds (process running for 3.437)
+2025-07-05 18:00:36,732 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,732 INFO [main] c.z.h.HikariDataSource] HikariPool-7 - Shutdown initiated...
+2025-07-05 18:00:36,733 INFO [main] c.z.h.HikariDataSource] HikariPool-7 - Shutdown completed.
+2025-07-05 18:00:36,734 INFO [main] o.s.b.d.r.RestartApplicationListener] Restart disabled due to context in which it is running
+2025-07-05 18:00:36,741 INFO [main] a.t.b.TourControllerIntegrationTest] Starting TourControllerIntegrationTest using Java 23.0.2 with PID 84923 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:00:36,741 INFO [main] a.t.b.TourControllerIntegrationTest] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:00:36,764 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:00:36,766 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2025-07-05 18:00:36,789 INFO [main] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:00:36,789 INFO [main] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:00:36,792 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:00:36,792 INFO [main] c.z.h.HikariDataSource] HikariPool-8 - Starting...
+2025-07-05 18:00:36,793 INFO [main] c.z.h.p.HikariPool] HikariPool-8 - Added connection conn23: url=jdbc:h2:mem:e788b24f-670c-45d3-904f-8ed1e2d22b47 user=SA
+2025-07-05 18:00:36,793 INFO [main] c.z.h.HikariDataSource] HikariPool-8 - Start completed.
+2025-07-05 18:00:36,794 INFO [main] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-8)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:00:36,812 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:00:36,814 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,828 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 18:00:36,845 INFO [main] o.s.b.t.m.w.SpringBootMockServletContext] Initializing Spring TestDispatcherServlet ''
+2025-07-05 18:00:36,845 INFO [main] o.s.t.w.s.TestDispatcherServlet] Initializing Servlet ''
+2025-07-05 18:00:36,846 INFO [main] o.s.t.w.s.TestDispatcherServlet] Completed initialization in 1 ms
+2025-07-05 18:00:36,847 INFO [main] a.t.b.TourControllerIntegrationTest] Started TourControllerIntegrationTest in 0.113 seconds (process running for 3.557)
+2025-07-05 18:00:36,855 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:00:36,855 INFO [main] c.z.h.HikariDataSource] HikariPool-8 - Shutdown initiated...
+2025-07-05 18:00:36,855 INFO [main] c.z.h.HikariDataSource] HikariPool-8 - Shutdown completed.

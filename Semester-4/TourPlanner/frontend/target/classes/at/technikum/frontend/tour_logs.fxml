@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="710.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/21.0.3-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikum.frontend.PL.controllers.TourLogController">
+  <padding>
+    <Insets left="5.0" right="5.0" top="5.0" />
+  </padding>
+  <TableView fx:id="logTable" layoutX="16.0" layoutY="17.0" prefHeight="653.0" prefWidth="1146.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <columns>
+      <TableColumn fx:id="startDate" minWidth="75.0" prefWidth="165.0" text="%logInfo.startDate" />
+      <TableColumn fx:id="endDate" minWidth="54.0" prefWidth="155.0" text="%logInfo.endDate" />
+      <TableColumn fx:id="comment" minWidth="6.0" prefWidth="136.0" text="%logInfo.comment" />
+      <TableColumn fx:id="difficulty" minWidth="60.0" prefWidth="127.0" text="%logInfo.difficulty" />
+      <TableColumn fx:id="totalDistance" minWidth="80.0" prefWidth="129.0" text="%logInfo.totaldistance" />
+      <TableColumn fx:id="rating" minWidth="60.0" prefWidth="120.0" text="%logInfo.rating" />
+    </columns>
+  </TableView>
+  <fx:include fx:id="newEditDeleteButtonBar" source="new_edit_delete_button_bar.fxml" AnchorPane.bottomAnchor="-5.0" AnchorPane.rightAnchor="0.0" />
+</AnchorPane>

@@ -1,0 +1,4 @@
+--patch-module
+at.technikum.common=_
+--add-reads
+at.technikum.common=ALL-UNNAMED

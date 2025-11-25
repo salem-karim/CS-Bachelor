@@ -1,0 +1,8 @@
+at/technikum/backend/Tour/TourService.class
+at/technikum/backend/Logs/LogService.class
+at/technikum/backend/Tour/TourController.class
+at/technikum/backend/Logs/LogController.class
+at/technikum/backend/WebConfig.class
+at/technikum/backend/Logs/LogRepository.class
+at/technikum/backend/Tour/TourRepository.class
+at/technikum/backend/BackendApplication.class

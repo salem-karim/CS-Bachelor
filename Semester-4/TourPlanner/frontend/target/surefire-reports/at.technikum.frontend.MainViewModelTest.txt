@@ -1,0 +1,53 @@
+-------------------------------------------------------------------------------
+Test set: at.technikum.frontend.MainViewModelTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 22.24 s <<< FAILURE! -- in at.technikum.frontend.MainViewModelTest
+at.technikum.frontend.MainViewModelTest.testNewButtonAndCancel(FxRobot) -- Time elapsed: 1.416 s <<< ERROR!
+java.util.NoSuchElementException
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.testfx.service.finder.impl.WindowFinderImpl.window(WindowFinderImpl.java:70)
+	at org.testfx.service.finder.impl.WindowFinderImpl.window(WindowFinderImpl.java:106)
+	at org.testfx.api.FxRobot.window(FxRobot.java:146)
+	at at.technikum.frontend/at.technikum.frontend.MainViewModelTest.testNewButtonAndCancel(tourFXTest.java:62)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+at.technikum.frontend.MainViewModelTest.testEditLogAndCancel(FxRobot) -- Time elapsed: 1.133 s <<< ERROR!
+org.testfx.api.FxRobotException: the query "#logComment" returned no nodes.
+	at org.testfx.api.FxRobot.queryVisibleNode(FxRobot.java:949)
+	at org.testfx.api.FxRobot.pointOfVisibleNode(FxRobot.java:922)
+	at org.testfx.api.FxRobot.clickOn(FxRobot.java:630)
+	at org.testfx.api.FxRobot.clickOn(FxRobot.java:59)
+	at org.testfx.api.FxRobotInterface.clickOn(FxRobotInterface.java:639)
+	at at.technikum.frontend/at.technikum.frontend.MainViewModelTest.testEditLogAndCancel(tourFXTest.java:232)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+at.technikum.frontend.MainViewModelTest.testCreateLog(FxRobot) -- Time elapsed: 1.015 s <<< ERROR!
+java.lang.RuntimeException: 
+org.testfx.service.query.EmptyNodeQueryException: there is no node in the scene-graph matching the query: NodeQuery: from nodes: [AnchorPane@379ff6f5[styleClass=root]],
+lookup by function: "org.testfx.util.NodeQueryUtils$$Lambda/0x00000007c05b5230@21493f74",
+lookup by selector: "#logStartDate"
+	at org.testfx.util.WaitForAsyncUtils.waitFor(WaitForAsyncUtils.java:276)
+	at org.testfx.api.FxRobot.interact(FxRobot.java:416)
+	at at.technikum.frontend/at.technikum.frontend.MainViewModelTest.testCreateLog(tourFXTest.java:177)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: org.testfx.service.query.EmptyNodeQueryException: there is no node in the scene-graph matching the query: NodeQuery: from nodes: [AnchorPane@379ff6f5[styleClass=root]],
+lookup by function: "org.testfx.util.NodeQueryUtils$$Lambda/0x00000007c05b5230@21493f74",
+lookup by selector: "#logStartDate"
+	at org.testfx.service.query.impl.NodeQueryImpl.query(NodeQueryImpl.java:131)
+	at at.technikum.frontend/at.technikum.frontend.MainViewModelTest.lambda$testCreateLog$4(tourFXTest.java:178)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456)
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:96)
+	at javafx.graphics/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at javafx.graphics/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$11(GtkApplication.java:290)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+

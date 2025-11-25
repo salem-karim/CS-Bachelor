@@ -1,0 +1,235 @@
+2025-08-20 17:29:13,400 INFO [restartedMain] a.t.b.BackendApplication] Starting BackendApplication using Java 21.0.7 with PID 37244 (/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-08-20 17:29:13,401 INFO [restartedMain] a.t.b.BackendApplication] No active profile set, falling back to 1 default profile: "default"
+2025-08-20 17:29:13,421 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-20 17:29:13,421 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-20 17:29:13,430 INFO [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager] Using Docker Compose file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml
+2025-08-20 17:29:13,663 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  postgres Pulling 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Pulling fs layer 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Waiting 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Waiting 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Waiting 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Waiting 
+2025-08-20 17:29:15,912 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Waiting 
+2025-08-20 17:29:15,913 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Waiting 
+2025-08-20 17:29:15,913 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Waiting 
+2025-08-20 17:29:15,913 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Waiting 
+2025-08-20 17:29:15,913 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Waiting 
+2025-08-20 17:29:16,914 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Downloading [============================================>      ]  1.049kB/1.166kB
+2025-08-20 17:29:16,914 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Downloading [==================================================>]  1.166kB/1.166kB
+2025-08-20 17:29:16,914 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Verifying Checksum 
+2025-08-20 17:29:16,914 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Download complete 
+2025-08-20 17:29:16,927 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [>                                                  ]  311.3kB/29.77MB
+2025-08-20 17:29:16,950 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [>                                                  ]  65.54kB/6.437MB
+2025-08-20 17:29:17,029 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [=====>                                             ]  3.099MB/29.77MB
+2025-08-20 17:29:17,059 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [==========>                                        ]  1.317MB/6.437MB
+2025-08-20 17:29:17,132 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [=========>                                         ]  5.554MB/29.77MB
+2025-08-20 17:29:17,164 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [===============>                                   ]  1.982MB/6.437MB
+2025-08-20 17:29:17,233 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [=============>                                     ]  8.028MB/29.77MB
+2025-08-20 17:29:17,270 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [=========================>                         ]  3.232MB/6.437MB
+2025-08-20 17:29:17,372 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [===================>                               ]   11.4MB/29.77MB
+2025-08-20 17:29:17,373 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [===========================>                       ]  3.565MB/6.437MB
+2025-08-20 17:29:17,498 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [=====================================>             ]  4.882MB/6.437MB
+2025-08-20 17:29:17,502 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [==========================>                        ]  15.75MB/29.77MB
+2025-08-20 17:29:17,618 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [================================>                  ]   19.1MB/29.77MB
+2025-08-20 17:29:17,618 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [================================================>  ]  6.295MB/6.437MB
+2025-08-20 17:29:17,619 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Downloading [==================================================>]  6.437MB/6.437MB
+2025-08-20 17:29:17,619 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Verifying Checksum 
+2025-08-20 17:29:17,619 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Download complete 
+2025-08-20 17:29:17,758 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Downloading [>                                                  ]  14.74kB/1.454MB
+2025-08-20 17:29:17,772 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [========================================>          ]  24.04MB/29.77MB
+2025-08-20 17:29:17,862 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Downloading [=======================>                           ]  675.2kB/1.454MB
+2025-08-20 17:29:17,873 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Downloading [================================================>  ]  28.95MB/29.77MB
+2025-08-20 17:29:17,894 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Download complete 
+2025-08-20 17:29:17,903 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Verifying Checksum 
+2025-08-20 17:29:17,903 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Download complete 
+2025-08-20 17:29:17,910 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [>                                                  ]  327.7kB/29.77MB
+2025-08-20 17:29:18,013 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [===========>                                       ]  6.554MB/29.77MB
+2025-08-20 17:29:18,117 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [===================>                               ]   11.8MB/29.77MB
+2025-08-20 17:29:18,219 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [===============================>                   ]  19.01MB/29.77MB
+2025-08-20 17:29:18,270 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Downloading [>                                                  ]  82.72kB/8.203MB
+2025-08-20 17:29:18,322 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [==========================================>        ]  25.56MB/29.77MB
+2025-08-20 17:29:18,371 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Downloading [================>                                  ]  2.666MB/8.203MB
+2025-08-20 17:29:18,426 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [===============================================>   ]  28.18MB/29.77MB
+2025-08-20 17:29:18,478 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Downloading [===========================================>       ]  7.209MB/8.203MB
+2025-08-20 17:29:18,492 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Verifying Checksum 
+2025-08-20 17:29:18,492 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Download complete 
+2025-08-20 17:29:18,523 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Downloading [==================================================>]     116B/116B
+2025-08-20 17:29:18,523 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Verifying Checksum 
+2025-08-20 17:29:18,523 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Download complete 
+2025-08-20 17:29:18,544 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Extracting [==================================================>]  29.77MB/29.77MB
+2025-08-20 17:29:18,556 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Downloading [>                                                  ]  13.81kB/1.311MB
+2025-08-20 17:29:18,559 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  396b1da7636e Pull complete 
+2025-08-20 17:29:18,560 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Extracting [==================================================>]  1.166kB/1.166kB
+2025-08-20 17:29:18,563 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Extracting [==================================================>]  1.166kB/1.166kB
+2025-08-20 17:29:18,566 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f5465e2fc020 Pull complete 
+2025-08-20 17:29:18,572 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Extracting [>                                                  ]  65.54kB/6.437MB
+2025-08-20 17:29:18,646 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Verifying Checksum 
+2025-08-20 17:29:18,646 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Download complete 
+2025-08-20 17:29:18,681 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Extracting [=================================================> ]  6.423MB/6.437MB
+2025-08-20 17:29:18,683 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Extracting [==================================================>]  6.437MB/6.437MB
+2025-08-20 17:29:18,688 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  c166c949e1c3 Pull complete 
+2025-08-20 17:29:18,689 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Extracting [=>                                                 ]  32.77kB/1.454MB
+2025-08-20 17:29:18,716 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Extracting [==================================================>]  1.454MB/1.454MB
+2025-08-20 17:29:18,719 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  7fa725c973af Pull complete 
+2025-08-20 17:29:18,725 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Extracting [>                                                  ]   98.3kB/8.203MB
+2025-08-20 17:29:18,826 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Extracting [==================================>                ]  5.603MB/8.203MB
+2025-08-20 17:29:18,890 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Extracting [==================================================>]  8.203MB/8.203MB
+2025-08-20 17:29:18,897 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  1f6dfcaad4e9 Pull complete 
+2025-08-20 17:29:18,898 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Extracting [=>                                                 ]  32.77kB/1.311MB
+2025-08-20 17:29:18,928 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Extracting [==================================================>]  1.311MB/1.311MB
+2025-08-20 17:29:18,933 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  b7a79609094c Pull complete 
+2025-08-20 17:29:18,934 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Extracting [==================================================>]     116B/116B
+2025-08-20 17:29:18,936 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Extracting [==================================================>]     116B/116B
+2025-08-20 17:29:18,939 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  901a9540064a Pull complete 
+2025-08-20 17:29:19,134 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Downloading [================>                                  ]  1.049kB/3.141kB
+2025-08-20 17:29:19,134 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Downloading [==================================================>]  3.141kB/3.141kB
+2025-08-20 17:29:19,134 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Verifying Checksum 
+2025-08-20 17:29:19,134 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Download complete 
+2025-08-20 17:29:19,134 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Extracting [==================================================>]  3.141kB/3.141kB
+2025-08-20 17:29:19,137 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Extracting [==================================================>]  3.141kB/3.141kB
+2025-08-20 17:29:19,141 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  085f0a899c07 Pull complete 
+2025-08-20 17:29:19,317 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Downloading [======>                                            ]  1.369kB/10.34kB
+2025-08-20 17:29:19,319 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Downloading [==================================================>]  10.34kB/10.34kB
+2025-08-20 17:29:19,319 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Verifying Checksum 
+2025-08-20 17:29:19,319 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Download complete 
+2025-08-20 17:29:19,417 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [>                                                  ]  540.7kB/114.2MB
+2025-08-20 17:29:19,564 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==>                                                ]  4.809MB/114.2MB
+2025-08-20 17:29:19,673 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [====>                                              ]  9.616MB/114.2MB
+2025-08-20 17:29:19,778 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=====>                                             ]  12.82MB/114.2MB
+2025-08-20 17:29:19,874 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Downloading [==================================================>]     127B/127B
+2025-08-20 17:29:19,874 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Verifying Checksum 
+2025-08-20 17:29:19,874 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Download complete 
+2025-08-20 17:29:19,890 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=======>                                           ]  17.65MB/114.2MB
+2025-08-20 17:29:20,009 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=========>                                         ]  22.48MB/114.2MB
+2025-08-20 17:29:20,016 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Downloading [==================================================>]     167B/167B
+2025-08-20 17:29:20,016 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Verifying Checksum 
+2025-08-20 17:29:20,016 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Download complete 
+2025-08-20 17:29:20,115 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [============>                                      ]  27.84MB/114.2MB
+2025-08-20 17:29:20,228 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==============>                                    ]  32.13MB/114.2MB
+2025-08-20 17:29:20,329 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [===============>                                   ]  35.89MB/114.2MB
+2025-08-20 17:29:20,439 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=================>                                 ]  40.19MB/114.2MB
+2025-08-20 17:29:20,554 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [===================>                               ]  44.46MB/114.2MB
+2025-08-20 17:29:20,657 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Downloading [========>                                          ]  1.049kB/5.928kB
+2025-08-20 17:29:20,658 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Downloading [==================================================>]  5.928kB/5.928kB
+2025-08-20 17:29:20,658 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Verifying Checksum 
+2025-08-20 17:29:20,658 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Download complete 
+2025-08-20 17:29:20,662 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=====================>                             ]  48.73MB/114.2MB
+2025-08-20 17:29:20,771 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Downloading [==================================================>]     186B/186B
+2025-08-20 17:29:20,771 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Verifying Checksum 
+2025-08-20 17:29:20,771 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Download complete 
+2025-08-20 17:29:20,775 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=======================>                           ]  53.01MB/114.2MB
+2025-08-20 17:29:20,887 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=========================>                         ]   57.3MB/114.2MB
+2025-08-20 17:29:21,000 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==========================>                        ]  61.59MB/114.2MB
+2025-08-20 17:29:21,112 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [============================>                      ]  65.88MB/114.2MB
+2025-08-20 17:29:21,222 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==============================>                    ]  70.17MB/114.2MB
+2025-08-20 17:29:21,352 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [================================>                  ]   73.9MB/114.2MB
+2025-08-20 17:29:21,493 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==================================>                ]  79.23MB/114.2MB
+2025-08-20 17:29:21,600 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=====================================>             ]  84.56MB/114.2MB
+2025-08-20 17:29:21,700 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [======================================>            ]  88.34MB/114.2MB
+2025-08-20 17:29:21,810 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [========================================>          ]  92.61MB/114.2MB
+2025-08-20 17:29:21,921 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==========================================>        ]  96.88MB/114.2MB
+2025-08-20 17:29:22,033 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [============================================>      ]  101.2MB/114.2MB
+2025-08-20 17:29:22,146 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [==============================================>    ]  105.5MB/114.2MB
+2025-08-20 17:29:22,252 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [===============================================>   ]  108.7MB/114.2MB
+2025-08-20 17:29:22,362 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Downloading [=================================================> ]  113.5MB/114.2MB
+2025-08-20 17:29:22,376 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Verifying Checksum 
+2025-08-20 17:29:22,376 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Download complete 
+2025-08-20 17:29:22,400 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [>                                                  ]  557.1kB/114.2MB
+2025-08-20 17:29:22,504 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [===>                                               ]  7.799MB/114.2MB
+2025-08-20 17:29:22,612 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [=====>                                             ]  13.37MB/114.2MB
+2025-08-20 17:29:22,716 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [========>                                          ]  20.05MB/114.2MB
+2025-08-20 17:29:22,820 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [===========>                                       ]  26.18MB/114.2MB
+2025-08-20 17:29:22,921 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [==============>                                    ]  33.98MB/114.2MB
+2025-08-20 17:29:23,024 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [==================>                                ]  41.78MB/114.2MB
+2025-08-20 17:29:23,128 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [=====================>                             ]  49.58MB/114.2MB
+2025-08-20 17:29:23,233 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [========================>                          ]  55.71MB/114.2MB
+2025-08-20 17:29:23,337 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [===========================>                       ]  61.83MB/114.2MB
+2025-08-20 17:29:23,440 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [==============================>                    ]  69.63MB/114.2MB
+2025-08-20 17:29:23,547 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [=================================>                 ]  77.43MB/114.2MB
+2025-08-20 17:29:23,649 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [=====================================>             ]  84.67MB/114.2MB
+2025-08-20 17:29:23,755 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [========================================>          ]  92.47MB/114.2MB
+2025-08-20 17:29:23,858 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [==========================================>        ]  97.48MB/114.2MB
+2025-08-20 17:29:23,965 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [============================================>      ]  102.5MB/114.2MB
+2025-08-20 17:29:24,070 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [===============================================>   ]  107.5MB/114.2MB
+2025-08-20 17:29:24,178 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [================================================>  ]  110.3MB/114.2MB
+2025-08-20 17:29:24,289 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [=================================================> ]  112.5MB/114.2MB
+2025-08-20 17:29:24,353 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Extracting [==================================================>]  114.2MB/114.2MB
+2025-08-20 17:29:24,376 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  5d91a345d79a Pull complete 
+2025-08-20 17:29:24,378 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Extracting [==================================================>]  10.34kB/10.34kB
+2025-08-20 17:29:24,381 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Extracting [==================================================>]  10.34kB/10.34kB
+2025-08-20 17:29:24,384 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  f7f2afaa1b41 Pull complete 
+2025-08-20 17:29:24,386 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Extracting [==================================================>]     127B/127B
+2025-08-20 17:29:24,389 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Extracting [==================================================>]     127B/127B
+2025-08-20 17:29:24,392 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  36b4e7f51364 Pull complete 
+2025-08-20 17:29:24,393 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Extracting [==================================================>]     167B/167B
+2025-08-20 17:29:24,395 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Extracting [==================================================>]     167B/167B
+2025-08-20 17:29:24,398 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  85558a023eea Pull complete 
+2025-08-20 17:29:24,400 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Extracting [==================================================>]  5.928kB/5.928kB
+2025-08-20 17:29:24,402 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Extracting [==================================================>]  5.928kB/5.928kB
+2025-08-20 17:29:24,406 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  be9fdbdba096 Pull complete 
+2025-08-20 17:29:24,407 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Extracting [==================================================>]     186B/186B
+2025-08-20 17:29:24,410 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Extracting [==================================================>]     186B/186B
+2025-08-20 17:29:24,413 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  ae28e2b99a62 Pull complete 
+2025-08-20 17:29:24,422 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  postgres Pulled 
+2025-08-20 17:29:24,424 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Network tourplanner_default  Creating
+2025-08-20 17:29:24,484 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Network tourplanner_default  Created
+2025-08-20 17:29:24,484 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Creating
+2025-08-20 17:29:25,387 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Created
+2025-08-20 17:29:25,388 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Starting
+2025-08-20 17:29:25,524 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Started
+2025-08-20 17:29:25,524 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Waiting
+2025-08-20 17:29:26,025 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Healthy
+2025-08-20 17:29:27,432 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-20 17:29:27,446 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+2025-08-20 17:29:27,664 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer] Tomcat initialized with port 8080 (http)
+2025-08-20 17:29:27,669 INFO [restartedMain] o.a.c.h.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-20 17:29:27,670 INFO [restartedMain] o.a.c.c.StandardService] Starting service [Tomcat]
+2025-08-20 17:29:27,670 INFO [restartedMain] o.a.c.c.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-08-20 17:29:27,682 INFO [restartedMain] o.a.c.c.C.[.[.[/]] Initializing Spring embedded WebApplicationContext
+2025-08-20 17:29:27,682 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 385 ms
+2025-08-20 17:29:27,733 INFO [restartedMain] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-20 17:29:27,747 INFO [restartedMain] o.h.Version] HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-08-20 17:29:27,756 INFO [restartedMain] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-08-20 17:29:27,837 INFO [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-20 17:29:27,846 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Starting...
+2025-08-20 17:29:27,901 INFO [restartedMain] c.z.h.p.HikariPool] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69f29883
+2025-08-20 17:29:27,902 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+2025-08-20 17:29:27,923 INFO [restartedMain] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-20 17:29:28,179 INFO [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-20 17:29:28,200 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-20 17:29:28,323 WARN [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-20 17:29:28,403 INFO [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydatabase?ApplicationName=backend'
+2025-08-20 17:29:28,421 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer] LiveReload server is running on port 35729
+2025-08-20 17:29:28,426 INFO [restartedMain] o.a.c.h.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"]
+2025-08-20 17:29:28,430 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer] Tomcat started on port 8080 (http) with context path '/'
+2025-08-20 17:29:28,433 INFO [restartedMain] a.t.b.BackendApplication] Started BackendApplication in 15.149 seconds (process running for 15.343)
+2025-08-20 17:29:42,228 INFO [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-20 17:29:42,228 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+2025-08-20 17:29:42,229 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet] Completed initialization in 1 ms
+2025-08-20 17:30:21,910 INFO [SpringApplicationShutdownHook] o.s.b.w.e.t.GracefulShutdown] Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-20 17:30:21,911 INFO [tomcat-shutdown] o.s.b.w.e.t.GracefulShutdown] Graceful shutdown complete
+2025-08-20 17:30:21,912 INFO [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-20 17:30:21,915 WARN [SpringApplicationShutdownHook] o.s.b.f.s.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.postgresql.util.PSQLException: ERROR: syntax error at or near "SHUTDOWN"
+  Position: 1
+2025-08-20 17:30:21,915 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource] HikariPool-1 - Shutdown initiated...
+2025-08-20 17:30:21,916 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource] HikariPool-1 - Shutdown completed.

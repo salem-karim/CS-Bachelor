@@ -1,0 +1,108 @@
+2025-07-02 14:59:25,875 INFO [restartedMain] a.t.b.BackendApplication] Starting BackendApplication using Java 23.0.2 with PID 55673 (/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-02 14:59:25,876 INFO [restartedMain] a.t.b.BackendApplication] No active profile set, falling back to 1 default profile: "default"
+2025-07-02 14:59:25,900 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-02 14:59:25,900 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-02 14:59:25,909 INFO [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager] Using Docker Compose file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml
+2025-07-02 14:59:26,121 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Starting
+2025-07-02 14:59:26,238 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Started
+2025-07-02 14:59:26,239 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Waiting
+2025-07-02 14:59:26,740 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Healthy
+2025-07-02 14:59:27,166 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-02 14:59:27,183 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2025-07-02 14:59:27,423 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer] Tomcat initialized with port 8080 (http)
+2025-07-02 14:59:27,427 INFO [restartedMain] o.a.c.h.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-02 14:59:27,428 INFO [restartedMain] o.a.c.c.StandardService] Starting service [Tomcat]
+2025-07-02 14:59:27,428 INFO [restartedMain] o.a.c.c.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-07-02 14:59:27,442 INFO [restartedMain] o.a.c.c.C.[.[.[/]] Initializing Spring embedded WebApplicationContext
+2025-07-02 14:59:27,443 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 424 ms
+2025-07-02 14:59:27,497 INFO [restartedMain] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-02 14:59:27,511 INFO [restartedMain] o.h.Version] HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-07-02 14:59:27,521 INFO [restartedMain] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-02 14:59:27,615 INFO [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-02 14:59:27,625 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Starting...
+2025-07-02 14:59:27,681 INFO [restartedMain] c.z.h.p.HikariPool] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2831b93
+2025-07-02 14:59:27,681 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+2025-07-02 14:59:27,705 INFO [restartedMain] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-02 14:59:27,992 INFO [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-02 14:59:28,057 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 14:59:28,132 WARN [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logController' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logService' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogService.class]: Failed to instantiate [at.technikum.backend.Logs.LogService]: Constructor threw exception
+2025-07-02 14:59:28,132 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 14:59:28,135 WARN [restartedMain] o.s.b.f.s.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.postgresql.util.PSQLException: ERROR: syntax error at or near "SHUTDOWN"
+  Position: 1
+2025-07-02 14:59:28,135 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Shutdown initiated...
+2025-07-02 14:59:28,161 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Shutdown completed.
+2025-07-02 14:59:28,162 INFO [restartedMain] o.a.c.c.StandardService] Stopping service [Tomcat]
+2025-07-02 14:59:28,166 INFO [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-02 14:59:28,173 ERROR [restartedMain] o.s.b.SpringApplication] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logController' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logService' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogService.class]: Failed to instantiate [at.technikum.backend.Logs.LogService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:347)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1155)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1121)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1056)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at at.technikum.backend.BackendApplication.main(BackendApplication.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'logService' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogService.class]: Failed to instantiate [at.technikum.backend.Logs.LogService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:347)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1609)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1555)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [at.technikum.backend.Logs.LogService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:222)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:145)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318)
+	... 37 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The method getId() is undefined for the type Logs
+	The method setId(UUID) is undefined for the type Logs
+	The method getStart_date_time() is undefined for the type Logs
+	The method getEnd_date_time() is undefined for the type Logs
+	The method getComment() is undefined for the type Logs
+	The method getDifficulty() is undefined for the type Logs
+	The method getTotal_distance() is undefined for the type Logs
+	The method getRating() is undefined for the type Logs
+
+	at at.technikum.backend.Logs.LogService.<init>(LogService.java:19)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:209)
+	... 39 common frames omitted

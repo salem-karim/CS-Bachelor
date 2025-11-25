@@ -1,0 +1,59 @@
+2025-07-05 18:18:17,104 INFO [restartedMain] a.t.b.BackendApplication] Starting BackendApplication using Java 23.0.2 with PID 96079 (/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 18:18:17,105 INFO [restartedMain] a.t.b.BackendApplication] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 18:18:17,128 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05 18:18:17,128 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05 18:18:17,134 INFO [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager] Using Docker Compose file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml
+2025-07-05 18:18:17,350 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Starting
+2025-07-05 18:18:17,465 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Started
+2025-07-05 18:18:17,465 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Waiting
+2025-07-05 18:18:17,967 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Healthy
+2025-07-05 18:18:18,395 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 18:18:18,399 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2025-07-05 18:18:18,630 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer] Tomcat initialized with port 8080 (http)
+2025-07-05 18:18:18,634 INFO [restartedMain] o.a.c.h.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-05 18:18:18,635 INFO [restartedMain] o.a.c.c.StandardService] Starting service [Tomcat]
+2025-07-05 18:18:18,635 INFO [restartedMain] o.a.c.c.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-07-05 18:18:18,646 INFO [restartedMain] o.a.c.c.C.[.[.[/]] Initializing Spring embedded WebApplicationContext
+2025-07-05 18:18:18,646 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 407 ms
+2025-07-05 18:18:18,699 INFO [restartedMain] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 18:18:18,713 INFO [restartedMain] o.h.Version] HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-07-05 18:18:18,722 INFO [restartedMain] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 18:18:18,817 INFO [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 18:18:18,827 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Starting...
+2025-07-05 18:18:18,885 INFO [restartedMain] c.z.h.p.HikariPool] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1568cec1
+2025-07-05 18:18:18,886 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+2025-07-05 18:18:18,909 INFO [restartedMain] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 18:18:19,203 INFO [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 18:18:19,268 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:18:19,274 WARN [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logController' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logService' defined in file [/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes/at/technikum/backend/Logs/LogService.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'at.technikum.backend.Logs.LogRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-07-05 18:18:19,275 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 18:18:19,278 WARN [restartedMain] o.s.b.f.s.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.postgresql.util.PSQLException: ERROR: syntax error at or near "SHUTDOWN"
+  Position: 1
+2025-07-05 18:18:19,278 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Shutdown initiated...
+2025-07-05 18:18:19,307 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Shutdown completed.
+2025-07-05 18:18:19,308 INFO [restartedMain] o.a.c.c.StandardService] Stopping service [Tomcat]
+2025-07-05 18:18:19,313 INFO [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-05 18:18:19,320 ERROR [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in at.technikum.backend.Logs.LogService required a bean of type 'at.technikum.backend.Logs.LogRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'at.technikum.backend.Logs.LogRepository' in your configuration.
+

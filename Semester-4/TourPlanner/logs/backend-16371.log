@@ -1,0 +1,45 @@
+2025-07-05 15:54:29,295 INFO [restartedMain] a.t.b.BackendApplication] Starting BackendApplication using Java 23.0.2 with PID 16371 (/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 15:54:29,296 INFO [restartedMain] a.t.b.BackendApplication] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 15:54:29,318 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05 15:54:29,319 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05 15:54:29,327 INFO [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager] Using Docker Compose file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml
+2025-07-05 15:54:29,535 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli] time="2025-07-05T15:54:29+02:00" level=warning msg="Found orphan containers ([tourplanner-server-1 tourplanner-db-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+2025-07-05 15:54:29,536 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Starting
+2025-07-05 15:54:29,694 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli] Error response from daemon: failed to set up container networking: network 8d2d50fc456388071b67646f49b2d1a1a99d1793bd759dd0a169b423f86e206f not found
+2025-07-05 15:54:29,707 ERROR [restartedMain] o.s.b.SpringApplication] Application run failed
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml --ansi never up --no-color --detach --wait' failed with exit code 1.
+
+Stdout:
+
+
+Stderr:
+time="2025-07-05T15:54:29+02:00" level=warning msg="Found orphan containers ([tourplanner-server-1 tourplanner-db-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container tourplanner-postgres-1  Starting
+Error response from daemon: failed to set up container networking: network 8d2d50fc456388071b67646f49b2d1a1a99d1793bd759dd0a169b423f86e206f not found
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:97)
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:81)
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.up(DefaultDockerCompose.java:56)
+	at org.springframework.boot.docker.compose.lifecycle.StartCommand.applyTo(StartCommand.java:51)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:131)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:416)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at at.technikum.backend.BackendApplication.main(BackendApplication.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)

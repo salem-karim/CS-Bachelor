@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="at.technikum.backend.TourControllerIntegrationTest" time="3.214" tests="8" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="23"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/test-classes:/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.0-M3/spring-boot-starter-data-jpa-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.0-M3/spring-boot-starter-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.0-M3/spring-boot-starter-logging-3.5.0-M3.jar:/home/karim/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/home/karim/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/home/karim/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/home/karim/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/home/karim/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/home/karim/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/karim/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/home/karim/.m2/repository/org/hibernate/orm/hibernate-core/6.6.11.Final/hibernate-core-6.6.11.Final.jar:/home/karim/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/karim/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/home/karim/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/home/karim/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/home/karim/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/home/karim/.m2/repository/net/bytebuddy/byte-buddy/1.17.2/byte-buddy-1.17.2.jar:/home/karim/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/karim/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/karim/.m2/repository/org/springframework/data/spring-data-jpa/3.5.0-M2/spring-data-jpa-3.5.0-M2.jar:/home/karim/.m2/repository/org/springframework/data/spring-data-commons/3.5.0-M2/spring-data-commons-3.5.0-M2.jar:/home/karim/.m2/repository/org/springframework/spring-orm/6.2.5/spring-orm-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-context/6.2.5/spring-context-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-aop/6.2.5/spring-aop-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-tx/6.2.5/spring-tx-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-beans/6.2.5/spring-beans-6.2.5.jar:/home/karim/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/karim/.m2/repository/org/springframework/spring-aspects/6.2.5/spring-aspects-6.2.5.jar:/home/karim/.m2/repository/org/aspectj/aspectjweaver/1.9.23/aspectjweaver-1.9.23.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.0-M3/spring-boot-starter-jdbc-3.5.0-M3.jar:/home/karim/.m2/repository/com/zaxxer/HikariCP/6.2.1/HikariCP-6.2.1.jar:/home/karim/.m2/repository/org/springframework/spring-jdbc/6.2.5/spring-jdbc-6.2.5.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.0-M3/spring-boot-starter-web-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.0-M3/spring-boot-starter-json-3.5.0-M3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.18.3/jackson-datatype-jdk8-2.18.3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.18.3/jackson-datatype-jsr310-2.18.3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.0-M3/spring-boot-starter-tomcat-3.5.0-M3.jar:/home/karim/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.39/tomcat-embed-core-10.1.39.jar:/home/karim/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.39/tomcat-embed-el-10.1.39.jar:/home/karim/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.39/tomcat-embed-websocket-10.1.39.jar:/home/karim/.m2/repository/org/springframework/spring-web/6.2.5/spring-web-6.2.5.jar:/home/karim/.m2/repository/io/micrometer/micrometer-observation/1.15.0-M3/micrometer-observation-1.15.0-M3.jar:/home/karim/.m2/repository/io/micrometer/micrometer-commons/1.15.0-M3/micrometer-commons-1.15.0-M3.jar:/home/karim/.m2/repository/org/springframework/spring-webmvc/6.2.5/spring-webmvc-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-expression/6.2.5/spring-expression-6.2.5.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-devtools/3.5.0-M3/spring-boot-devtools-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot/3.5.0-M3/spring-boot-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.0-M3/spring-boot-autoconfigure-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-docker-compose/3.5.0-M3/spring-boot-docker-compose-3.5.0-M3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.3/jackson-databind-2.18.3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.3/jackson-core-2.18.3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.18.3/jackson-module-parameter-names-2.18.3.jar:/home/karim/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/home/karim/.m2/repository/org/postgresql/postgresql/42.7.5/postgresql-42.7.5.jar:/home/karim/.m2/repository/org/checkerframework/checker-qual/3.48.3/checker-qual-3.48.3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-configuration-processor/3.5.0-M3/spring-boot-configuration-processor-3.5.0-M3.jar:/home/karim/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.0-M3/spring-boot-starter-test-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-test/3.5.0-M3/spring-boot-test-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.0-M3/spring-boot-test-autoconfigure-3.5.0-M3.jar:/home/karim/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/home/karim/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/karim/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/karim/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/home/karim/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/home/karim/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/home/karim/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/home/karim/.m2/repository/org/awaitility/awaitility/4.3.0/awaitility-4.3.0.jar:/home/karim/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.1/junit-jupiter-5.12.1.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.1/junit-jupiter-api-5.12.1.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.1/junit-jupiter-params-5.12.1.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.1/junit-jupiter-engine-5.12.1.jar:/home/karim/.m2/repository/org/mockito/mockito-core/5.16.1/mockito-core-5.16.1.jar:/home/karim/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.2/byte-buddy-agent-1.17.2.jar:/home/karim/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/karim/.m2/repository/org/mockito/mockito-junit-jupiter/5.16.1/mockito-junit-jupiter-5.16.1.jar:/home/karim/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/home/karim/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/karim/.m2/repository/org/springframework/spring-core/6.2.5/spring-core-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-jcl/6.2.5/spring-jcl-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-test/6.2.5/spring-test-6.2.5.jar:/home/karim/.m2/repository/org/xmlunit/xmlunit-core/2.10.0/xmlunit-core-2.10.0.jar:/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/common/target/classes:/home/karim/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/karim/.m2/repository/org/junit/platform/junit-platform-engine/1.12.1/junit-platform-engine-1.12.1.jar:/home/karim/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/karim/.m2/repository/org/junit/platform/junit-platform-commons/1.12.1/junit-platform-commons-1.12.1.jar:/home/karim/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/karim/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.3/jackson-annotations-2.18.3.jar:/home/karim/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/home/karim/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/home/karim/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/home/karim/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/home/karim/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:"/>
+    <property name="java.vm.vendor" value="BellSoft"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://bell-sw.com/"/>
+    <property name="user.timezone" value="Europe/Vienna"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="APPLICATION_NAME" value="backend"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/karim/.sdkman/candidates/java/23.0.2.fx-librca/lib"/>
+    <property name="sun.java.command" value="/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/surefire/surefirebooter-20250707154912838_3.jar /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/surefire 2025-07-07T15-49-12_796-jvmRun1 surefire-20250707154912838_1tmp surefire_0-20250707154912838_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/test-classes:/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.0-M3/spring-boot-starter-data-jpa-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.0-M3/spring-boot-starter-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.0-M3/spring-boot-starter-logging-3.5.0-M3.jar:/home/karim/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/home/karim/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/home/karim/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/home/karim/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/home/karim/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/home/karim/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/karim/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/home/karim/.m2/repository/org/hibernate/orm/hibernate-core/6.6.11.Final/hibernate-core-6.6.11.Final.jar:/home/karim/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/karim/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/home/karim/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/home/karim/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/home/karim/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/home/karim/.m2/repository/net/bytebuddy/byte-buddy/1.17.2/byte-buddy-1.17.2.jar:/home/karim/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/karim/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/karim/.m2/repository/org/springframework/data/spring-data-jpa/3.5.0-M2/spring-data-jpa-3.5.0-M2.jar:/home/karim/.m2/repository/org/springframework/data/spring-data-commons/3.5.0-M2/spring-data-commons-3.5.0-M2.jar:/home/karim/.m2/repository/org/springframework/spring-orm/6.2.5/spring-orm-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-context/6.2.5/spring-context-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-aop/6.2.5/spring-aop-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-tx/6.2.5/spring-tx-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-beans/6.2.5/spring-beans-6.2.5.jar:/home/karim/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/karim/.m2/repository/org/springframework/spring-aspects/6.2.5/spring-aspects-6.2.5.jar:/home/karim/.m2/repository/org/aspectj/aspectjweaver/1.9.23/aspectjweaver-1.9.23.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.0-M3/spring-boot-starter-jdbc-3.5.0-M3.jar:/home/karim/.m2/repository/com/zaxxer/HikariCP/6.2.1/HikariCP-6.2.1.jar:/home/karim/.m2/repository/org/springframework/spring-jdbc/6.2.5/spring-jdbc-6.2.5.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.0-M3/spring-boot-starter-web-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.0-M3/spring-boot-starter-json-3.5.0-M3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.18.3/jackson-datatype-jdk8-2.18.3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.18.3/jackson-datatype-jsr310-2.18.3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.0-M3/spring-boot-starter-tomcat-3.5.0-M3.jar:/home/karim/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.39/tomcat-embed-core-10.1.39.jar:/home/karim/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.39/tomcat-embed-el-10.1.39.jar:/home/karim/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.39/tomcat-embed-websocket-10.1.39.jar:/home/karim/.m2/repository/org/springframework/spring-web/6.2.5/spring-web-6.2.5.jar:/home/karim/.m2/repository/io/micrometer/micrometer-observation/1.15.0-M3/micrometer-observation-1.15.0-M3.jar:/home/karim/.m2/repository/io/micrometer/micrometer-commons/1.15.0-M3/micrometer-commons-1.15.0-M3.jar:/home/karim/.m2/repository/org/springframework/spring-webmvc/6.2.5/spring-webmvc-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-expression/6.2.5/spring-expression-6.2.5.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-devtools/3.5.0-M3/spring-boot-devtools-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot/3.5.0-M3/spring-boot-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.0-M3/spring-boot-autoconfigure-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-docker-compose/3.5.0-M3/spring-boot-docker-compose-3.5.0-M3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.3/jackson-databind-2.18.3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.3/jackson-core-2.18.3.jar:/home/karim/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.18.3/jackson-module-parameter-names-2.18.3.jar:/home/karim/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/home/karim/.m2/repository/org/postgresql/postgresql/42.7.5/postgresql-42.7.5.jar:/home/karim/.m2/repository/org/checkerframework/checker-qual/3.48.3/checker-qual-3.48.3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-configuration-processor/3.5.0-M3/spring-boot-configuration-processor-3.5.0-M3.jar:/home/karim/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.0-M3/spring-boot-starter-test-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-test/3.5.0-M3/spring-boot-test-3.5.0-M3.jar:/home/karim/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.0-M3/spring-boot-test-autoconfigure-3.5.0-M3.jar:/home/karim/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/home/karim/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/karim/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/karim/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/home/karim/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/home/karim/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/home/karim/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/home/karim/.m2/repository/org/awaitility/awaitility/4.3.0/awaitility-4.3.0.jar:/home/karim/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.1/junit-jupiter-5.12.1.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.1/junit-jupiter-api-5.12.1.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.1/junit-jupiter-params-5.12.1.jar:/home/karim/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.1/junit-jupiter-engine-5.12.1.jar:/home/karim/.m2/repository/org/mockito/mockito-core/5.16.1/mockito-core-5.16.1.jar:/home/karim/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.2/byte-buddy-agent-1.17.2.jar:/home/karim/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/karim/.m2/repository/org/mockito/mockito-junit-jupiter/5.16.1/mockito-junit-jupiter-5.16.1.jar:/home/karim/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/home/karim/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/karim/.m2/repository/org/springframework/spring-core/6.2.5/spring-core-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-jcl/6.2.5/spring-jcl-6.2.5.jar:/home/karim/.m2/repository/org/springframework/spring-test/6.2.5/spring-test-6.2.5.jar:/home/karim/.m2/repository/org/xmlunit/xmlunit-core/2.10.0/xmlunit-core-2.10.0.jar:/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/common/target/classes:/home/karim/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/karim/.m2/repository/org/junit/platform/junit-platform-engine/1.12.1/junit-platform-engine-1.12.1.jar:/home/karim/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/karim/.m2/repository/org/junit/platform/junit-platform-commons/1.12.1/junit-platform-commons-1.12.1.jar:/home/karim/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/karim/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.3/jackson-annotations-2.18.3.jar:/home/karim/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/home/karim/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/home/karim/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/home/karim/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/home/karim/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/karim"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="/home/karim/.sdkman/candidates/java/23.0.2.fx-librca"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/surefire/surefirebooter-20250707154912838_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="23.0.2+9"/>
+    <property name="user.name" value="karim"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.15.2-zen1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/karim/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bell-sw.com/support"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="com.zaxxer.hikari.pool_number" value="8"/>
+    <property name="java.version" value="23.0.2"/>
+    <property name="user.dir" value="/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="65502"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/nix/store/zkf2by751khwdihlia1ygw3r4iasagns-pipewire-1.4.5-jack/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="BellSoft"/>
+    <property name="java.vm.version" value="23.0.2+9"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="67.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[backend] "/>
+  </properties>
+  <testcase name="testUpdateTourSuccess" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.333">
+    <system-out><![CDATA[15:49:13.210 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [at.technikum.backend.TourControllerIntegrationTest]: TourControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:49:13.267 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration at.technikum.backend.BackendApplication for test class at.technikum.backend.TourControllerIntegrationTest
+15:49:13.329 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:13.420 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:13.420 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:13.610 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:13.628 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+15:49:13.854 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:13.871 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.11.Final
+15:49:13.882 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:13.993 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:14.004 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:49:14.080 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:e06e31a0-8785-4573-ac73-20fff5cb2eb8 user=SA
+15:49:14.081 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:49:14.102 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:14.368 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:14.389 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:14.581 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:14.715 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:14.715 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:14.716 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:14.728 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 1.403 seconds (process running for 1.86)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tours
+        (description, estimated_time_minutes, origin, name, route_image, destination, distance_km, transport_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    update
+        tours 
+    set
+        description=?,
+        estimated_time_minutes=?,
+        origin=?,
+        name=?,
+        route_image=?,
+        destination=?,
+        distance_km=?,
+        transport_type=? 
+    where
+        id=?
+15:49:15.061 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.062 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+15:49:15.063 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+]]></system-out>
+    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/karim/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.2/byte-buddy-agent-1.17.2.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="testCreateTourWithMissingFields" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.012">
+    <system-out><![CDATA[15:49:15.068 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:15.082 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:15.083 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:15.122 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:15.125 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+15:49:15.163 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:15.164 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:15.168 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:15.168 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+15:49:15.169 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:f9db7eba-2cc2-4a09-ae5a-9d99fc30b684 user=SA
+15:49:15.170 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+15:49:15.170 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:15.198 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:15.200 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.223 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:15.249 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:15.249 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:15.249 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:15.251 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.183 seconds (process running for 2.383)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+15:49:15.263 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.263 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+15:49:15.264 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteTourSuccess" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.182">
+    <system-out><![CDATA[15:49:15.266 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:15.275 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:15.275 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:15.308 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:15.311 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+15:49:15.343 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:15.344 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:15.346 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:15.346 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+15:49:15.348 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection conn11: url=jdbc:h2:mem:f22762e4-82c8-4a0f-8ccb-04af6cfcdac3 user=SA
+15:49:15.348 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+15:49:15.348 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:15.368 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:15.370 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.391 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:15.415 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:15.416 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:15.416 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:15.418 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.152 seconds (process running for 2.55)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tours
+        (description, estimated_time_minutes, origin, name, route_image, destination, distance_km, transport_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        count(*) 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        l1_0.id,
+        l1_0.comment,
+        l1_0.difficulty,
+        l1_0.end_date_time,
+        l1_0.rating,
+        l1_0.start_date_time,
+        l1_0.distance_km,
+        l1_0.tour_id 
+    from
+        tour_logs l1_0 
+    where
+        l1_0.tour_id=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    delete 
+    from
+        tours 
+    where
+        id=?
+15:49:15.595 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.595 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+15:49:15.600 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetTourById" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.011">
+    <system-out><![CDATA[15:49:15.602 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:15.612 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:15.613 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:15.645 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:15.647 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+15:49:15.676 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:15.677 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:15.680 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:15.680 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+15:49:15.681 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection conn17: url=jdbc:h2:mem:b981f444-9290-4291-a1bd-4c88841bafdd user=SA
+15:49:15.681 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+15:49:15.682 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:15.701 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:15.703 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.724 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:15.747 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:15.747 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:15.747 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:15.752 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.15 seconds (process running for 2.884)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tours
+        (description, estimated_time_minutes, origin, name, route_image, destination, distance_km, transport_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0
+15:49:15.764 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.764 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+15:49:15.764 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="testCreateAndGetTour" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.013">
+    <system-out><![CDATA[15:49:15.766 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:15.775 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:15.775 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:15.805 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:15.807 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+15:49:15.834 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:15.835 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:15.838 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:15.838 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+15:49:15.839 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection conn18: url=jdbc:h2:mem:c5ad33a6-a6e7-43b8-8885-42019f7d1c3f user=SA
+15:49:15.839 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+15:49:15.839 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:15.859 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:15.861 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.881 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:15.904 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:15.904 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:15.904 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:15.906 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.14 seconds (process running for 3.038)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tours
+        (description, estimated_time_minutes, origin, name, route_image, destination, distance_km, transport_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0
+15:49:15.919 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:15.920 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+15:49:15.920 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteTourNotFound" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.006">
+    <system-out><![CDATA[15:49:15.922 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:15.931 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:15.931 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:15.960 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:15.962 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+15:49:15.989 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:15.989 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:15.992 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:15.992 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+15:49:15.994 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection conn19: url=jdbc:h2:mem:202e32ac-fac0-4940-b88f-ea3c928f8e99 user=SA
+15:49:15.994 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+15:49:15.994 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:16.012 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:16.013 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:16.031 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:16.055 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:16.055 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:16.055 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:16.058 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.136 seconds (process running for 3.189)
+Hibernate: 
+    select
+        count(*) 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+15:49:16.064 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:16.064 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+15:49:16.065 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetAllToursInitiallyEmpty" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.004">
+    <system-out><![CDATA[15:49:16.066 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:16.076 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:16.077 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:16.104 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:16.106 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+15:49:16.131 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:16.132 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:16.134 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:16.134 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+15:49:16.136 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection conn20: url=jdbc:h2:mem:0e18fa9f-3e76-4a64-ac8d-58e431d46584 user=SA
+15:49:16.136 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+15:49:16.136 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-7)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:16.152 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:16.153 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:16.171 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:16.191 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:16.191 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:16.191 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:16.193 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.127 seconds (process running for 3.325)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0
+15:49:16.198 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:16.198 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+15:49:16.198 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="testUpdateTourNotFound" classname="at.technikum.backend.TourControllerIntegrationTest" time="0.007">
+    <system-out><![CDATA[15:49:16.199 [main] INFO  o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v3.5.0-M3)
+
+15:49:16.206 [main] INFO  a.t.b.TourControllerIntegrationTest - Starting TourControllerIntegrationTest using Java 23.0.2 with PID 65502 (started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+15:49:16.206 [main] INFO  a.t.b.TourControllerIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+15:49:16.229 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:49:16.231 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+15:49:16.250 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:49:16.251 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+15:49:16.253 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+15:49:16.254 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+15:49:16.255 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection conn21: url=jdbc:h2:mem:ef996a8e-f2eb-494f-a2d8-f1f93b90f7c6 user=SA
+15:49:16.255 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+15:49:16.255 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-8)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+15:49:16.269 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table tour_logs (
+        id uuid not null,
+        comment varchar(255) not null,
+        difficulty integer not null,
+        end_date_time timestamp(6) not null,
+        rating integer not null,
+        start_date_time timestamp(6) not null,
+        distance_km float(53),
+        tour_id uuid not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tours (
+        id uuid not null,
+        description varchar(255),
+        estimated_time_minutes float(53),
+        origin varchar(255) not null,
+        name varchar(255) not null,
+        route_image blob,
+        destination varchar(255) not null,
+        distance_km float(53),
+        transport_type enum ('BIKE','CAR','FOOT') not null,
+        primary key (id)
+    )
+15:49:16.271 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:49:16.285 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:49:16.302 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+15:49:16.302 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+15:49:16.302 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+15:49:16.304 [main] INFO  a.t.b.TourControllerIntegrationTest - Started TourControllerIntegrationTest in 0.105 seconds (process running for 3.436)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.description,
+        t1_0.estimated_time_minutes,
+        t1_0.origin,
+        t1_0.name,
+        t1_0.route_image,
+        t1_0.destination,
+        t1_0.distance_km,
+        t1_0.transport_type 
+    from
+        tours t1_0 
+    where
+        t1_0.id=?
+15:49:16.311 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:49:16.311 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+15:49:16.312 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+]]></system-out>
+  </testcase>
+</testsuite>

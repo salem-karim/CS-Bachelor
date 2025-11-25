@@ -1,0 +1,43 @@
+2025-07-06 18:23:02,695 INFO [restartedMain] a.t.b.BackendApplication] Starting BackendApplication using Java 23.0.2 with PID 413442 (/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-06 18:23:02,696 INFO [restartedMain] a.t.b.BackendApplication] No active profile set, falling back to 1 default profile: "default"
+2025-07-06 18:23:02,719 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-06 18:23:02,719 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-06 18:23:02,724 INFO [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager] Using Docker Compose file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml
+2025-07-06 18:23:02,938 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Starting
+2025-07-06 18:23:03,133 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli] Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint tourplanner-postgres-1 (76ff4abb30a034a3d48707a416fb7b37d08377c76ebb68669b5009d759ad24df): Bind for 127.0.0.1:5432 failed: port is already allocated
+2025-07-06 18:23:03,146 ERROR [restartedMain] o.s.b.SpringApplication] Application run failed
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml --ansi never up --no-color --detach --wait' failed with exit code 1.
+
+Stdout:
+
+
+Stderr:
+ Container tourplanner-postgres-1  Starting
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint tourplanner-postgres-1 (76ff4abb30a034a3d48707a416fb7b37d08377c76ebb68669b5009d759ad24df): Bind for 127.0.0.1:5432 failed: port is already allocated
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:97)
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:81)
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.up(DefaultDockerCompose.java:56)
+	at org.springframework.boot.docker.compose.lifecycle.StartCommand.applyTo(StartCommand.java:51)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:131)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:416)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at at.technikum.backend.BackendApplication.main(BackendApplication.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)

@@ -1,0 +1,50 @@
+2025-07-05 00:53:39,019 INFO [restartedMain] a.t.b.BackendApplication] Starting BackendApplication using Java 23.0.2 with PID 127118 (/home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend/target/classes started by karim in /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/backend)
+2025-07-05 00:53:39,020 INFO [restartedMain] a.t.b.BackendApplication] No active profile set, falling back to 1 default profile: "default"
+2025-07-05 00:53:39,044 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05 00:53:39,044 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05 00:53:39,050 INFO [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager] Using Docker Compose file /home/karim/dev/CS-Bachelor/Semester-4/TourPlanner/compose.yaml
+2025-07-05 00:53:39,275 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Starting
+2025-07-05 00:53:39,385 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Started
+2025-07-05 00:53:39,385 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Waiting
+2025-07-05 00:53:39,886 INFO [OutputReader-stderr] o.s.b.d.c.c.DockerCli]  Container tourplanner-postgres-1  Healthy
+2025-07-05 00:53:40,343 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05 00:53:40,362 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2025-07-05 00:53:40,624 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer] Tomcat initialized with port 8080 (http)
+2025-07-05 00:53:40,629 INFO [restartedMain] o.a.c.h.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-05 00:53:40,630 INFO [restartedMain] o.a.c.c.StandardService] Starting service [Tomcat]
+2025-07-05 00:53:40,630 INFO [restartedMain] o.a.c.c.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-07-05 00:53:40,644 INFO [restartedMain] o.a.c.c.C.[.[.[/]] Initializing Spring embedded WebApplicationContext
+2025-07-05 00:53:40,644 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 470 ms
+2025-07-05 00:53:40,705 INFO [restartedMain] o.h.j.i.u.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05 00:53:40,721 INFO [restartedMain] o.h.Version] HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-07-05 00:53:40,736 INFO [restartedMain] o.h.c.i.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+2025-07-05 00:53:40,840 INFO [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05 00:53:40,852 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Starting...
+2025-07-05 00:53:40,912 INFO [restartedMain] c.z.h.p.HikariPool] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@765b5bdf
+2025-07-05 00:53:40,912 INFO [restartedMain] c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+2025-07-05 00:53:40,937 INFO [restartedMain] o.h.o.c.pooling] HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05 00:53:41,268 INFO [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05 00:53:41,342 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 00:53:41,460 WARN [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05 00:53:41,560 INFO [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration] H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydatabase?ApplicationName=backend'
+2025-07-05 00:53:41,581 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer] LiveReload server is running on port 35729
+2025-07-05 00:53:41,589 INFO [restartedMain] o.a.c.h.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"]
+2025-07-05 00:53:41,594 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer] Tomcat started on port 8080 (http) with context path '/'
+2025-07-05 00:53:41,598 INFO [restartedMain] a.t.b.BackendApplication] Started BackendApplication in 2.724 seconds (process running for 3.055)
+2025-07-05 00:54:41,669 INFO [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05 00:54:41,670 INFO [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+2025-07-05 00:54:41,671 INFO [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet] Completed initialization in 0 ms
+2025-07-05 01:19:49,591 INFO [SpringApplicationShutdownHook] o.s.b.w.e.t.GracefulShutdown] Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05 01:19:49,592 INFO [tomcat-shutdown] o.s.b.w.e.t.GracefulShutdown] Graceful shutdown complete
+2025-07-05 01:19:49,594 INFO [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 01:19:49,598 WARN [SpringApplicationShutdownHook] o.s.b.f.s.DisposableBeanAdapter] Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.postgresql.util.PSQLException: ERROR: syntax error at or near "SHUTDOWN"
+  Position: 1
+2025-07-05 01:19:49,598 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource] HikariPool-1 - Shutdown initiated...
+2025-07-05 01:19:49,599 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource] HikariPool-1 - Shutdown completed.
